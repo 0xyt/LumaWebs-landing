@@ -1,26 +1,20 @@
-@import "tailwindcss";
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    @apply scroll-smooth antialiased bg-[#050509] text-white;
+    -webkit-tap-highlight-color: transparent; /* Evita brillo azul en móvil al tocar */
   }
-}
+  
+  /* Profesionall Spacing Default: uniforme */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-lexend text-white tracking-tight;
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  p {
+    @apply text-[#8A8F98] font-light;
+  }
 }
