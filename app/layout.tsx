@@ -7,9 +7,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" });
 
-// SEO Premium: Metadatos Reales para "Adan Web Source"
+// SEO Premium: Metadatos Reales para "Luma Webs"
 export const metadata: Metadata = {
-  title: "Adan Web Source | Landing Pages de Élite - Básicas y Completas",
+  title: "Luma Webs | Landing Pages de Élite - Básicas y Completas",
   description: "Digitalizamos tu visión con landing pages geométricas y de carga ultra-rápida. Especialistas en creación de sitios web de alto impacto para convertir visitantes en clientes.",
   // Añade un favicon si tienes uno en public/favicon.ico
   icons: {
