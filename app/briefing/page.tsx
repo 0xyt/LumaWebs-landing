@@ -6,7 +6,6 @@ import { ArrowLeft, Send, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 export default function BriefingForm() {
-  // REEMPLAZA "tu_id_formspree" con el hash que te da Formspree al crear tu formulario
   const [state, handleSubmit] = useForm("mqejpwno");
 
   if (state.succeeded) {
@@ -57,6 +56,10 @@ export default function BriefingForm() {
 
         <form onSubmit={handleSubmit} className="space-y-6 font-sans">
           
+          {/* Campos ocultos para organización en Formspree */}
+          <input type="hidden" name="_subject" value="Nuevo Briefing - Landing Page" />
+          <input type="hidden" name="_order" value="nombre,whatsapp,empresa,objetivo,colores,referencia,plazo" />
+
           {/* Bloque 1 */}
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
