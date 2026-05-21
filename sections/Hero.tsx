@@ -8,7 +8,7 @@ import Link from "next/link"; // Importación oficial para navegación interna e
 
 export const Hero = () => {
   return (
-    <Section className="relative min-h-[95vh] flex items-center pt-32 overflow-hidden bg-[#05050a]">
+    <Section className="relative min-h-[95vh] flex flex-col items-center justify-center pt-32 overflow-hidden bg-[#05050a]">
       {/* Patrón geométrico sutil de fondo de alta tecnología */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293708_1px,transparent_1px),linear-gradient(to_bottom,#1f293708_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
