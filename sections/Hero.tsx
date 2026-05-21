@@ -7,53 +7,53 @@ import Link from "next/link";
 
 export const Hero = () => {
   return (
-    // IMPORTANTE: Si aplicaste el cambio de 'fullWidth' que te sugerí antes, úsalo aquí.
-    // Si NO lo has hecho, usa la propiedad 'className' para quitar los paddings extra del Section.
-    <Section fullWidth className="relative min-h-[90vh] flex flex-col items-center justify-center bg-[#05050a] text-center overflow-hidden">
+    // Asegúrate de que Section no limite el ancho si usaste el prop fullWidth
+    <Section fullWidth className="relative min-h-[90vh] flex flex-col items-center justify-center bg-[#05050a] text-center overflow-hidden py-0">
       
-      {/* Fondo técnico */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293708_1px,transparent_1px),linear-gradient(to_bottom,#1f293708_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+      {/* Fondo técnico de alta gama */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#151921,transparent)] pointer-events-none" />
 
-      {/* Contenedor principal del contenido */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="w-full max-w-3xl px-4 z-10 flex flex-col items-center"
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        className="w-full max-w-4xl px-6 z-10 flex flex-col items-center"
       >
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-[#2D6AEF]/10 border border-[#2D6AEF]/20 px-4 py-1.5 rounded-full mb-8">
-          <span className="w-2 h-2 rounded-full bg-[#2D6AEF] shadow-[0_0_8px_#2D6AEF]" />
-          <span className="text-[10px] font-bold tracking-widest text-[#2D6AEF] uppercase">
-            Luma Webs &bull; Alto Rendimiento
+        {/* Badge más minimalista y elegante */}
+        <div className="mb-8 px-4 py-1.5 border border-white/10 rounded-full backdrop-blur-sm bg-white/5">
+          <span className="text-[10px] font-medium tracking-[0.25em] text-white/60 uppercase">
+            Transformación Digital &bull; Luma Webs
           </span>
         </div>
 
-        {/* Título */}
-        <h1 className="font-lexend text-4xl sm:text-7xl font-black leading-[1.1] text-white mb-6 w-full">
-          Mejora tu presencia, <br className="hidden sm:block" />
-          <span className="text-[#2D6AEF]">multiplica tus ventas.</span>
+        {/* Título más elaborado: Jerarquía clara */}
+        <h1 className="font-lexend text-[2.8rem] sm:text-7xl font-bold leading-[1.05] text-white tracking-[-0.03em] mb-8">
+          Diseño de alto impacto, <br className="hidden sm:block" />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
+            rendimiento absoluto.
+          </span>
         </h1>
 
-        {/* Descripción */}
-        <p className="text-base sm:text-lg text-[#8A8F98] max-w-xl leading-relaxed mb-10">
-          Diseñamos Landings de élite que combinan estética premium con una arquitectura orientada a la conversión.
+        {/* Subtítulo: Tipografía con 'tracking' más fino para mayor legibilidad premium */}
+        <p className="text-base sm:text-lg text-white/50 max-w-xl leading-relaxed mb-12 font-light tracking-tight">
+          Arquitectura web orientada a la conversión, diseñada para marcas que no aceptan compromisos. 
+          Tu visión, ejecutada con precisión técnica.
         </p>
 
         {/* Botones */}
-        <div className="flex flex-col sm:flex-row gap-3 w-full justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
           <Link
             href="/briefing"
-            className="inline-flex items-center justify-center gap-2 bg-white text-[#050509] px-8 py-4 rounded-xl font-bold hover:scale-[1.02] transition-transform"
+            className="group inline-flex items-center justify-center gap-2 bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-neutral-200 transition-all duration-300"
           >
-            Empezar Proyecto <ArrowUpRight className="w-4 h-4" />
+            Comenzar Visión <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </Link>
           
           <a
             href="#productos"
-            className="inline-flex items-center justify-center bg-[#101018] text-white px-8 py-4 rounded-xl font-semibold border border-white/10 hover:border-white/20 transition-all"
+            className="inline-flex items-center justify-center text-white/70 px-8 py-4 rounded-full font-medium border border-white/10 hover:border-white/30 hover:text-white transition-all duration-300"
           >
-            Ver servicios
+            Explorar Soluciones
           </a>
         </div>
       </motion.div>
