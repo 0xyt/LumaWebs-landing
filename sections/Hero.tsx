@@ -27,23 +27,40 @@ export const Hero = () => {
       />
       
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="max-w-5xl space-y-10 text-center mx-auto relative z-10 px-4"
-      >
-        {/* Micro-badge Premium de Presentación */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.1 }}
-          className="inline-flex items-center gap-2.5 bg-[#2D6AEF]/5 border border-[#2D6AEF]/15 px-4 py-1.5 rounded-full backdrop-blur-md"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#2D6AEF] shadow-[0_0_8px_#2D6AEF]" />
-          <p className="text-xs text-[#2D6AEF] font-black tracking-[0.2em] uppercase font-sans">
-            Luma Webs &bull; Estudio Digital
-          </p>
-        </motion.div>
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+  // Añadimos 'flex flex-col items-center' aquí para asegurar el centrado
+  className="flex flex-col items-center text-center w-full px-4 relative z-10"
+>
+  {/* Micro-badge */}
+  <div className="inline-flex items-center gap-2.5 bg-[#2D6AEF]/5 border border-[#2D6AEF]/15 px-4 py-1.5 rounded-full backdrop-blur-md mb-6">
+    <span className="w-1.5 h-1.5 rounded-full bg-[#2D6AEF] shadow-[0_0_8px_#2D6AEF]" />
+    <p className="text-xs text-[#2D6AEF] font-black tracking-[0.2em] uppercase font-sans">
+      Luma Webs &bull; Estudio Digital
+    </p>
+  </div>
+  
+  {/* Título - Quitamos el mx-auto y ajustamos márgenes */}
+  <h1 className="font-lexend text-4xl sm:text-7xl md:text-8xl font-black leading-[0.95] tracking-[-0.04em] text-white w-full max-w-4xl">
+    Digitalizamos tu visión con{" "}
+    <span className="bg-gradient-to-b from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent block sm:inline">
+      Landing Pages
+    </span>{" "}
+    de{" "}
+    <span className="bg-gradient-to-r from-[#2D6AEF] via-[#5a8fff] to-[#9cbfff] bg-clip-text text-transparent">
+      Élite.
+    </span>
+  </h1>
+  
+  {/* Descripción */}
+  <p className="mt-6 text-base md:text-xl text-[#8A8F98] max-w-2xl leading-relaxed font-sans">
+    Diseño geométrico pulido, velocidad extrema y arquitectura enfocada en conversiones.{" "}
+    <span className="text-neutral-200 font-medium">Elevamos tu negocio</span> al estándar digital definitivo.
+  </p>
+
+  {/* ...resto del código (botones) */}
+</motion.div>
         
         {/* Título de Impacto Masivo Refinado */}
         <h1 className="font-lexend text-5xl sm:text-7xl md:text-8xl font-black leading-[0.95] tracking-[-0.04em] text-white max-w-4xl mx-auto">
