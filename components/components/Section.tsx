@@ -4,14 +4,19 @@ interface SectionProps {
   children: ReactNode;
   className?: string;
   id?: string;
+  fullWidth?: boolean; // Nueva propiedad
 }
 
-export const Section = ({ children, className = '', id }: SectionProps) => {
+export const Section = ({ children, className = '', id, fullWidth = false }: SectionProps) => {
   return (
-    <section id={id} className={`relative w-full px-6 md:px-8 py-20 md:py-32 ${className}`}>
-      <div className="max-w-7xl mx-auto">
-        {children}
-      </div>
+    <section id={id} className={`relative w-full px-6 md:px-8 ${className}`}>
+      {fullWidth ? (
+        children // Si es fullWidth, renderiza directo sin el div limitante
+      ) : (
+        <div className="max-w-7xl mx-auto">
+          {children}
+        </div>
+      )}
     </section>
   );
 };
