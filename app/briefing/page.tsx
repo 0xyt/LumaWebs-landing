@@ -56,10 +56,6 @@ export default function BriefingForm() {
 
         <form onSubmit={handleSubmit} className="space-y-6 font-sans">
           
-          {/* Campos ocultos para organización en Formspree */}
-          <input type="hidden" name="_subject" value="Nuevo Briefing - Landing Page" />
-          <input type="hidden" name="_order" value="nombre,whatsapp,empresa,objetivo,colores,referencia,plazo" />
-
           {/* Bloque 1 */}
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
