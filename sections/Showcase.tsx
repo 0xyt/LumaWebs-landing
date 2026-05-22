@@ -1,4 +1,3 @@
-// sections/Showcase.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -25,17 +24,17 @@ const products = [
 
 export const Showcase = () => {
   return (
-    <Section id="productos">
-      <div className="text-center space-y-4 mb-24">
+    <Section id="productos" className="py-24 md:py-32">
+      <div className="text-center space-y-4 mb-16 md:mb-24">
         <h2 className="font-lexend text-4xl md:text-5xl font-extrabold tracking-tighter text-white">
           Nuestras Soluciones Web
         </h2>
-        <p className="text-xl text-[#8A8F98] max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-[#8A8F98] max-w-2xl mx-auto px-4">
           Elegancia geométrica diseñada para el rendimiento digital.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto px-2 sm:px-0">
         {products.map((product, index) => {
           const Icon = product.icon;
           const isPremium = index === 1;
@@ -62,7 +61,8 @@ export const Showcase = () => {
                   </div>
                 )}
 
-                <div className="flex flex-col justify-between h-full space-y-8 p-2">
+                {/* CAMBIO DE PADDING AQUÍ: De p-2 a p-6 sm:p-10 */}
+                <div className="flex flex-col justify-between h-full space-y-8 p-6 sm:p-10">
                   <div className="space-y-6">
                     <div className="flex items-center gap-4">
                       <div className="p-3 bg-neutral-900/60 border border-neutral-800 rounded-2xl">
@@ -77,7 +77,7 @@ export const Showcase = () => {
                       {product.description}
                     </p>
                     
-                    <ul className="space-y-3 pt-6 border-t border-neutral-900/60">
+                    <ul className="space-y-4 pt-6 border-t border-neutral-900/60">
                       {product.features.map(feat => (
                         <li key={feat} className="flex items-center gap-3 text-sm text-neutral-300">
                           <Target className="w-4 h-4 text-[#2D6AEF] opacity-70 shrink-0" /> 
