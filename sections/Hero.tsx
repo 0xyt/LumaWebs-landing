@@ -33,8 +33,7 @@ export const Hero = () => {
         {/* Subtítulo Premium */}
         <p className="text-base sm:text-lg text-zinc-400 max-w-xl leading-relaxed mb-12 font-normal tracking-tight">
           No dejes que una página web lenta o mal diseñada ahuyente a tus clientes.
-          Te ayudamos a destacar en internet con un diseño moderno de alta gama que convierte las visitas, en ventas reales." 
-          
+          Te ayudamos a destacar en internet con un diseño moderno de alta gama que convierte las visitas, en ventas reales.
         </p>
 
         {/* Botones estilo SaaS Moderno */}
