@@ -32,8 +32,8 @@ export const Hero = () => {
 
         {/* Subtítulo Premium */}
         <p className="text-base sm:text-lg text-zinc-400 max-w-xl leading-relaxed mb-12 font-normal tracking-tight">
-          Arquitectura web orientada a la conversión, diseñada para marcas que no aceptan compromisos. 
-          Tu visión, ejecutada con precisión técnica.
+          Paginas Web premium con rendimiento nativo y experiencia de usuario fluida. 
+          Convertimos tus visitas en clientes de alto valor eliminando cualquier fricción digital. 
         </p>
 
         {/* Botones estilo SaaS Moderno */}
