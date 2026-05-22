@@ -20,10 +20,10 @@ export const Footer = () => {
         <div className="space-y-4">
           {/* Tipografía adaptativa (text-3xl en móviles, text-4xl en desktops) con interlineado corregido */}
           <h2 className="font-lexend text-3xl sm:text-4xl font-black text-white tracking-tighter leading-tight sm:leading-none">
-            ¿Listo para tu Landing de Élite?
+            ¿Tienes alguna duda?
           </h2>
           <p className="text-base sm:text-lg text-[#8A8F98] max-w-xl mx-auto font-sans leading-relaxed">
-            Contáctanos hoy y transforma tu visión digital en una máquina de conversiones definitiva.
+            Si tienes preguntas sobre nuestros servicios, tiempos de entrega o integraciones, escríbenos directamente. Te responderemos en pocos minutos.
           </p>
         </div>
 

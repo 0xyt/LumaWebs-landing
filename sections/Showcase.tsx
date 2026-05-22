@@ -30,7 +30,8 @@ export const Showcase = () => {
           Nuestras Soluciones Web
         </h2>
         <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto px-4">
-          Elegancia geométrica diseñada para el rendimiento digital.
+          Elegancia digital diseñada para el éxito de tu negocio. 
+          Elige entre nuestras paginas básicas para lanzamientos rápidos o completas para una experiencia de marca premium que cautiva.
         </p>
       </div>
 
