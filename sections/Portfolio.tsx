@@ -5,7 +5,6 @@ import { Section } from "../components/components/Section";
 import { ArrowUpRight } from "lucide-react";
 
 // Editá estos datos con tus proyectos reales
-// Editá estos datos con tus proyectos reales
 // Reemplazá image con tus screenshots en /public/images/portfolio/ o URLs externas
 const projects = [
   {
