@@ -1,6 +1,8 @@
 // app/page.tsx
 import { Hero } from "../sections/Hero"; 
 import { Showcase } from "../sections/Showcase"; 
+import { HowItWorks } from "../sections/HowItWorks";
+import { Portfolio } from "../sections/Portfolio";
 import { Testimonials } from "../sections/Testimonials"; 
 import { Footer } from "../sections/Footer"; 
 import WhatsAppCTA from "../components/components/WhatsAppCTA"; 
@@ -20,6 +22,8 @@ export default function Home() {
       <div className="relative z-10 w-full flex flex-col">
         <Hero />
         <Showcase />
+        <HowItWorks />
+        <Portfolio />
         <Testimonials />
         <Footer />
       </div>

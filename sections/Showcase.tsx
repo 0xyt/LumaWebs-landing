@@ -17,7 +17,7 @@ const products = [
     icon: Layers3,
     title: "Completas (Premium)",
     description: "Experiencias de marca completas. Alto impacto visual, animaciones avanzadas y SEO.",
-    features: ["Todo lo Básico", "Animaciones Premium", "Product Showcase Avanzado", "SEO On-Page Básica", "Soporte de Élite"],
+    features: ["Todo lo Básico", "Animaciones Premium", "Product Showcase Avanzado", "SEO On-Page Básica", "Soporte prioritario"],
     price: "400Bs",
   },
 ];
@@ -95,6 +95,10 @@ export const Showcase = () => {
                       </span>
                       <span className="font-lexend text-xl font-bold text-blue-400">Bs</span>
                     </div>
+                    <span className="flex items-center gap-1.5 text-xs text-zinc-500 mt-1">
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                      {index === 0 ? "Entrega en 3–5 días" : "Entrega en 5–7 días"}
+                    </span>
                   </div>
                 </div>
               </GlowBorder>

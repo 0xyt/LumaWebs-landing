@@ -35,7 +35,7 @@ export const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             // Se normalizó el padding vertical a py-4 para cumplir con los estándares nativos de Tailwind
-            className="inline-flex items-center gap-2.5 bg-white text-[#050509] px-8 py-4 rounded-2xl text-base font-bold hover:bg-neutral-100 transition-colors shadow-xl shadow-[#2D6AEF]/10 touch-manipulation"
+            className="inline-flex items-center gap-2.5 bg-white text-[#050509] px-8 py-4 rounded-2xl text-base font-bold hover:bg-neutral-100 transition-colors shadow-xl shadow-[#2D6AEF]/10 touch-manipulation min-h-[44px]"
           >
             <span>Escribir a WhatsApp</span>
             <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
@@ -45,7 +45,7 @@ export const Footer = () => {
         {/* Separación del Copyright adaptada */}
         <div className="pt-12 md:pt-16 border-t border-neutral-900 text-center">
           <p className="text-[10px] sm:text-xs text-neutral-600 font-medium tracking-widest uppercase">
-            © 2026 Luma Webs • Todos los derechos reservados.
+            © 2026 N0VA Labs • Todos los derechos reservados.
           </p>
         </div>
       </div>

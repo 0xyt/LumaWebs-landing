@@ -18,7 +18,7 @@ export const Hero = () => {
         {/* Badge estilizado ultra-fino */}
         <div className="mb-8 px-4 py-1.5 border border-white/5 rounded-full backdrop-blur-md bg-white/[0.02] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
           <span className="text-[10px] font-semibold tracking-[0.2em] text-zinc-400 uppercase">
-            Transformación Digital &bull; Luma Webs
+            Transformación Digital &bull; N0VA Labs
           </span>
         </div>
 
@@ -40,15 +40,15 @@ export const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 w-full justify-center px-4 sm:px-0">
           <Link
             href="/briefing"
-            className="group inline-flex items-center justify-center gap-2 bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-zinc-200 transition-all duration-300 shadow-lg shadow-white/5"
+            className="group inline-flex items-center justify-center gap-2 bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-zinc-200 transition-all duration-300 shadow-lg shadow-white/5 min-h-[44px]"
           >
-            Comenzar Visión 
+            Quiero mi landing 
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
           </Link>
           
           <a
             href="#productos"
-            className="inline-flex items-center justify-center text-zinc-300 px-8 py-4 rounded-full font-medium border border-white/10 backdrop-blur-sm bg-white/[0.01] hover:border-white/20 hover:text-white transition-all duration-300"
+            className="inline-flex items-center justify-center text-zinc-300 px-8 py-4 rounded-full font-medium border border-white/10 backdrop-blur-sm bg-white/[0.01] hover:border-white/20 hover:text-white transition-all duration-300 min-h-[44px]"
           >
             Explorar Soluciones
           </a>

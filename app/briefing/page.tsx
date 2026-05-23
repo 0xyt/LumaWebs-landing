@@ -20,7 +20,7 @@ export default function BriefingForm() {
           <div className="w-12 h-12 bg-[#2D6AEF]/10 border border-[#2D6AEF]/20 rounded-2xl flex items-center justify-center mx-auto shadow-[0_0_15px_rgba(45,106,239,0.3)]">
             <Sparkles className="w-6 h-6 text-[#2D6AEF]" />
           </div>
-          <h2 className="font-lexend text-2xl font-bold text-white tracking-tight">¡Briefing Recibido de Élite!</h2>
+            <h2 className="font-lexend text-2xl font-bold text-white tracking-tight">¡Briefing recibido!</h2>
           <p className="text-neutral-400 font-sans text-sm leading-relaxed">
             Analizaremos tus respuestas con nuestro equipo de diseño y te enviaremos una propuesta personalizada a tu WhatsApp en las próximas horas.
           </p>
@@ -49,9 +49,9 @@ export default function BriefingForm() {
           <Link href="/" className="inline-flex items-center gap-2 text-xs font-semibold text-neutral-500 hover:text-neutral-300 transition-colors uppercase tracking-widest mb-2">
             <ArrowLeft className="w-3.5 h-3.5" /> Volver atrás
           </Link>
-          <h1 className="font-lexend text-3xl font-black text-white tracking-tight">Inicia Tu Proyecto Digital</h1>
+            <h1 className="font-lexend text-3xl font-black text-white tracking-tight">Contanos tu proyecto</h1>
           <p className="text-sm text-[#8A8F98] leading-relaxed font-sans">
-            Cuéntanos un poco sobre tu visión corporativa. Estas preguntas nos ayudarán a estructurar una arquitectura de conversión óptima para tu negocio.
+            Completá este formulario rápido y te contactamos en menos de 24 horas.
           </p>
         </div>
 
@@ -112,7 +112,7 @@ export default function BriefingForm() {
             <button
               type="submit"
               disabled={state.submitting}
-              className="w-full bg-white text-[#050509] font-bold py-4 px-6 rounded-xl hover:bg-neutral-200 transition-colors flex items-center justify-center gap-2 text-sm disabled:opacity-50"
+              className="w-full bg-white text-[#050509] font-bold py-4 px-6 rounded-xl hover:bg-neutral-200 transition-colors flex items-center justify-center gap-2 text-sm disabled:opacity-50 min-h-[44px]"
             >
               <span>{state.submitting ? "Enviando Briefing..." : "Enviar Información Estratégica"}</span>
               <Send className="w-4 h-4" />

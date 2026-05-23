@@ -5,9 +5,9 @@ import { Section } from "../components/components/Section";
 import { Star } from "lucide-react";
 
 const testimonials = [
-  { quote: "Luma Webs superó mis expectativas. La landing premium es rápida, elegante y ha triplicado mis leads en un mes.", name: "Lucia Ch.", role: "Clínica Vital", stars: 5 },
+  { quote: "N0VA Labs superó mis expectativas. La landing premium es rápida, elegante y ha triplicado mis leads en un mes.", name: "Lucia Ch.", role: "Clínica Vital", stars: 5 },
   { quote: "Necesitaba algo rápido para mi startup. La landing básica fue la solución perfecta: limpia, funcional y responsiva.", name: "Carlos Ruiz", role: "Barberia Estilo Urbano.", stars: 4 },
-  { quote: "Un trato profesional y un resultado de élite. Las animaciones en mi página premium son impresionantes.", name: "Sofía Martínez", role: "Nails Studio", stars: 5 },
+  { quote: "Un trato profesional y un resultado increíble. Las animaciones en mi página premium son impresionantes.", name: "Sofía Martínez", role: "Nails Studio", stars: 5 },
 ];
 
 export const Testimonials = () => {
@@ -15,7 +15,7 @@ export const Testimonials = () => {
     <Section id="testimonios" className="relative overflow-hidden py-24 md:py-32 border-t border-white/[0.02]">
       <div className="text-center space-y-4 mb-24 relative z-10">
         <h2 className="font-lexend text-4xl md:text-5xl font-extrabold tracking-tighter text-white">
-          La Élite Digital Opina
+          Lo que dicen nuestros clientes
         </h2>
         <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto px-4">
           Testimonios reales de clientes que han elevado su presencia online con nosotros.
