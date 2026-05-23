@@ -25,6 +25,12 @@ const projects = [
     image: "https://picsum.photos/seed/nails/600/450",
     url: "https://www.notion.so",
   },
+  {
+    name: "Lumina Studio",
+    category: "Fotografía",
+    image: "https://picsum.photos/seed/lumina/600/450",
+    url: "https://lumina-studio-amber-eta.vercel.app/",
+  },
 ];
 
 export const Portfolio = () => {
