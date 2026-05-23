@@ -28,7 +28,7 @@ const projects = [
   {
     name: "Lumina Studio",
     category: "Fotografía",
-    image: "https://picsum.photos/seed/lumina/600/450",
+    image: "/images/portfolio/lumina-studio.png",
     url: "https://lumina-studio-amber-eta.vercel.app/",
   },
 ];
