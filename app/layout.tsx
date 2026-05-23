@@ -8,12 +8,12 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" });
 
 export const metadata: Metadata = {
-  title: "N0VA Labs | Landing Pages de Alto Impacto",
+  title: "Adan Labs | Landing Pages de Alto Impacto",
   description: "Creamos landing pages profesionales en Bolivia desde 200 Bs. Diseño moderno, carga rápida y listas en días.",
   openGraph: {
-    title: "N0VA Labs | Landing Pages de Alto Impacto",
+    title: "Adan Labs | Landing Pages de Alto Impacto",
     description: "Creamos landing pages profesionales en Bolivia desde 200 Bs. Diseño moderno, carga rápida y listas en días.",
-    siteName: "N0VA Labs",
+    siteName: "Adan Labs",
   },
   icons: {
     icon: '/favicon.ico',

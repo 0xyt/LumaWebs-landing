@@ -18,7 +18,7 @@ export const Hero = () => {
         {/* Badge estilizado ultra-fino */}
         <div className="mb-8 px-4 py-1.5 border border-white/5 rounded-full backdrop-blur-md bg-white/[0.02] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
           <span className="text-[10px] font-semibold tracking-[0.2em] text-zinc-400 uppercase">
-            Transformación Digital &bull; N0VA Labs
+            Transformación Digital &bull; Adan Labs
           </span>
         </div>
 

@@ -45,7 +45,7 @@ export const Footer = () => {
         {/* Separación del Copyright adaptada */}
         <div className="pt-12 md:pt-16 border-t border-neutral-900 text-center">
           <p className="text-[10px] sm:text-xs text-neutral-600 font-medium tracking-widest uppercase">
-            © 2026 N0VA Labs • Todos los derechos reservados.
+            © 2026 Adan Labs • Todos los derechos reservados.
           </p>
         </div>
       </div>

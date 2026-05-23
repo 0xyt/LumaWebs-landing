@@ -5,7 +5,7 @@ import { Section } from "../components/components/Section";
 import { Star } from "lucide-react";
 
 const testimonials = [
-  { quote: "N0VA Labs superó mis expectativas. La landing premium es rápida, elegante y ha triplicado mis leads en un mes.", name: "Lucia Ch.", role: "Clínica Vital", stars: 5 },
+  { quote: "Adan Labs superó mis expectativas. La landing premium es rápida, elegante y ha triplicado mis leads en un mes.", name: "Lucia Ch.", role: "Clínica Vital", stars: 5 },
   { quote: "Necesitaba algo rápido para mi startup. La landing básica fue la solución perfecta: limpia, funcional y responsiva.", name: "Carlos Ruiz", role: "Barberia Estilo Urbano.", stars: 4 },
   { quote: "Un trato profesional y un resultado increíble. Las animaciones en mi página premium son impresionantes.", name: "Sofía Martínez", role: "Nails Studio", stars: 5 },
 ];
