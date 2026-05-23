@@ -9,1308 +9,256 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    /* ============================================ */
-    /* VARIABLES CSS - PALETA DE COLORES           */
-    /* ============================================ */
     :root {
-      --bg-primary: #0A0A0A;
-      --bg-secondary: #111111;
-      --bg-tertiary: #1A1A1A;
-      --accent: #C9A84C;
-      --accent-light: #E8C97A;
-      --text-primary: #F5F5F5;
-      --text-secondary: #A0A0A0;
-      --border: #2A2A2A;
-      --card-bg: rgba(17, 17, 17, 0.8);
-      --glass-bg: rgba(10, 10, 10, 0.85);
-      --shadow-gold: rgba(201, 168, 76, 0.2);
-      --font-display: 'Playfair Display', serif;
-      --font-body: 'Inter', sans-serif;
-      --nav-height: 72px;
-      --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --bg-primary: #0A0A0A; --bg-secondary: #111111; --bg-tertiary: #1A1A1A;
+      --accent: #C9A84C; --accent-light: #E8C97A;
+      --text-primary: #F5F5F5; --text-secondary: #A0A0A0; --border: #2A2A2A;
+      --card-bg: rgba(17,17,17,0.8); --glass-bg: rgba(10,10,10,0.85);
+      --shadow-gold: rgba(201,168,76,0.2);
+      --font-display: 'Playfair Display', serif; --font-body: 'Inter', sans-serif;
+      --nav-height: 72px; --transition: 0.4s cubic-bezier(0.16,1,0.3,1);
     }
+    *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; font-size:16px; }
+    @media (max-width:640px) { html { font-size:15px; } }
+    body { font-family:var(--font-body); background:var(--bg-primary); color:var(--text-primary); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+    img { max-width:100%; display:block; }
+    a { text-decoration:none; color:inherit; }
+    ul { list-style:none; }
+    .container { max-width:1200px; margin:0 auto; padding:0 24px; }
+    .section-padding { padding:100px 0; }
+    @media (max-width:768px) { .section-padding { padding:60px 0; } }
+    .section-title { font-family:var(--font-display); font-size:clamp(2rem,5vw,3.2rem); font-weight:800; margin-bottom:16px; letter-spacing:-0.02em; }
+    .section-subtitle { font-size:1.05rem; color:var(--text-secondary); max-width:600px; line-height:1.7; }
+    .gold-text { color:var(--accent); }
+    .gold-line { width:60px; height:2px; background:linear-gradient(90deg,var(--accent),transparent); margin-bottom:24px; }
+    .text-center { text-align:center; }
+    .mx-auto { margin-left:auto; margin-right:auto; }
+    .fade-up { opacity:0; transform:translateY(40px); transition:opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+    .fade-up-delay-1 { transition-delay:0.1s; }
+    .fade-up-delay-2 { transition-delay:0.2s; }
+    .fade-up-delay-3 { transition-delay:0.3s; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes pulse-glow { 0%,100% { opacity:0.6; } 50% { opacity:1; } }
+    @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-12px); } }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:14px 32px; border-radius:50px; font-family:var(--font-body); font-size:0.9rem; font-weight:600; cursor:pointer; transition:all var(--transition); border:none; min-height:48px; }
+    .btn-primary { background:linear-gradient(135deg,var(--accent),var(--accent-light)); color:var(--bg-primary); }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 30px var(--shadow-gold); }
+    .btn-outline { background:transparent; color:var(--text-primary); border:1.5px solid var(--border); }
+    .btn-outline:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
+    .btn-gold-border { background:transparent; color:var(--accent); border:1.5px solid var(--accent); }
+    .btn-gold-border:hover { background:var(--accent); color:var(--bg-primary); transform:translateY(-2px); }
 
-    /* ============================================ */
-    /* RESET Y ESTILOS BASE                        */
-    /* ============================================ */
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-    @media (max-width: 640px) { html { font-size: 15px; } }
-    body {
-      font-family: var(--font-body);
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+    .navbar { position:fixed; top:0; left:0; width:100%; z-index:1000; height:var(--nav-height); transition:all 0.3s ease; background:transparent; }
+    .navbar.scrolled { background:var(--glass-bg); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid rgba(42,42,42,0.5); }
+    .navbar .container { height:100%; display:flex; align-items:center; justify-content:space-between; }
+    .navbar-logo { display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:1.5rem; font-weight:800; z-index:1001; }
+    .navbar-logo svg { color:var(--accent); }
+    .nav-links { display:flex; align-items:center; gap:32px; }
+    .nav-links a { font-size:0.85rem; font-weight:500; color:var(--text-secondary); transition:color 0.3s; position:relative; }
+    .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:1.5px; background:var(--accent); transition:width 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--accent); }
+    .nav-links a:hover::after, .nav-links a.active::after { width:100%; }
+    .nav-cta { display:none; }
+    @media (min-width:1024px) { .nav-cta { display:inline-flex; } }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; z-index:1001; background:none; border:none; padding:4px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--text-primary); transition:all 0.3s; border-radius:2px; }
+    .hamburger.active span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+    .hamburger.active span:nth-child(2) { opacity:0; }
+    .hamburger.active span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+    @media (max-width:1023px) {
+      .hamburger { display:flex; }
+      .nav-links { position:fixed; top:0; right:-100%; width:280px; height:100vh; flex-direction:column; justify-content:center; gap:28px; background:var(--bg-secondary); border-left:1px solid var(--border); transition:right 0.4s ease; padding:80px 40px; }
+      .nav-links.open { right:0; }
+      .nav-links a { font-size:1.1rem; }
+      .nav-cta-mobile { display:inline-flex; margin-top:16px; }
     }
-    img { max-width: 100%; display: block; }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
+    @media (min-width:1024px) { .nav-cta-mobile { display:none; } }
 
-    /* ============================================ */
-    /* UTILITARIAS                                 */
-    /* ============================================ */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .section-padding { padding: 100px 0; }
-    @media (max-width: 768px) { .section-padding { padding: 60px 0; } }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 800;
-      color: var(--text-primary);
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
+    .hero { min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden; padding-top:var(--nav-height); }
+    .hero-particles { position:absolute; inset:0; z-index:0; overflow:hidden; }
+    .hero-particle { position:absolute; width:4px; height:4px; background:var(--accent); border-radius:50%; opacity:0.15; animation:float 6s ease-in-out infinite; }
+    .hero-particle:nth-child(1) { top:15%; left:10%; animation-delay:0s; width:6px; height:6px; opacity:0.1; }
+    .hero-particle:nth-child(2) { top:30%; left:85%; animation-delay:1s; width:3px; height:3px; }
+    .hero-particle:nth-child(3) { top:60%; left:5%; animation-delay:2s; width:5px; height:5px; opacity:0.12; }
+    .hero-particle:nth-child(4) { top:75%; left:80%; animation-delay:0.5s; }
+    .hero-particle:nth-child(5) { top:20%; left:50%; animation-delay:1.5s; width:8px; height:8px; opacity:0.06; }
+    .hero-particle:nth-child(6) { top:80%; left:25%; animation-delay:3s; }
+    .hero-particle:nth-child(7) { top:45%; left:70%; animation-delay:2.5s; width:3px; height:3px; }
+    .hero-particle:nth-child(8) { top:55%; left:40%; animation-delay:0.8s; width:5px; height:5px; opacity:0.08; }
+    .hero-gradient { position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 80% 80%, rgba(201,168,76,0.04) 0%, transparent 50%); z-index:0; }
+    .hero-pattern { position:absolute; inset:0; z-index:0; opacity:0.03; background-image:linear-gradient(45deg,var(--accent) 1px,transparent 1px), linear-gradient(-45deg,var(--accent) 1px,transparent 1px); background-size:60px 60px; }
+    .hero .container { position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+    .hero-badge { display:inline-flex; align-items:center; gap:8px; padding:8px 16px; border:1px solid rgba(201,168,76,0.2); border-radius:50px; font-size:0.75rem; font-weight:600; color:var(--accent); background:rgba(201,168,76,0.05); margin-bottom:24px; animation:pulse-glow 2s ease-in-out infinite; }
+    .hero-badge-dot { width:6px; height:6px; border-radius:50%; background:#22c55e; animation:pulse-glow 1.5s ease-in-out infinite; }
+    .hero h1 { font-family:var(--font-display); font-size:clamp(2.5rem,6vw,4.2rem); font-weight:900; line-height:1.1; margin-bottom:24px; letter-spacing:-0.02em; }
+    .hero p { font-size:1.05rem; color:var(--text-secondary); max-width:520px; line-height:1.7; margin-bottom:36px; }
+    .hero-buttons { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:48px; }
+    .hero-stats { display:flex; gap:40px; }
+    .hero-stat { text-align:center; }
+    .hero-stat-number { font-family:var(--font-display); font-size:1.8rem; font-weight:800; color:var(--accent); }
+    .hero-stat-label { font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.08em; margin-top:4px; }
+    .hero-visual { display:flex; justify-content:center; align-items:center; position:relative; }
+    .hero-camera-frame { width:100%; max-width:420px; aspect-ratio:4/3; background:linear-gradient(135deg,var(--bg-tertiary),var(--bg-secondary)); border:1px solid var(--border); border-radius:16px; position:relative; overflow:hidden; }
+    .hero-camera-frame::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 30% 40%, rgba(201,168,76,0.08) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(232,201,122,0.05) 0%, transparent 40%); }
+    .hero-camera-frame .lens-ring { position:absolute; width:120px; height:120px; border-radius:50%; border:2px solid rgba(201,168,76,0.15); top:50%; left:50%; transform:translate(-50%,-50%); }
+    .hero-camera-frame .lens-ring-inner { position:absolute; width:60px; height:60px; border-radius:50%; border:1px solid rgba(201,168,76,0.1); top:50%; left:50%; transform:translate(-50%,-50%); background:rgba(201,168,76,0.03); }
+    .hero-camera-frame .lens-ring-dot { position:absolute; width:8px; height:8px; border-radius:50%; background:var(--accent); opacity:0.3; top:50%; left:50%; transform:translate(-50%,-50%); }
+    .hero-camera-frame .shutter-line { position:absolute; top:30%; left:0; width:100%; height:1px; background:linear-gradient(90deg,transparent,rgba(201,168,76,0.1),transparent); }
+    .hero-camera-frame .shutter-line-2 { top:55%; width:60%; }
+    .hero-floating-badge { position:absolute; bottom:20px; right:20px; background:var(--card-bg); backdrop-filter:blur(10px); border:1px solid var(--border); border-radius:12px; padding:12px 16px; display:flex; align-items:center; gap:10px; font-size:0.8rem; color:var(--accent); font-weight:600; animation:float 4s ease-in-out infinite; }
+    @media (max-width:1023px) {
+      .hero .container { grid-template-columns:1fr; text-align:center; }
+      .hero p { margin-left:auto; margin-right:auto; }
+      .hero-buttons { justify-content:center; }
+      .hero-stats { justify-content:center; }
+      .hero-visual { display:none; }
     }
-    .section-subtitle {
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-      max-width: 600px;
-      line-height: 1.7;
-    }
-    .gold-text { color: var(--accent); }
-    .gold-line {
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-      margin-bottom: 24px;
-    }
-    .text-center { text-align: center; }
-    .mx-auto { margin-left: auto; margin-right: auto; }
-    .flex-center { display: flex; align-items: center; justify-content: center; }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    @media (max-width:640px) { .hero-stats { gap:24px; flex-wrap:wrap; } }
 
-    /* ============================================ */
-    /* ANIMACIONES                                 */
-    /* ============================================ */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .fade-up-delay-1 { transition-delay: 0.1s; }
-    .fade-up-delay-2 { transition-delay: 0.2s; }
-    .fade-up-delay-3 { transition-delay: 0.3s; }
-    .fade-up-delay-4 { transition-delay: 0.4s; }
+    .services { background:var(--bg-secondary); }
+    .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:60px; }
+    .service-card { background:var(--card-bg); border:1px solid var(--border); border-radius:16px; padding:36px 28px; transition:all var(--transition); position:relative; overflow:hidden; }
+    .service-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:2px; background:linear-gradient(90deg,transparent,var(--accent),transparent); transform:scaleX(0); transition:transform 0.5s ease; }
+    .service-card:hover { border-color:var(--accent); transform:translateY(-6px); }
+    .service-card:hover::before { transform:scaleX(1); }
+    .service-icon { width:52px; height:52px; border-radius:14px; background:rgba(201,168,76,0.06); border:1px solid rgba(201,168,76,0.12); display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:var(--accent); }
+    .service-card h3 { font-family:var(--font-display); font-size:1.3rem; font-weight:700; margin-bottom:10px; }
+    .service-card p { font-size:0.9rem; color:var(--text-secondary); line-height:1.7; margin-bottom:20px; }
+    .service-price { font-family:var(--font-display); font-size:1.1rem; font-weight:700; color:var(--accent); }
+    @media (max-width:1023px) { .services-grid { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:640px) { .services-grid { grid-template-columns:1fr; } }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes pulse-glow {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-    @keyframes countUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes shimmer {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
+    .portfolio-filters { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:40px; margin-top:32px; }
+    .filter-btn { padding:8px 24px; border-radius:50px; font-size:0.85rem; font-weight:500; background:transparent; border:1px solid var(--border); color:var(--text-secondary); cursor:pointer; transition:all 0.3s; }
+    .filter-btn:hover, .filter-btn.active { border-color:var(--accent); color:var(--accent); background:rgba(201,168,76,0.06); }
+    .portfolio-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .portfolio-item { position:relative; border-radius:12px; overflow:hidden; cursor:pointer; aspect-ratio:4/3; border:1px solid var(--border); transition:all var(--transition); }
+    .portfolio-item:hover { border-color:var(--accent); transform:scale(1.02); }
+    .portfolio-item .placeholder-img { width:100%; height:100%; display:flex; align-items:flex-end; padding:20px; transition:transform 0.5s ease; }
+    .portfolio-item:hover .placeholder-img { transform:scale(1.05); }
+    .portfolio-item .overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 50%); display:flex; flex-direction:column; justify-content:flex-end; padding:24px; opacity:0; transition:opacity 0.4s; }
+    .portfolio-item:hover .overlay { opacity:1; }
+    .portfolio-item .overlay h4 { font-family:var(--font-display); font-size:1.1rem; font-weight:700; }
+    .portfolio-item .overlay span { font-size:0.8rem; color:var(--accent); font-weight:500; }
+    @media (max-width:1023px) { .portfolio-grid { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:640px) { .portfolio-grid { grid-template-columns:1fr; } }
 
-    /* ============================================ */
-    /* BOTONES                                     */
-    /* ============================================ */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 32px;
-      border-radius: 50px;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all var(--transition);
-      border: none;
-      min-height: 48px;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
-      color: var(--bg-primary);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px var(--shadow-gold);
-    }
-    .btn-outline {
-      background: transparent;
-      color: var(--text-primary);
-      border: 1.5px solid var(--border);
-    }
-    .btn-outline:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-    .btn-gold-border {
-      background: transparent;
-      color: var(--accent);
-      border: 1.5px solid var(--accent);
-    }
-    .btn-gold-border:hover {
-      background: var(--accent);
-      color: var(--bg-primary);
-      transform: translateY(-2px);
-    }
+    .lightbox { display:none; position:fixed; inset:0; z-index:2000; background:rgba(0,0,0,0.92); backdrop-filter:blur(10px); align-items:center; justify-content:center; padding:40px; }
+    .lightbox.open { display:flex; }
+    .lightbox-content { max-width:800px; width:100%; background:var(--bg-secondary); border-radius:16px; border:1px solid var(--border); overflow:hidden; animation:fadeIn 0.3s ease; }
+    .lightbox-content .placeholder-img { width:100%; aspect-ratio:16/9; }
+    .lightbox-info { padding:24px; display:flex; justify-content:space-between; align-items:center; }
+    .lightbox-info h3 { font-family:var(--font-display); font-size:1.2rem; }
+    .lightbox-close { position:absolute; top:24px; right:32px; background:none; border:none; color:var(--text-primary); font-size:2rem; cursor:pointer; opacity:0.6; transition:opacity 0.3s; }
+    .lightbox-close:hover { opacity:1; }
 
-    /* ============================================ */
-    /* NAVBAR                                      */
-    /* ============================================ */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      height: var(--nav-height);
-      transition: all 0.3s ease;
-      background: transparent;
-    }
-    .navbar.scrolled {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(42, 42, 42, 0.5);
-    }
-    .navbar .container {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .navbar-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--text-primary);
-      z-index: 1001;
-    }
-    .navbar-logo svg { color: var(--accent); }
-    .navbar-logo span { color: var(--accent); }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-    .nav-links a {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      transition: color 0.3s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 1.5px;
-      background: var(--accent);
-      transition: width 0.3s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
-    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-    .nav-cta {
-      display: none;
-    }
-    @media (min-width: 1024px) {
-      .nav-cta { display: inline-flex; }
-    }
+    .process { background:var(--bg-secondary); }
+    .process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:60px; position:relative; }
+    .process-grid::before { content:''; position:absolute; top:40px; left:10%; right:10%; height:1px; background:linear-gradient(90deg,var(--accent),var(--accent),transparent); opacity:0.2; }
+    .process-step { text-align:center; position:relative; }
+    .process-step-number { font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:var(--accent); letter-spacing:0.15em; margin-bottom:16px; }
+    .process-step-icon { width:64px; height:64px; margin:0 auto 16px; border-radius:50%; border:1.5px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--accent); transition:all var(--transition); position:relative; background:var(--bg-primary); }
+    .process-step:hover .process-step-icon { border-color:var(--accent); }
+    .process-step h4 { font-family:var(--font-display); font-size:1.1rem; font-weight:700; margin-bottom:8px; }
+    .process-step p { font-size:0.85rem; color:var(--text-secondary); max-width:220px; margin:0 auto; line-height:1.6; }
+    @media (max-width:1023px) { .process-grid { grid-template-columns:repeat(2,1fr); gap:40px; } .process-grid::before { display:none; } }
+    @media (max-width:640px) { .process-grid { grid-template-columns:1fr; gap:32px; } }
 
-    /* Hamburger menu */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      z-index: 1001;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--text-primary);
-      transition: all 0.3s;
-      border-radius: 2px;
-    }
-    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:60px; align-items:start; }
+    .pricing-card { background:var(--card-bg); border:1px solid var(--border); border-radius:20px; padding:40px 32px; transition:all var(--transition); position:relative; }
+    .pricing-card:hover { border-color:var(--accent); transform:translateY(-8px); }
+    .pricing-card.featured { border-color:var(--accent); transform:scale(1.05); background:linear-gradient(135deg,rgba(201,168,76,0.04),transparent); }
+    .pricing-card.featured:hover { transform:scale(1.05) translateY(-8px); }
+    .pricing-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,var(--accent),var(--accent-light)); color:var(--bg-primary); padding:6px 20px; border-radius:50px; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; }
+    .pricing-card h3 { font-family:var(--font-display); font-size:1.5rem; font-weight:700; margin-bottom:8px; }
+    .pricing-card .price { font-family:var(--font-display); font-size:2.8rem; font-weight:900; color:var(--accent); margin-bottom:28px; }
+    .pricing-features { margin-bottom:32px; }
+    .pricing-features li { display:flex; align-items:center; gap:10px; padding:10px 0; font-size:0.88rem; color:var(--text-secondary); border-bottom:1px solid rgba(42,42,42,0.4); }
+    .pricing-features li:last-child { border-bottom:none; }
+    .pricing-features li .check { color:var(--accent); flex-shrink:0; }
+    @media (max-width:1023px) { .pricing-grid { grid-template-columns:1fr; max-width:440px; margin-left:auto; margin-right:auto; } .pricing-card.featured { transform:none; } .pricing-card.featured:hover { transform:translateY(-8px); } }
 
-    @media (max-width: 1023px) {
-      .hamburger { display: flex; }
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 280px;
-        height: 100vh;
-        flex-direction: column;
-        justify-content: center;
-        gap: 28px;
-        background: var(--bg-secondary);
-        border-left: 1px solid var(--border);
-        transition: right 0.4s ease;
-        padding: 80px 40px;
-      }
-      .nav-links.open { right: 0; }
-      .nav-links a { font-size: 1.1rem; }
-      .nav-cta-mobile {
-        display: inline-flex;
-        margin-top: 16px;
-      }
-    }
-    @media (min-width: 1024px) {
-      .nav-cta-mobile { display: none; }
-    }
+    .testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:60px; }
+    .testimonial-card { background:var(--card-bg); border:1px solid var(--border); border-radius:16px; padding:32px; transition:all var(--transition); }
+    .testimonial-card:hover { border-color:var(--accent); transform:translateY(-4px); }
+    .testimonial-quote-icon { font-family:var(--font-display); font-size:3.5rem; line-height:1; color:rgba(201,168,76,0.15); margin-bottom:-8px; }
+    .testimonial-card blockquote { font-size:0.92rem; color:var(--text-secondary); line-height:1.7; margin-bottom:24px; font-style:italic; }
+    .testimonial-stars { color:var(--accent); font-size:0.9rem; letter-spacing:2px; margin-bottom:16px; }
+    .testimonial-author { display:flex; align-items:center; gap:14px; padding-top:16px; border-top:1px solid rgba(42,42,42,0.4); }
+    .testimonial-avatar { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1rem; color:var(--bg-primary); flex-shrink:0; }
+    .testimonial-author-info h5 { font-size:0.95rem; font-weight:600; }
+    .testimonial-author-info span { font-size:0.75rem; color:var(--accent); }
+    @media (max-width:1023px) { .testimonials-grid { grid-template-columns:1fr; max-width:500px; margin-left:auto; margin-right:auto; } }
 
-    /* ============================================ */
-    /* HERO SECTION                                */
-    /* ============================================ */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding-top: var(--nav-height);
-    }
-    .hero-particles {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-    }
-    .hero-particle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: var(--accent);
-      border-radius: 50%;
-      opacity: 0.15;
-      animation: float 6s ease-in-out infinite;
-    }
-    .hero-particle:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; width: 6px; height: 6px; opacity: 0.1; }
-    .hero-particle:nth-child(2) { top: 30%; left: 85%; animation-delay: 1s; width: 3px; height: 3px; }
-    .hero-particle:nth-child(3) { top: 60%; left: 5%; animation-delay: 2s; width: 5px; height: 5px; opacity: 0.12; }
-    .hero-particle:nth-child(4) { top: 75%; left: 80%; animation-delay: 0.5s; }
-    .hero-particle:nth-child(5) { top: 20%; left: 50%; animation-delay: 1.5s; width: 8px; height: 8px; opacity: 0.06; }
-    .hero-particle:nth-child(6) { top: 80%; left: 25%; animation-delay: 3s; }
-    .hero-particle:nth-child(7) { top: 45%; left: 70%; animation-delay: 2.5s; width: 3px; height: 3px; }
-    .hero-particle:nth-child(8) { top: 55%; left: 40%; animation-delay: 0.8s; width: 5px; height: 5px; opacity: 0.08; }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+    .about-text p { color:var(--text-secondary); line-height:1.8; margin-bottom:16px; font-size:0.95rem; }
+    .about-signature { font-family:var(--font-display); font-size:1.3rem; font-style:italic; color:var(--accent); margin-top:24px; }
+    .about-signature span { display:block; font-size:0.8rem; font-style:normal; color:var(--text-secondary); font-family:var(--font-body); margin-top:4px; }
+    .about-stats { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .about-stat { background:var(--card-bg); border:1px solid var(--border); border-radius:16px; padding:28px 24px; text-align:center; transition:all var(--transition); }
+    .about-stat:hover { border-color:var(--accent); }
+    .about-stat-number { font-family:var(--font-display); font-size:2.4rem; font-weight:900; color:var(--accent); }
+    .about-stat-label { font-size:0.8rem; color:var(--text-secondary); margin-top:4px; }
+    @media (max-width:1023px) { .about-grid { grid-template-columns:1fr; gap:40px; } }
 
-    .hero-gradient {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201, 168, 76, 0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(201, 168, 76, 0.04) 0%, transparent 50%);
-      z-index: 0;
-    }
-    .hero-pattern {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      opacity: 0.03;
-      background-image:
-        linear-gradient(45deg, var(--accent) 1px, transparent 1px),
-        linear-gradient(-45deg, var(--accent) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-    .hero .container {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      border: 1px solid rgba(201, 168, 76, 0.2);
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--accent);
-      background: rgba(201, 168, 76, 0.05);
-      margin-bottom: 24px;
-      animation: pulse-glow 2s ease-in-out infinite;
-    }
-    .hero-badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #22c55e;
-      animation: pulse-glow 1.5s ease-in-out infinite;
-    }
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2.5rem, 6vw, 4.2rem);
-      font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 24px;
-      letter-spacing: -0.02em;
-    }
-    .hero h1 .gold-text {
-      display: block;
-    }
-    .hero p {
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-      max-width: 520px;
-      line-height: 1.7;
-      margin-bottom: 36px;
-    }
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-    .hero-stats {
-      display: flex;
-      gap: 40px;
-    }
-    .hero-stat { text-align: center; }
-    .hero-stat-number {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--accent);
-    }
-    .hero-stat-label {
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-top: 4px;
-    }
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-    .hero-camera-frame {
-      width: 100%;
-      max-width: 420px;
-      aspect-ratio: 4/3;
-      background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-camera-frame::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 30% 40%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 70% 60%, rgba(232, 201, 122, 0.05) 0%, transparent 40%);
-    }
-    .hero-camera-frame .lens-ring {
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 2px solid rgba(201, 168, 76, 0.15);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .hero-camera-frame .lens-ring-inner {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 1px solid rgba(201, 168, 76, 0.1);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(201, 168, 76, 0.03);
-    }
-    .hero-camera-frame .lens-ring-dot {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
-      opacity: 0.3;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .hero-camera-frame .shutter-line {
-      position: absolute;
-      top: 30%;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.1), transparent);
-    }
-    .hero-camera-frame .shutter-line-2 {
-      top: 55%;
-      width: 60%;
-    }
-    .hero-floating-badge {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.8rem;
-      color: var(--accent);
-      font-weight: 600;
-      animation: float 4s ease-in-out infinite;
-    }
+    .contact { background:var(--bg-secondary); }
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:60px; }
+    .contact-form { display:flex; flex-direction:column; gap:20px; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .form-group { display:flex; flex-direction:column; gap:6px; }
+    .form-group label { font-size:0.8rem; font-weight:600; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.06em; }
+    .form-group input, .form-group select, .form-group textarea { padding:12px 16px; border-radius:10px; border:1px solid var(--border); background:var(--bg-primary); color:var(--text-primary); font-family:var(--font-body); font-size:0.9rem; transition:border-color 0.3s; outline:none; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--accent); }
+    .form-group textarea { resize:vertical; min-height:120px; }
+    .form-group select { cursor:pointer; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='%23A0A0A0'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; }
+    .form-group .error { font-size:0.75rem; color:#ef4444; display:none; }
+    .form-group.has-error input, .form-group.has-error textarea { border-color:#ef4444; }
+    .form-group.has-error .error { display:block; }
+    .form-success { display:none; background:rgba(201,168,76,0.06); border:1px solid rgba(201,168,76,0.2); border-radius:12px; padding:20px; text-align:center; color:var(--accent); font-weight:600; margin-top:16px; }
+    .form-success.show { display:block; }
+    .contact-info { display:flex; flex-direction:column; gap:28px; }
+    .contact-info-item { display:flex; gap:16px; align-items:flex-start; }
+    .contact-info-icon { width:44px; height:44px; border-radius:12px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--accent); flex-shrink:0; background:rgba(201,168,76,0.04); }
+    .contact-info-text h4 { font-size:0.95rem; font-weight:600; margin-bottom:4px; }
+    .contact-info-text p { font-size:0.85rem; color:var(--text-secondary); }
+    .contact-social { display:flex; gap:12px; margin-top:8px; }
+    .contact-social a { width:44px; height:44px; border-radius:12px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-secondary); transition:all 0.3s; }
+    .contact-social a:hover { border-color:var(--accent); color:var(--accent); background:rgba(201,168,76,0.06); }
+    .contact-map-sim { margin-top:12px; width:100%; height:200px; border-radius:12px; border:1px solid var(--border); background:linear-gradient(135deg,var(--bg-primary),var(--bg-tertiary)); position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+    .contact-map-sim .map-marker { color:var(--accent); animation:float 3s ease-in-out infinite; }
+    .contact-map-sim .map-grid { position:absolute; inset:0; opacity:0.05; background-image:linear-gradient(90deg,var(--accent) 1px,transparent 1px), linear-gradient(0deg,var(--accent) 1px,transparent 1px); background-size:40px 40px; }
+    @media (max-width:1023px) { .contact-grid { grid-template-columns:1fr; } .form-row { grid-template-columns:1fr; } }
 
-    @media (max-width: 1023px) {
-      .hero .container { grid-template-columns: 1fr; text-align: center; }
-      .hero p { margin-left: auto; margin-right: auto; }
-      .hero-buttons { justify-content: center; }
-      .hero-stats { justify-content: center; }
-      .hero-visual { display: none; }
-    }
-    @media (max-width: 640px) {
-      .hero-stats { gap: 24px; flex-wrap: wrap; }
-    }
-
-    /* ============================================ */
-    /* SERVICIOS                                   */
-    /* ============================================ */
-    .services {
-      background: var(--bg-secondary);
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 60px;
-    }
-    .service-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 36px 28px;
-      transition: all var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      transform: scaleX(0);
-      transition: transform 0.5s ease;
-    }
-    .service-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    }
-    .service-card:hover::before { transform: scaleX(1); }
-    .service-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: rgba(201, 168, 76, 0.06);
-      border: 1px solid rgba(201, 168, 76, 0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      color: var(--accent);
-    }
-    .service-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .service-card p {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .service-price {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    .service-price small {
-      font-size: 0.75rem;
-      font-weight: 400;
-      color: var(--text-secondary);
-    }
-
-    @media (max-width: 1023px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 640px) {
-      .services-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ============================================ */
-    /* PORTAFOLIO / GALERÍA                       */
-    /* ============================================ */
-    .portfolio-filters {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-      margin-top: 32px;
-    }
-    .filter-btn {
-      padding: 8px 24px;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .filter-btn:hover, .filter-btn.active {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: rgba(201, 168, 76, 0.06);
-    }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .portfolio-item {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: pointer;
-      aspect-ratio: 4/3;
-      border: 1px solid var(--border);
-      transition: all var(--transition);
-    }
-    .portfolio-item:hover {
-      border-color: var(--accent);
-      transform: scale(1.02);
-    }
-    .portfolio-item .placeholder-img {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: flex-end;
-      padding: 20px;
-      transition: transform 0.5s ease;
-    }
-    .portfolio-item:hover .placeholder-img {
-      transform: scale(1.05);
-    }
-    .portfolio-item .overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 50%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 24px;
-      opacity: 0;
-      transition: opacity 0.4s;
-    }
-    .portfolio-item:hover .overlay { opacity: 1; }
-    .portfolio-item .overlay h4 {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-    .portfolio-item .overlay span {
-      font-size: 0.8rem;
-      color: var(--accent);
-      font-weight: 500;
-    }
-    .portfolio-item.tall { grid-row: span 2; }
-
-    @media (max-width: 1023px) {
-      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 640px) {
-      .portfolio-grid { grid-template-columns: 1fr; }
-      .portfolio-item.tall { grid-row: span 1; }
-    }
-
-    /* ============================================ */
-    /* LIGHTBOX                                    */
-    /* ============================================ */
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 2000;
-      background: rgba(0,0,0,0.92);
-      backdrop-filter: blur(10px);
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
-    }
-    .lightbox.open { display: flex; }
-    .lightbox-content {
-      max-width: 800px;
-      width: 100%;
-      background: var(--bg-secondary);
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      overflow: hidden;
-      animation: fadeIn 0.3s ease;
-    }
-    .lightbox-content .placeholder-img {
-      width: 100%;
-      aspect-ratio: 16/9;
-    }
-    .lightbox-info {
-      padding: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .lightbox-info h3 {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-    }
-    .lightbox-info span { color: var(--accent); font-size: 0.9rem; }
-    .lightbox-close {
-      position: absolute;
-      top: 24px;
-      right: 32px;
-      background: none;
-      border: none;
-      color: var(--text-primary);
-      font-size: 2rem;
-      cursor: pointer;
-      opacity: 0.6;
-      transition: opacity 0.3s;
-    }
-    .lightbox-close:hover { opacity: 1; }
-
-    /* ============================================ */
-    /* PROCESO DE TRABAJO                         */
-    /* ============================================ */
-    .process { background: var(--bg-secondary); }
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-top: 60px;
-      position: relative;
-    }
-    .process-grid::before {
-      content: '';
-      position: absolute;
-      top: 40px;
-      left: 10%;
-      right: 10%;
-      height: 1px;
-      background: linear-gradient(90deg, var(--accent), var(--accent), transparent);
-      opacity: 0.2;
-    }
-    .process-step {
-      text-align: center;
-      position: relative;
-    }
-    .process-step-number {
-      font-family: var(--font-display);
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.15em;
-      margin-bottom: 16px;
-    }
-    .process-step-icon {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 16px;
-      border-radius: 50%;
-      border: 1.5px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      transition: all var(--transition);
-      position: relative;
-      background: var(--bg-primary);
-    }
-    .process-step:hover .process-step-icon {
-      border-color: var(--accent);
-      box-shadow: 0 0 30px var(--shadow-gold);
-    }
-    .process-step-icon .connector {
-      position: absolute;
-      top: 50%;
-      left: calc(100% + 12px);
-      width: calc(100% - 64px);
-      height: 1px;
-      background: var(--border);
-    }
-    .process-step:last-child .connector { display: none; }
-    .process-step h4 {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .process-step p {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      max-width: 220px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 1023px) {
-      .process-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-      .process-grid::before { display: none; }
-    }
-    @media (max-width: 640px) {
-      .process-grid { grid-template-columns: 1fr; gap: 32px; }
-    }
-
-    /* ============================================ */
-    /* PAQUETES / PRECIOS                         */
-    /* ============================================ */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 60px;
-      align-items: start;
-    }
-    .pricing-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 40px 32px;
-      transition: all var(--transition);
-      position: relative;
-    }
-    .pricing-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-8px);
-      box-shadow: 0 24px 80px rgba(0,0,0,0.3);
-    }
-    .pricing-card.featured {
-      border-color: var(--accent);
-      transform: scale(1.05);
-      background: linear-gradient(135deg, rgba(201, 168, 76, 0.04), transparent);
-    }
-    .pricing-card.featured:hover {
-      transform: scale(1.05) translateY(-8px);
-    }
-    .pricing-badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
-      color: var(--bg-primary);
-      padding: 6px 20px;
-      border-radius: 50px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    .pricing-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .pricing-card .price {
-      font-family: var(--font-display);
-      font-size: 2.8rem;
-      font-weight: 900;
-      color: var(--accent);
-      margin-bottom: 4px;
-    }
-    .pricing-card .price small {
-      font-size: 1rem;
-      font-weight: 400;
-      color: var(--text-secondary);
-    }
-    .pricing-card .price-sub {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      margin-bottom: 28px;
-    }
-    .pricing-features {
-      margin-bottom: 32px;
-    }
-    .pricing-features li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 0;
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      border-bottom: 1px solid rgba(42, 42, 42, 0.4);
-    }
-    .pricing-features li:last-child { border-bottom: none; }
-    .pricing-features li .check {
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-
-    @media (max-width: 1023px) {
-      .pricing-grid { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; }
-      .pricing-card.featured { transform: none; }
-      .pricing-card.featured:hover { transform: translateY(-8px); }
-    }
-
-    /* ============================================ */
-    /* TESTIMONIOS                                 */
-    /* ============================================ */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 60px;
-    }
-    .testimonial-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-      transition: all var(--transition);
-    }
-    .testimonial-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-4px);
-    }
-    .testimonial-quote-icon {
-      font-family: var(--font-display);
-      font-size: 3.5rem;
-      line-height: 1;
-      color: rgba(201, 168, 76, 0.15);
-      margin-bottom: -8px;
-    }
-    .testimonial-card blockquote {
-      font-size: 0.92rem;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 24px;
-      font-style: italic;
-    }
-    .testimonial-stars {
-      color: var(--accent);
-      font-size: 0.9rem;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
-    }
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(42, 42, 42, 0.4);
-    }
-    .testimonial-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--bg-primary);
-      flex-shrink: 0;
-    }
-    .testimonial-author-info h5 {
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-    .testimonial-author-info span {
-      font-size: 0.75rem;
-      color: var(--accent);
-    }
-
-    @media (max-width: 1023px) {
-      .testimonials-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
-    }
-
-    /* ============================================ */
-    /* SOBRE NOSOTROS                              */
-    /* ============================================ */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    .about-text .gold-line { margin-bottom: 20px; }
-    .about-text p {
-      color: var(--text-secondary);
-      line-height: 1.8;
-      margin-bottom: 16px;
-      font-size: 0.95rem;
-    }
-    .about-signature {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      font-style: italic;
-      color: var(--accent);
-      margin-top: 24px;
-    }
-    .about-signature span {
-      display: block;
-      font-size: 0.8rem;
-      font-style: normal;
-      color: var(--text-secondary);
-      font-family: var(--font-body);
-      margin-top: 4px;
-    }
-    .about-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .about-stat {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px 24px;
-      text-align: center;
-      transition: all var(--transition);
-    }
-    .about-stat:hover {
-      border-color: var(--accent);
-    }
-    .about-stat-number {
-      font-family: var(--font-display);
-      font-size: 2.4rem;
-      font-weight: 900;
-      color: var(--accent);
-    }
-    .about-stat-label {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      margin-top: 4px;
-    }
-
-    @media (max-width: 1023px) {
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    }
-
-    /* ============================================ */
-    /* CONTACTO                                   */
-    /* ============================================ */
-    .contact { background: var(--bg-secondary); }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      margin-top: 60px;
-    }
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .form-group label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      padding: 12px 16px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      transition: border-color 0.3s;
-      outline: none;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--accent);
-    }
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-    .form-group select {
-      cursor: pointer;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='%23A0A0A0'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-    }
-    .form-group .error {
-      font-size: 0.75rem;
-      color: #ef4444;
-      display: none;
-    }
-    .form-group.has-error input,
-    .form-group.has-error textarea {
-      border-color: #ef4444;
-    }
-    .form-group.has-error .error { display: block; }
-    .form-success {
-      display: none;
-      background: rgba(201, 168, 76, 0.06);
-      border: 1px solid rgba(201, 168, 76, 0.2);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      color: var(--accent);
-      font-weight: 600;
-      margin-top: 16px;
-    }
-    .form-success.show { display: block; }
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-    .contact-info-item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .contact-info-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      flex-shrink: 0;
-      background: rgba(201, 168, 76, 0.04);
-    }
-    .contact-info-text h4 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-    .contact-info-text p {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-    }
-    .contact-social {
-      display: flex;
-      gap: 12px;
-      margin-top: 8px;
-    }
-    .contact-social a {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-secondary);
-      transition: all 0.3s;
-    }
-    .contact-social a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: rgba(201, 168, 76, 0.06);
-    }
-
-    .contact-map-sim {
-      margin-top: 12px;
-      width: 100%;
-      height: 200px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: linear-gradient(135deg, var(--bg-primary), var(--bg-tertiary));
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .contact-map-sim .map-marker {
-      color: var(--accent);
-      animation: float 3s ease-in-out infinite;
-    }
-    .contact-map-sim .map-grid {
-      position: absolute;
-      inset: 0;
-      opacity: 0.05;
-      background-image:
-        linear-gradient(90deg, var(--accent) 1px, transparent 1px),
-        linear-gradient(0deg, var(--accent) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-
-    @media (max-width: 1023px) {
-      .contact-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-    }
-
-    /* ============================================ */
-    /* FOOTER                                      */
-    /* ============================================ */
-    .footer { padding: 80px 0 0; background: var(--bg-primary); }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
-      gap: 40px;
-      padding-bottom: 60px;
-      border-bottom: 1px solid var(--border);
-    }
-    .footer-col h4 {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-    .footer-col p {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      line-height: 1.7;
-    }
-    .footer-col ul li {
-      margin-bottom: 10px;
-    }
-    .footer-col ul li a {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      transition: color 0.3s;
-    }
-    .footer-col ul li a:hover { color: var(--accent); }
-    .footer-newsletter {
-      display: flex;
-      gap: 8px;
-    }
-    .footer-newsletter input {
-      flex: 1;
-      padding: 10px 14px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      font-size: 0.85rem;
-      outline: none;
-    }
-    .footer-newsletter input:focus {
-      border-color: var(--accent);
-    }
-    .footer-newsletter button {
-      padding: 10px 18px;
-      border-radius: 8px;
-      border: none;
-      background: var(--accent);
-      color: var(--bg-primary);
-      font-weight: 700;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: background 0.3s;
-      white-space: nowrap;
-    }
-    .footer-newsletter button:hover {
-      background: var(--accent-light);
-    }
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 24px 0;
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-    }
-    .footer-gold-line {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0.3;
-    }
-
-    @media (max-width: 1023px) {
-      .footer-top { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 640px) {
-      .footer-top { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-      .footer-newsletter { flex-direction: column; }
-    }
+    .footer { padding:80px 0 0; background:var(--bg-primary); }
+    .footer-top { display:grid; grid-template-columns:1.5fr 1fr 1fr 1.5fr; gap:40px; padding-bottom:60px; border-bottom:1px solid var(--border); }
+    .footer-col h4 { font-family:var(--font-display); font-size:1.1rem; font-weight:700; margin-bottom:20px; }
+    .footer-col p, .footer-col ul li a { font-size:0.85rem; color:var(--text-secondary); line-height:1.7; }
+    .footer-col ul li { margin-bottom:10px; }
+    .footer-col ul li a:hover { color:var(--accent); }
+    .footer-newsletter { display:flex; gap:8px; }
+    .footer-newsletter input { flex:1; padding:10px 14px; border-radius:8px; border:1px solid var(--border); background:var(--bg-secondary); color:var(--text-primary); font-size:0.85rem; outline:none; }
+    .footer-newsletter input:focus { border-color:var(--accent); }
+    .footer-newsletter button { padding:10px 18px; border-radius:8px; border:none; background:var(--accent); color:var(--bg-primary); font-weight:700; font-size:0.85rem; cursor:pointer; transition:background 0.3s; white-space:nowrap; }
+    .footer-newsletter button:hover { background:var(--accent-light); }
+    .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding:24px 0; font-size:0.8rem; color:var(--text-secondary); }
+    .footer-gold-line { height:1px; background:linear-gradient(90deg,transparent,var(--accent),transparent); opacity:0.3; }
+    @media (max-width:1023px) { .footer-top { grid-template-columns:1fr 1fr; } }
+    @media (max-width:640px) { .footer-top { grid-template-columns:1fr; } .footer-bottom { flex-direction:column; gap:12px; text-align:center; } .footer-newsletter { flex-direction:column; } }
   </style>
 </head>
 <body>
 
-  <!-- ============================================ -->
-  <!-- NAVBAR                                      -->
-  <!-- ============================================ -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="#hero" class="navbar-logo">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
-          <circle cx="12" cy="13" r="4"/>
+          <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/>
         </svg>
         <span>Lumina</span> Studio
       </a>
-
-      <button class="hamburger" id="hamburger" aria-label="Menú">
-        <span></span><span></span><span></span>
-      </button>
-
+      <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
       <div class="nav-links" id="navLinks">
         <a href="#servicios" class="nav-link">Servicios</a>
         <a href="#portafolio" class="nav-link">Portafolio</a>
@@ -1319,200 +267,92 @@
         <a href="#contacto" class="nav-link">Contacto</a>
         <a href="#contacto" class="btn btn-primary nav-cta-mobile">Reservar Sesión</a>
       </div>
-
       <a href="#contacto" class="btn btn-primary nav-cta">Reservar Sesión</a>
     </div>
   </nav>
 
-  <!-- ============================================ -->
-  <!-- HERO                                        -->
-  <!-- ============================================ -->
   <section class="hero" id="hero">
     <div class="hero-particles">
-      <div class="hero-particle"></div>
-      <div class="hero-particle"></div>
-      <div class="hero-particle"></div>
-      <div class="hero-particle"></div>
-      <div class="hero-particle"></div>
-      <div class="hero-particle"></div>
-      <div class="hero-particle"></div>
-      <div class="hero-particle"></div>
+      <div class="hero-particle"></div><div class="hero-particle"></div><div class="hero-particle"></div><div class="hero-particle"></div>
+      <div class="hero-particle"></div><div class="hero-particle"></div><div class="hero-particle"></div><div class="hero-particle"></div>
     </div>
     <div class="hero-gradient"></div>
     <div class="hero-pattern"></div>
-
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="hero-badge-dot"></span>
-          Disponible esta semana
-        </div>
-
-        <h1>
-          Capturamos los momentos
-          <span class="gold-text">que definen tu historia</span>
-        </h1>
-
-        <p>
-          Somos un estudio de fotografía profesional en Santa Cruz. 
-          Especialistas en bodas, retratos corporativos, producto y eventos. 
-          Cada imagen cuenta una historia única.
-        </p>
-
+      <div>
+        <div class="hero-badge"><span class="hero-badge-dot"></span>Disponible esta semana</div>
+        <h1>Capturamos los momentos <span class="gold-text">que definen tu historia</span></h1>
+        <p>Somos un estudio de fotografía profesional en Santa Cruz. Especialistas en bodas, retratos corporativos, producto y eventos. Cada imagen cuenta una historia única.</p>
         <div class="hero-buttons">
-          <a href="#portafolio" class="btn btn-primary">
-            Ver Portafolio
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <a href="#portafolio" class="btn btn-primary">Ver Portafolio <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           <a href="#paquetes" class="btn btn-outline">Conocer Paquetes</a>
         </div>
-
         <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="hero-stat-number" data-count="800">0</div>
-            <div class="hero-stat-label">Sesiones</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-number" data-count="12">0</div>
-            <div class="hero-stat-label">Años</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-number" data-count="98">0</div>
-            <div class="hero-stat-label">% Satisfacción</div>
-          </div>
+          <div class="hero-stat"><div class="hero-stat-number" data-count="800">0</div><div class="hero-stat-label">Sesiones</div></div>
+          <div class="hero-stat"><div class="hero-stat-number" data-count="12">0</div><div class="hero-stat-label">Años</div></div>
+          <div class="hero-stat"><div class="hero-stat-number" data-count="98">0</div><div class="hero-stat-label">% Satisfacción</div></div>
         </div>
       </div>
-
       <div class="hero-visual">
         <div class="hero-camera-frame">
-          <div class="lens-ring"></div>
-          <div class="lens-ring-inner"></div>
-          <div class="lens-ring-dot"></div>
-          <div class="shutter-line"></div>
-          <div class="shutter-line shutter-line-2"></div>
+          <div class="lens-ring"></div><div class="lens-ring-inner"></div><div class="lens-ring-dot"></div>
+          <div class="shutter-line"></div><div class="shutter-line shutter-line-2"></div>
         </div>
         <div class="hero-floating-badge">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
           Calidad Profesional
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- SERVICIOS                                   -->
-  <!-- ============================================ -->
   <section class="services section-padding" id="servicios">
     <div class="container">
-      <div class="text-center">
-        <div class="gold-line mx-auto"></div>
-        <h2 class="section-title">Nuestros Servicios</h2>
-        <p class="section-subtitle mx-auto">
-          Ofrecemos soluciones fotográficas completas para cada necesidad. 
-          Calidad profesional con un enfoque artístico único.
-        </p>
-      </div>
-
+      <div class="text-center"><div class="gold-line mx-auto"></div><h2 class="section-title">Nuestros Servicios</h2><p class="section-subtitle mx-auto">Ofrecemos soluciones fotográficas completas para cada necesidad. Calidad profesional con un enfoque artístico único.</p></div>
       <div class="services-grid">
-        <!-- Servicio 1: Bodas -->
         <div class="service-card fade-up">
-          <div class="service-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-            </svg>
-          </div>
+          <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
           <h3>Fotografía de Bodas</h3>
           <p>Capturamos cada emoción y detalle de tu día especial. Cobertura completa desde los preparativos hasta la fiesta. Álbum digital incluido.</p>
-          <div class="service-price">Bs. 800 <small>desde</small></div>
+          <div class="service-price">Bs. 800 <small style="font-size:0.75rem;font-weight:400;color:var(--text-secondary)">desde</small></div>
         </div>
-
-        <!-- Servicio 2: Corporativo -->
         <div class="service-card fade-up fade-up-delay-1">
-          <div class="service-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-              <path d="M16 3.13a4 4 0 010 7.75"/>
-            </svg>
-          </div>
+          <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
           <h3>Retratos Corporativos</h3>
           <p>Imágenes profesionales para tu equipo, perfil de LinkedIn, branding personal y materiales institucionales con fondo en estudio o locación.</p>
-          <div class="service-price">Bs. 350 <small>desde</small></div>
+          <div class="service-price">Bs. 350 <small style="font-size:0.75rem;font-weight:400;color:var(--text-secondary)">desde</small></div>
         </div>
-
-        <!-- Servicio 3: Producto -->
         <div class="service-card fade-up fade-up-delay-2">
-          <div class="service-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-          </div>
+          <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
           <h3>Fotografía de Producto</h3>
           <p>Catálogos, e-commerce y redes sociales. Iluminación profesional que resalta cada detalle de tus productos. Incluye edición y retoque.</p>
-          <div class="service-price">Bs. 250 <small>desde</small></div>
+          <div class="service-price">Bs. 250 <small style="font-size:0.75rem;font-weight:400;color:var(--text-secondary)">desde</small></div>
         </div>
-
-        <!-- Servicio 4: Familiar -->
         <div class="service-card fade-up fade-up-delay-3">
-          <div class="service-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-              <circle cx="12" cy="7" r="4"/>
-              <path d="M17 3.13a4 4 0 010 7.75"/>
-            </svg>
-          </div>
+          <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M17 3.13a4 4 0 010 7.75"/></svg></div>
           <h3>Sesiones Familiares</h3>
           <p>Sesiones al aire libre o en estudio. Fotos naturales y espontáneas que reflejan la esencia de tu familia. Perfectas para recuerdos eternos.</p>
-          <div class="service-price">Bs. 400 <small>desde</small></div>
+          <div class="service-price">Bs. 400 <small style="font-size:0.75rem;font-weight:400;color:var(--text-secondary)">desde</small></div>
         </div>
-
-        <!-- Servicio 5: Eventos -->
         <div class="service-card fade-up fade-up-delay-4">
-          <div class="service-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"/>
-            </svg>
-          </div>
+          <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
           <h3>Fotografía de Eventos</h3>
           <p>Cumpleaños, aniversarios, lanzamientos y eventos corporativos. Cobertura discreta y profesional para que tú disfrutes mientras nosotros capturamos.</p>
-          <div class="service-price">Bs. 500 <small>desde</small></div>
+          <div class="service-price">Bs. 500 <small style="font-size:0.75rem;font-weight:400;color:var(--text-secondary)">desde</small></div>
         </div>
-
-        <!-- Servicio 6: Arquitectura -->
         <div class="service-card fade-up">
-          <div class="service-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="4" y="4" width="16" height="16" rx="2"/>
-              <path d="M9 8h1"/>
-              <path d="M14 8h1"/>
-              <path d="M9 12h6"/>
-              <path d="M9 16h6"/>
-            </svg>
-          </div>
+          <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 8h1"/><path d="M14 8h1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg></div>
           <h3>Fotografía de Arquitectura</h3>
           <p>Interiores, exteriores y proyectos inmobiliarios. Tomas con lentes gran angular y luz natural que destacan el diseño de cada espacio.</p>
-          <div class="service-price">Bs. 600 <small>desde</small></div>
+          <div class="service-price">Bs. 600 <small style="font-size:0.75rem;font-weight:400;color:var(--text-secondary)">desde</small></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- PORTAFOLIO / GALERÍA                       -->
-  <!-- ============================================ -->
   <section class="section-padding" id="portafolio">
     <div class="container">
-      <div class="text-center">
-        <div class="gold-line mx-auto"></div>
-        <h2 class="section-title">Portafolio</h2>
-        <p class="section-subtitle mx-auto">
-          Cada proyecto es único. Conocé algunos de nuestros trabajos más representativos.
-        </p>
-      </div>
-
+      <div class="text-center"><div class="gold-line mx-auto"></div><h2 class="section-title">Portafolio</h2><p class="section-subtitle mx-auto">Cada proyecto es único. Conocé algunos de nuestros trabajos más representativos.</p></div>
       <div class="portfolio-filters">
         <button class="filter-btn active" data-filter="all">Todos</button>
         <button class="filter-btn" data-filter="bodas">Bodas</button>
@@ -1520,224 +360,94 @@
         <button class="filter-btn" data-filter="producto">Producto</button>
         <button class="filter-btn" data-filter="familia">Familia</button>
       </div>
-
       <div class="portfolio-grid">
-        <!-- Imágenes placeholder con gradientes de colores oscuros -->
-        <div class="portfolio-item" data-category="bodas">
-          <div class="placeholder-img" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
-            <div class="overlay">
-              <span>Bodas</span>
-              <h4>Boda María & Carlos</h4>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio-item" data-category="corporativo">
-          <div class="placeholder-img" style="background: linear-gradient(135deg, #2d1b3d, #1a1a2e);">
-            <div class="overlay">
-              <span>Corporativo</span>
-              <h4>Retratos Ejecutivos</h4>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio-item" data-category="producto">
-          <div class="placeholder-img" style="background: linear-gradient(135deg, #1e3a2f, #1a2e22);">
-            <div class="overlay">
-              <span>Producto</span>
-              <h4>Colección Joyas</h4>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio-item" data-category="familia">
-          <div class="placeholder-img" style="background: linear-gradient(135deg, #3d1f1f, #2e1a1a);">
-            <div class="overlay">
-              <span>Familia</span>
-              <h4>Sesión Familia Rojas</h4>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio-item" data-category="bodas">
-          <div class="placeholder-img" style="background: linear-gradient(135deg, #1a2e3d, #162e3e);">
-            <div class="overlay">
-              <span>Bodas</span>
-              <h4>Boda Ana & Pedro</h4>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio-item" data-category="corporativo">
-          <div class="placeholder-img" style="background: linear-gradient(135deg, #2e2a1a, #3d371d);">
-            <div class="overlay">
-              <span>Corporativo</span>
-              <h4>Equipo TechCorp</h4>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio-item" data-category="producto">
-          <div class="placeholder-img" style="background: linear-gradient(135deg, #1f1a3d, #2a1a3d);">
-            <div class="overlay">
-              <span>Producto</span>
-              <h4>Línea Cosmética</h4>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio-item" data-category="familia">
-          <div class="placeholder-img" style="background: linear-gradient(135deg, #3d2e1a, #2e221a);">
-            <div class="overlay">
-              <span>Familia</span>
-              <h4>Sesión Parque</h4>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio-item" data-category="bodas">
-          <div class="placeholder-img" style="background: linear-gradient(135deg, #1a3d2e, #162e2a);">
-            <div class="overlay">
-              <span>Bodas</span>
-              <h4>Wedding Lucia & Diego</h4>
-            </div>
-          </div>
-        </div>
+        <div class="portfolio-item" data-category="bodas"><div class="placeholder-img" style="background:linear-gradient(135deg,#1a1a2e,#16213e)"><div class="overlay"><span>Bodas</span><h4>Boda María & Carlos</h4></div></div></div>
+        <div class="portfolio-item" data-category="corporativo"><div class="placeholder-img" style="background:linear-gradient(135deg,#2d1b3d,#1a1a2e)"><div class="overlay"><span>Corporativo</span><h4>Retratos Ejecutivos</h4></div></div></div>
+        <div class="portfolio-item" data-category="producto"><div class="placeholder-img" style="background:linear-gradient(135deg,#1e3a2f,#1a2e22)"><div class="overlay"><span>Producto</span><h4>Colección Joyas</h4></div></div></div>
+        <div class="portfolio-item" data-category="familia"><div class="placeholder-img" style="background:linear-gradient(135deg,#3d1f1f,#2e1a1a)"><div class="overlay"><span>Familia</span><h4>Sesión Familia Rojas</h4></div></div></div>
+        <div class="portfolio-item" data-category="bodas"><div class="placeholder-img" style="background:linear-gradient(135deg,#1a2e3d,#162e3e)"><div class="overlay"><span>Bodas</span><h4>Boda Ana & Pedro</h4></div></div></div>
+        <div class="portfolio-item" data-category="corporativo"><div class="placeholder-img" style="background:linear-gradient(135deg,#2e2a1a,#3d371d)"><div class="overlay"><span>Corporativo</span><h4>Equipo TechCorp</h4></div></div></div>
+        <div class="portfolio-item" data-category="producto"><div class="placeholder-img" style="background:linear-gradient(135deg,#1f1a3d,#2a1a3d)"><div class="overlay"><span>Producto</span><h4>Línea Cosmética</h4></div></div></div>
+        <div class="portfolio-item" data-category="familia"><div class="placeholder-img" style="background:linear-gradient(135deg,#3d2e1a,#2e221a)"><div class="overlay"><span>Familia</span><h4>Sesión Parque</h4></div></div></div>
+        <div class="portfolio-item" data-category="bodas"><div class="placeholder-img" style="background:linear-gradient(135deg,#1a3d2e,#162e2a)"><div class="overlay"><span>Bodas</span><h4>Wedding Lucia & Diego</h4></div></div></div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- LIGHTBOX                                    -->
-  <!-- ============================================ -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" id="lightboxClose">&times;</button>
     <div class="lightbox-content">
-      <div class="placeholder-img" id="lightboxImage" style="background: linear-gradient(135deg, #1a1a2e, #16213e);"></div>
-      <div class="lightbox-info">
-        <div>
-          <h3 id="lightboxTitle">Título</h3>
-          <span id="lightboxCategory">Categoría</span>
-        </div>
-      </div>
+      <div class="placeholder-img" id="lightboxImage" style="background:linear-gradient(135deg,#1a1a2e,#16213e);aspect-ratio:16/9;"></div>
+      <div class="lightbox-info"><div><h3 id="lightboxTitle">Título</h3><span id="lightboxCategory" style="color:var(--accent);font-size:0.9rem;">Categoría</span></div></div>
     </div>
   </div>
 
-  <!-- ============================================ -->
-  <!-- PROCESO DE TRABAJO                         -->
-  <!-- ============================================ -->
   <section class="process section-padding" id="proceso">
     <div class="container">
-      <div class="text-center">
-        <div class="gold-line mx-auto"></div>
-        <h2 class="section-title">¿Cómo trabajamos?</h2>
-        <p class="section-subtitle mx-auto">
-          Un proceso simple y transparente desde la consulta hasta la entrega final.
-        </p>
-      </div>
-
+      <div class="text-center"><div class="gold-line mx-auto"></div><h2 class="section-title">¿Cómo trabajamos?</h2><p class="section-subtitle mx-auto">Un proceso simple y transparente desde la consulta hasta la entrega final.</p></div>
       <div class="process-grid">
         <div class="process-step fade-up">
           <div class="process-step-number">01</div>
-          <div class="process-step-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-            </svg>
-            <div class="connector"></div>
-          </div>
-          <h4>Consulta</h4>
-          <p>Hablamos sobre tu proyecto, estilo y necesidades. Te asesoramos sin compromiso.</p>
+          <div class="process-step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+          <h4>Consulta</h4><p>Hablamos sobre tu proyecto, estilo y necesidades. Te asesoramos sin compromiso.</p>
         </div>
-
         <div class="process-step fade-up fade-up-delay-1">
           <div class="process-step-number">02</div>
-          <div class="process-step-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
-              <circle cx="12" cy="13" r="4"/>
-            </svg>
-            <div class="connector"></div>
-          </div>
-          <h4>Sesión</h4>
-          <p>Coordinamos la fecha y realizamos la sesión con el equipo profesional completo.</p>
+          <div class="process-step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <h4>Sesión</h4><p>Coordinamos la fecha y realizamos la sesión con el equipo profesional completo.</p>
         </div>
-
         <div class="process-step fade-up fade-up-delay-2">
           <div class="process-step-number">03</div>
-          <div class="process-step-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="23 4 23 10 17 10"/>
-              <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/>
-            </svg>
-            <div class="connector"></div>
-          </div>
-          <h4>Edición</h4>
-          <p>Seleccionamos y editamos las mejores tomas con nuestro estilo característico.</p>
+          <div class="process-step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg></div>
+          <h4>Edición</h4><p>Seleccionamos y editamos las mejores tomas con nuestro estilo característico.</p>
         </div>
-
         <div class="process-step fade-up fade-up-delay-3">
           <div class="process-step-number">04</div>
-          <div class="process-step-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-            </svg>
-            <div class="connector"></div>
-          </div>
-          <h4>Entrega</h4>
-          <p>Recibís tus fotos en alta resolución vía galería digital privada, listas para compartir.</p>
+          <div class="process-step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h4>Entrega</h4><p>Recibís tus fotos en alta resolución vía galería digital privada, listas para compartir.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- PAQUETES / PRECIOS                         -->
-  <!-- ============================================ -->
   <section class="section-padding" id="paquetes">
     <div class="container">
-      <div class="text-center">
-        <div class="gold-line mx-auto"></div>
-        <h2 class="section-title">Paquetes</h2>
-        <p class="section-subtitle mx-auto">
-          Elegí el plan que mejor se adapte a tu proyecto. Todos incluyen edición profesional y galería digital.
-        </p>
-      </div>
-
+      <div class="text-center"><div class="gold-line mx-auto"></div><h2 class="section-title">Paquetes</h2><p class="section-subtitle mx-auto">Elegí el plan que mejor se adapte a tu proyecto. Todos incluyen edición profesional y galería digital.</p></div>
       <div class="pricing-grid">
-        <!-- Básico -->
         <div class="pricing-card fade-up">
           <h3>Básico</h3>
-          <div class="price">Bs. 350 <small>/ sesión</small></div>
-          <div class="price-sub">Ideal para sesiones rápidas</div>
+          <div class="price">Bs. 350 <small style="font-size:1rem;font-weight:400;color:var(--text-secondary)">/ sesión</small></div>
           <ul class="pricing-features">
-            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>1 hora de sesión</li>
-            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>15 fotos editadas</li>
-            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Entrega digital</li>
-            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>1 look / cambio</li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>1 hora de sesión</li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>15 fotos editadas</li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Entrega digital</li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>1 look / cambio</li>
           </ul>
           <a href="#contacto" class="btn btn-outline" style="width:100%">Solicitar</a>
         </div>
-
-        <!-- Profesional (destacado) -->
         <div class="pricing-card featured fade-up fade-up-delay-1">
           <div class="pricing-badge">Más popular</div>
           <h3>Profesional</h3>
-          <div class="price">Bs. 750 <small>/ sesión</small></div>
-          <div class="price-sub">Nuestra opción más elegida</div>
+          <div class="price">Bs. 750 <small style="font-size:1rem;font-weight:400;color:var(--text-secondary)">/ sesión</small></div>
           <ul class="pricing-features">
-            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>3 horas de sesión</li>
-            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>40 fotos editadas</li>
-            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Galería web privada</li>
-            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>2 locaciones</li>
-            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Maquillaje básico incluido</li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>3 horas de sesión</li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>40 fotos editadas</li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Galería web privada</li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>2 locaciones</li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Maquillaje básico incluido</li>
           </ul>
           <a href="#contacto" class="btn btn-primary" style="width:100%">Elegir Plan</a>
         </div>
-
-        <!-- Premium -->
         <div class="pricing-card fade-up fade-up-delay-2">
           <h3>Premium</h3>
-          <div class="price">Bs. 1,400 <small>/ sesión</small></div>
-          <div class="price-sub">La experiencia completa</div>
+          <div class="price">Bs. 1,400 <small style="font-size:1rem;font-weight:400;color:var(--text-secondary)">/ sesión</small></div>
           <ul class="pricing-features">
-            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>6 horas de sesión</li>
-            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>80+ fotos editadas</li>
-            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Galería web + álbum impreso</li>
-            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Locaciones ilimitadas</li>
-            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Drone aéreo</li>
-            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Video detrás de cámaras</li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 horas de sesión</li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>80+ fotos editadas</li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Galería web + álbum impreso</li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Locaciones ilimitadas</li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Drone aéreo</li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Video detrás de cámaras</li>
           </ul>
           <a href="#contacto" class="btn btn-outline" style="width:100%">Solicitar</a>
         </div>
@@ -1745,535 +455,208 @@
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- TESTIMONIOS                                 -->
-  <!-- ============================================ -->
   <section class="section-padding" style="background:var(--bg-secondary)" id="testimonios">
     <div class="container">
-      <div class="text-center">
-        <div class="gold-line mx-auto"></div>
-        <h2 class="section-title">Lo que dicen nuestros clientes</h2>
-        <p class="section-subtitle mx-auto">
-          La satisfacción de quienes confiaron en nosotros es nuestro mejor respaldo.
-        </p>
-      </div>
-
+      <div class="text-center"><div class="gold-line mx-auto"></div><h2 class="section-title">Lo que dicen nuestros clientes</h2><p class="section-subtitle mx-auto">La satisfacción de quienes confiaron en nosotros es nuestro mejor respaldo.</p></div>
       <div class="testimonials-grid">
         <div class="testimonial-card fade-up">
           <div class="testimonial-quote-icon">&ldquo;</div>
           <div class="testimonial-stars">★★★★★</div>
           <blockquote>Un equipo increíblemente profesional. Capturaron cada emoción de nuestra boda con una sensibilidad única. Las fotos son una verdadera obra de arte.</blockquote>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar" style="background: #C9A84C;">MC</div>
-            <div class="testimonial-author-info">
-              <h5>María & Carlos</h5>
-              <span>Boda</span>
-            </div>
-          </div>
+          <div class="testimonial-author"><div class="testimonial-avatar" style="background:#C9A84C;">MC</div><div class="testimonial-author-info"><h5>María & Carlos</h5><span>Boda</span></div></div>
         </div>
-
         <div class="testimonial-card fade-up fade-up-delay-1">
           <div class="testimonial-quote-icon">&ldquo;</div>
           <div class="testimonial-stars">★★★★★</div>
           <blockquote>Contratamos el paquete corporativo para nuestro equipo directivo. Resultados impecables, muy puntuales y con una calidad que superó nuestras expectativas.</blockquote>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar" style="background: #6B7280;">GR</div>
-            <div class="testimonial-author-info">
-              <h5>Gabriela Rojas</h5>
-              <span>Retratos Corporativos</span>
-            </div>
-          </div>
+          <div class="testimonial-author"><div class="testimonial-avatar" style="background:#6B7280;">GR</div><div class="testimonial-author-info"><h5>Gabriela Rojas</h5><span>Retratos Corporativos</span></div></div>
         </div>
-
         <div class="testimonial-card fade-up fade-up-delay-2">
           <div class="testimonial-quote-icon">&ldquo;</div>
           <div class="testimonial-stars">★★★★★</div>
           <blockquote>Las fotos de mis productos quedaron espectaculares. Desde que las uso en mi tienda online, las ventas aumentaron notoriamente. Muy recomendados.</blockquote>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar" style="background: #8B5CF6;">PM</div>
-            <div class="testimonial-author-info">
-              <h5>Pablo Méndez</h5>
-              <span>Fotografía de Producto</span>
-            </div>
-          </div>
+          <div class="testimonial-author"><div class="testimonial-avatar" style="background:#8B5CF6;">PM</div><div class="testimonial-author-info"><h5>Pablo Méndez</h5><span>Fotografía de Producto</span></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- SOBRE NOSOTROS                              -->
-  <!-- ============================================ -->
   <section class="section-padding" id="nosotros">
     <div class="container">
       <div class="about-grid">
         <div class="about-text fade-up">
           <div class="gold-line"></div>
           <h2 class="section-title">Sobre Nosotros</h2>
-          <p>
-            Lumina Studio nació en 2014 de la pasión por contar historias a través del lente. 
-            Desde entonces, hemos tenido el privilegio de capturar miles de momentos únicos: 
-            desde bodas llenas de amor hasta campañas corporativas de alto nivel.
-          </p>
-          <p>
-            Nuestro equipo está formado por fotógrafos, editores y creativos que comparten 
-            una visión: cada imagen debe transmitir emoción, calidad y autenticidad. 
-            Trabajamos con equipos de última generación y técnicas de edición que realzan 
-            la belleza natural de cada toma.
-          </p>
-          <p>
-            Hoy somos referentes en Santa Cruz, con clientes que confían en nosotros año 
-            tras año. Para nosotros, cada sesión es una nueva oportunidad de crear algo 
-            extraordinario.
-          </p>
-          <div class="about-signature">
-            — Alejandro Linares
-            <span>Director & Fotógrafo Principal</span>
-          </div>
+          <p>Lumina Studio nació en 2014 de la pasión por contar historias a través del lente. Desde entonces, hemos tenido el privilegio de capturar miles de momentos únicos: desde bodas llenas de amor hasta campañas corporativas de alto nivel.</p>
+          <p>Nuestro equipo está formado por fotógrafos, editores y creativos que comparten una visión: cada imagen debe transmitir emoción, calidad y autenticidad. Trabajamos con equipos de última generación y técnicas de edición que realzan la belleza natural de cada toma.</p>
+          <p>Hoy somos referentes en Santa Cruz, con clientes que confían en nosotros año tras año. Para nosotros, cada sesión es una nueva oportunidad de crear algo extraordinario.</p>
+          <div class="about-signature">— Alejandro Linares <span>Director & Fotógrafo Principal</span></div>
         </div>
-
         <div class="about-stats fade-up fade-up-delay-1">
-          <div class="about-stat">
-            <div class="about-stat-number" data-count="800">0</div>
-            <div class="about-stat-label">Sesiones realizadas</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat-number" data-count="12">0</div>
-            <div class="about-stat-label">Años de experiencia</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat-number" data-count="15">0</div>
-            <div class="about-stat-label">Ciudades cubiertas</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat-number" data-count="6">0</div>
-            <div class="about-stat-label">Premios recibidos</div>
-          </div>
+          <div class="about-stat"><div class="about-stat-number" data-count="800">0</div><div class="about-stat-label">Sesiones realizadas</div></div>
+          <div class="about-stat"><div class="about-stat-number" data-count="12">0</div><div class="about-stat-label">Años de experiencia</div></div>
+          <div class="about-stat"><div class="about-stat-number" data-count="15">0</div><div class="about-stat-label">Ciudades cubiertas</div></div>
+          <div class="about-stat"><div class="about-stat-number" data-count="6">0</div><div class="about-stat-label">Premios recibidos</div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- CONTACTO + MAPA SIMULADO                   -->
-  <!-- ============================================ -->
   <section class="contact section-padding" id="contacto">
     <div class="container">
-      <div class="text-center">
-        <div class="gold-line mx-auto"></div>
-        <h2 class="section-title">Contacto</h2>
-        <p class="section-subtitle mx-auto">
-          Contanos sobre tu proyecto. Te responderemos en menos de 24 horas.
-        </p>
-      </div>
-
+      <div class="text-center"><div class="gold-line mx-auto"></div><h2 class="section-title">Contacto</h2><p class="section-subtitle mx-auto">Contanos sobre tu proyecto. Te responderemos en menos de 24 horas.</p></div>
       <div class="contact-grid">
         <form class="contact-form" id="contactForm" novalidate>
           <div class="form-row">
-            <div class="form-group">
-              <label for="name">Nombre</label>
-              <input type="text" id="name" placeholder="Tu nombre" required />
-              <span class="error">Completá este campo</span>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" placeholder="tu@email.com" required />
-              <span class="error">Email inválido</span>
-            </div>
+            <div class="form-group"><label for="name">Nombre</label><input type="text" id="name" placeholder="Tu nombre" required /><span class="error">Completá este campo</span></div>
+            <div class="form-group"><label for="email">Email</label><input type="email" id="email" placeholder="tu@email.com" required /><span class="error">Email inválido</span></div>
           </div>
           <div class="form-row">
-            <div class="form-group">
-              <label for="phone">Teléfono</label>
-              <input type="tel" id="phone" placeholder="+591 70000000" />
-            </div>
-            <div class="form-group">
-              <label for="session-type">Tipo de sesión</label>
+            <div class="form-group"><label for="phone">Teléfono</label><input type="tel" id="phone" placeholder="+591 70000000" /></div>
+            <div class="form-group"><label for="session-type">Tipo de sesión</label>
               <select id="session-type">
                 <option value="">Seleccioná una opción</option>
-                <option value="bodas">Bodas</option>
-                <option value="corporativo">Corporativo</option>
-                <option value="producto">Producto</option>
-                <option value="familiar">Familiar</option>
-                <option value="eventos">Eventos</option>
-                <option value="arquitectura">Arquitectura</option>
+                <option value="bodas">Bodas</option><option value="corporativo">Corporativo</option>
+                <option value="producto">Producto</option><option value="familiar">Familiar</option>
+                <option value="eventos">Eventos</option><option value="arquitectura">Arquitectura</option>
               </select>
             </div>
           </div>
-          <div class="form-group">
-            <label for="message">Mensaje</label>
-            <textarea id="message" placeholder="Contanos sobre tu proyecto..." required></textarea>
-            <span class="error">Escribí un mensaje</span>
-          </div>
-          <button type="submit" class="btn btn-primary" style="align-self:flex-start;">
-            Enviar Mensaje
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2z"/></svg>
-          </button>
-          <div class="form-success" id="formSuccess">
-            ¡Mensaje enviado con éxito! Te contactaremos pronto.
-          </div>
+          <div class="form-group"><label for="message">Mensaje</label><textarea id="message" placeholder="Contanos sobre tu proyecto..." required></textarea><span class="error">Escribí un mensaje</span></div>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Enviar Mensaje <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2z"/></svg></button>
+          <div class="form-success" id="formSuccess">¡Mensaje enviado con éxito! Te contactaremos pronto.</div>
         </form>
-
         <div class="contact-info fade-up fade-up-delay-1">
           <div class="contact-info-item">
-            <div class="contact-info-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div class="contact-info-text">
-              <h4>Ubicación</h4>
-              <p>Av. San Martín #245, Edif. Torres<br />Santa Cruz, Bolivia</p>
-            </div>
+            <div class="contact-info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="contact-info-text"><h4>Ubicación</h4><p>Av. San Martín #245, Edif. Torres<br />Santa Cruz, Bolivia</p></div>
           </div>
-
           <div class="contact-info-item">
-            <div class="contact-info-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div class="contact-info-text">
-              <h4>Email</h4>
-              <p>hola@luminastudio.bo</p>
-            </div>
+            <div class="contact-info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="contact-info-text"><h4>Email</h4><p>hola@luminastudio.bo</p></div>
           </div>
-
           <div class="contact-info-item">
-            <div class="contact-info-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            </div>
-            <div class="contact-info-text">
-              <h4>Teléfono</h4>
-              <p>+591 700 123 456</p>
-            </div>
+            <div class="contact-info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div class="contact-info-text"><h4>Teléfono</h4><p>+591 700 123 456</p></div>
           </div>
-
           <div class="contact-info-item">
-            <div class="contact-info-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <div class="contact-info-text">
-              <h4>Horarios</h4>
-              <p>Lun – Sáb: 9:00 – 19:00<br />Domingos: previa cita</p>
-            </div>
+            <div class="contact-info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="contact-info-text"><h4>Horarios</h4><p>Lun – Sáb: 9:00 – 19:00<br />Domingos: previa cita</p></div>
           </div>
-
           <div>
-            <h4 style="font-family:var(--font-display); font-size:0.95rem; font-weight:600; margin-bottom:12px;">Seguinos</h4>
+            <h4 style="font-family:var(--font-display);font-size:0.95rem;font-weight:600;margin-bottom:12px;">Seguinos</h4>
             <div class="contact-social">
-              <a href="#" target="_blank" aria-label="Instagram">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-              </a>
-              <a href="#" target="_blank" aria-label="Facebook">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-              </a>
-              <a href="#" target="_blank" aria-label="WhatsApp">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-              </a>
+              <a href="#" target="_blank" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+              <a href="#" target="_blank" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+              <a href="#" target="_blank" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></a>
             </div>
           </div>
-
-          <!-- Mapa simulado -->
-          <div class="contact-map-sim">
-            <div class="map-grid"></div>
-            <div class="map-marker">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                <circle cx="12" cy="10" r="3" fill="#0A0A0A"/>
-              </svg>
-            </div>
-          </div>
+          <div class="contact-map-sim"><div class="map-grid"></div><div class="map-marker"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3" fill="#0A0A0A"/></svg></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- FOOTER                                      -->
-  <!-- ============================================ -->
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
         <div class="footer-col">
-          <a href="#hero" class="navbar-logo" style="margin-bottom:16px; display:inline-flex;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
-              <circle cx="12" cy="13" r="4"/>
-            </svg>
+          <a href="#hero" class="navbar-logo" style="margin-bottom:16px;display:inline-flex;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
             <span>Lumina</span> Studio
           </a>
           <p>Estudio de fotografía profesional en Santa Cruz, Bolivia. Capturamos los momentos que definen tu historia con calidad y pasión.</p>
         </div>
-
-        <div class="footer-col">
-          <h4>Servicios</h4>
-          <ul>
-            <li><a href="#servicios">Fotografía de Bodas</a></li>
-            <li><a href="#servicios">Retratos Corporativos</a></li>
-            <li><a href="#servicios">Fotografía de Producto</a></li>
-            <li><a href="#servicios">Sesiones Familiares</a></li>
-            <li><a href="#servicios">Fotografía de Eventos</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Links Rápidos</h4>
-          <ul>
-            <li><a href="#portafolio">Portafolio</a></li>
-            <li><a href="#paquetes">Paquetes</a></li>
-            <li><a href="#nosotros">Sobre Nosotros</a></li>
-            <li><a href="#testimonios">Testimonios</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Newsletter</h4>
-          <p style="margin-bottom:16px;">Recibí tips de fotografía y ofertas exclusivas.</p>
-          <div class="footer-newsletter">
-            <input type="email" placeholder="tu@email.com" />
-            <button>Suscribir</button>
-          </div>
-        </div>
+        <div class="footer-col"><h4>Servicios</h4><ul><li><a href="#servicios">Fotografía de Bodas</a></li><li><a href="#servicios">Retratos Corporativos</a></li><li><a href="#servicios">Fotografía de Producto</a></li><li><a href="#servicios">Sesiones Familiares</a></li><li><a href="#servicios">Fotografía de Eventos</a></li></ul></div>
+        <div class="footer-col"><h4>Links Rápidos</h4><ul><li><a href="#portafolio">Portafolio</a></li><li><a href="#paquetes">Paquetes</a></li><li><a href="#nosotros">Sobre Nosotros</a></li><li><a href="#testimonios">Testimonios</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+        <div class="footer-col"><h4>Newsletter</h4><p style="margin-bottom:16px;">Recibí tips de fotografía y ofertas exclusivas.</p><div class="footer-newsletter"><input type="email" placeholder="tu@email.com" /><button>Suscribir</button></div></div>
       </div>
-
       <div class="footer-gold-line"></div>
-
-      <div class="footer-bottom">
-        <span>&copy; <span id="year"></span> Lumina Studio &bull; Todos los derechos reservados.</span>
-        <span>Diseñado con pasión en Santa Cruz, Bolivia</span>
-      </div>
+      <div class="footer-bottom"><span>&copy; <span id="year"></span> Lumina Studio &bull; Todos los derechos reservados.</span><span>Diseñado con pasión en Santa Cruz, Bolivia</span></div>
     </div>
   </footer>
 
-  <!-- ============================================ -->
-  <!-- JAVASCRIPT                                  -->
-  <!-- ============================================ -->
   <script>
-    // =============================================
-    // AÑO DINÁMICO EN FOOTER
-    // =============================================
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // =============================================
-    // NAVBAR - SCROLL EFFECT
-    // =============================================
     const navbar = document.getElementById('navbar');
-    let lastScroll = 0;
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 50); });
 
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.scrollY;
-      if (currentScroll > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-      lastScroll = currentScroll;
-    });
-
-    // =============================================
-    // NAVBAR - HAMBURGER MENU
-    // =============================================
     const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
+    const navLinksEl = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinksEl.classList.toggle('open'); });
+    document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('active'); navLinksEl.classList.remove('open'); }));
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('open');
-    });
-
-    // Cerrar menú al hacer click en un link
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('open');
-      });
-    });
-
-    // =============================================
-    // SCROLLSPY - ACTIVE NAV LINK
-    // =============================================
     const sections = document.querySelectorAll('section[id]');
     const navLinksAll = document.querySelectorAll('.nav-link');
-
     function updateActiveLink() {
       let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;
-        if (window.scrollY >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-      navLinksAll.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
-      });
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 150) current = s.getAttribute('id'); });
+      navLinksAll.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
     }
-
     window.addEventListener('scroll', updateActiveLink);
     window.addEventListener('load', updateActiveLink);
 
-    // =============================================
-    // INTERSECTION OBSERVER - FADE UP
-    // =============================================
-    const fadeElements = document.querySelectorAll('.fade-up');
-
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
-    fadeElements.forEach(el => observer.observe(el));
-
-    // =============================================
-    // CONTADOR ANIMADO DE NÚMEROS
-    // =============================================
-    const counterElements = document.querySelectorAll('[data-count]');
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
     function animateCounter(el) {
       const target = parseInt(el.getAttribute('data-count'));
       let current = 0;
-      const increment = Math.ceil(target / 60);
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          current = target;
-          clearInterval(timer);
-        }
-        el.textContent = current + (target === 98 ? '%' : '');
-      }, 25);
+      const step = Math.ceil(target / 60);
+      const timer = setInterval(() => { current += step; if (current >= target) { current = target; clearInterval(timer); } el.textContent = current; }, 25);
     }
-
     const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          if (!el.dataset.counted) {
-            el.dataset.counted = 'true';
-            animateCounter(el);
-          }
-          counterObserver.unobserve(el);
-        }
-      });
+      entries.forEach(e => { if (e.isIntersecting && !e.target.dataset.counted) { e.target.dataset.counted = 'true'; animateCounter(e.target); counterObserver.unobserve(e.target); } });
     }, { threshold: 0.5 });
+    document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
-    counterElements.forEach(el => counterObserver.observe(el));
-
-    // =============================================
-    // PORTAFOLIO - FILTROS
-    // =============================================
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-    filterBtns.forEach(btn => {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        // Active button
-        filterBtns.forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
-        const filter = btn.getAttribute('data-filter');
-
-        portfolioItems.forEach(item => {
-          const category = item.getAttribute('data-category');
-          if (filter === 'all' || category === filter) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+          item.style.display = (btn.dataset.filter === 'all' || item.dataset.category === btn.dataset.filter) ? 'block' : 'none';
         });
       });
     });
 
-    // =============================================
-    // LIGHTBOX
-    // =============================================
-    const lightboxEl = document.getElementById('lightbox');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const lightboxTitle = document.getElementById('lightboxTitle');
-    const lightboxCategory = document.getElementById('lightboxCategory');
-    const lightboxImage = document.getElementById('lightboxImage');
-
-    portfolioItems.forEach(item => {
+    const lightboxEl = document.getElementById('lightbox'), lightboxImage = document.getElementById('lightboxImage'), lightboxTitle = document.getElementById('lightboxTitle'), lightboxCategory = document.getElementById('lightboxCategory');
+    document.querySelectorAll('.portfolio-item').forEach(item => {
       item.addEventListener('click', () => {
         const overlay = item.querySelector('.overlay');
         if (!overlay) return;
-        const title = overlay.querySelector('h4')?.textContent || 'Proyecto';
-        const category = overlay.querySelector('span')?.textContent || '';
-        const bg = item.querySelector('.placeholder-img')?.style.background || '';
-
-        lightboxTitle.textContent = title;
-        lightboxCategory.textContent = category;
-        lightboxImage.style.background = bg;
-        lightboxEl.classList.add('open');
-        document.body.style.overflow = 'hidden';
+        lightboxTitle.textContent = overlay.querySelector('h4')?.textContent || '';
+        lightboxCategory.textContent = overlay.querySelector('span')?.textContent || '';
+        lightboxImage.style.background = item.querySelector('.placeholder-img')?.style.background || '';
+        lightboxEl.classList.add('open'); document.body.style.overflow = 'hidden';
       });
     });
+    function closeLightbox() { lightboxEl.classList.remove('open'); document.body.style.overflow = ''; }
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    lightboxEl.addEventListener('click', (e) => { if (e.target === lightboxEl) closeLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 
-    function closeLightbox() {
-      lightboxEl.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightboxEl.addEventListener('click', (e) => {
-      if (e.target === lightboxEl) closeLightbox();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLightbox();
-    });
-
-    // =============================================
-    // FORMULARIO - VALIDACIÓN
-    // =============================================
-    const contactForm = document.getElementById('contactForm');
-    const formSuccess = document.getElementById('formSuccess');
-
-    contactForm.addEventListener('submit', (e) => {
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
       e.preventDefault();
       let valid = true;
-
-      const name = document.getElementById('name');
-      const email = document.getElementById('email');
-      const message = document.getElementById('message');
-
-      // Reset errors
+      const name = document.getElementById('name'), email = document.getElementById('email'), message = document.getElementById('message');
       document.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
-
-      if (!name.value.trim()) {
-        name.closest('.form-group').classList.add('has-error');
-        valid = false;
-      }
-      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-        email.closest('.form-group').classList.add('has-error');
-        valid = false;
-      }
-      if (!message.value.trim()) {
-        message.closest('.form-group').classList.add('has-error');
-        valid = false;
-      }
-
+      if (!name.value.trim()) { name.closest('.form-group').classList.add('has-error'); valid = false; }
+      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.closest('.form-group').classList.add('has-error'); valid = false; }
+      if (!message.value.trim()) { message.closest('.form-group').classList.add('has-error'); valid = false; }
       if (valid) {
-        formSuccess.classList.add('show');
-        contactForm.reset();
-        setTimeout(() => {
-          formSuccess.classList.remove('show');
-        }, 4000);
+        document.getElementById('formSuccess').classList.add('show');
+        document.getElementById('contactForm').reset();
+        setTimeout(() => document.getElementById('formSuccess').classList.remove('show'), 4000);
       }
     });
 
-    // =============================================
-    // NEWSLETTER
-    // =============================================
     document.querySelector('.footer-newsletter button')?.addEventListener('click', () => {
       const input = document.querySelector('.footer-newsletter input');
-      if (input.value.trim()) {
-        alert('¡Gracias por suscribirte! Pronto recibirás nuestras novedades.');
-        input.value = '';
-      } else {
-        alert('Ingresá tu email para suscribirte.');
-      }
+      if (input.value.trim()) { alert('¡Gracias por suscribirte!'); input.value = ''; }
+      else alert('Ingresá tu email.');
     });
   </script>
 </body>
