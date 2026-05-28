@@ -1,98 +1,69 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { FadeIn } from "../components/components/FadeIn";
+import { Code2, RefreshCw, Globe, Wrench } from "lucide-react";
 
 const services = [
   {
-    number: "01",
-    title: "Landing Systems",
+    icon: Code2,
+    title: "Desarrollo Web a Medida",
     description:
-      "Landing pages enfocadas en conversión con Next.js, formularios inteligentes y flujos de captura automatizados. Diseño sistemático orientado a resultados medibles.",
-    tags: ["Next.js", "Formularios", "CTA", "SEO"],
+      "Páginas web interactivas programadas con Next.js y Tailwind para una velocidad de carga insuperable. Diseño limpio, código optimizado.",
   },
   {
-    number: "02",
-    title: "Automation Systems",
+    icon: RefreshCw,
+    title: "Rediseño y Remodelación",
     description:
-      "Automatización de leads, seguimiento y procesos operativos mediante webhooks, APIs y conexión CRM. Reducción de tiempos manuales y eliminación de tareas repetitivas.",
-    tags: ["Webhooks", "APIs", "Flujos", "CRM"],
+      "Transformamos sitios web obsoletos o lentos en experiencias digitales modernas, limpias y atractivas. Sin perder posicionamiento.",
   },
   {
-    number: "03",
-    title: "CRM Integration",
+    icon: Globe,
+    title: "Gestión de Dominios y Lanzamiento",
     description:
-      "Integración de formularios, pipelines de ventas, notificaciones y paneles de seguimiento en tiempo real. Datos centralizados sin fricción.",
-    tags: ["Formspree", "Pipelines", "Notificaciones", "Dashboard"],
+      "Nos ocupamos de adquirir, configurar y desplegar tu web en servidores globales de alta velocidad bajo tu propio nombre.",
   },
   {
-    number: "04",
-    title: "Business Dashboards",
+    icon: Wrench,
+    title: "Mantenimiento y Soporte",
     description:
-      "Paneles operativos con métricas en vivo, visualización de datos y reportes automatizados para toma de decisiones basada en datos.",
-    tags: ["Dashboards", "Tiempo real", "Reportes", "Métricas"],
-  },
-  {
-    number: "05",
-    title: "AI Integrations",
-    description:
-      "IA aplicada a procesos reales: asistentes inteligentes, clasificación de leads, automatización cognitiva y modelos de lenguaje integrados a flujos operativos.",
-    tags: ["LLMs", "Asistentes", "NLP", "Automatización"],
+      "Monitoreo continuo y actualizaciones para que tu sitio web funcione siempre al 100% sin que tengas que preocuparte por nada.",
   },
 ];
 
 export const Services = () => {
   return (
-    <section id="servicios" className="py-28 md:py-36 border-t border-[#1f1f23]">
+    <section id="servicios" className="py-28 md:py-36 border-t border-zinc-800/20">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <div className="max-w-2xl mb-20">
-            <span className="text-[10px] font-mono text-[#52525b] tracking-[0.25em] uppercase block mb-4">
+          <div className="max-w-2xl mb-16">
+            <h2 className="text-[clamp(26px,3.5vw,40px)] font-semibold tracking-tight leading-[1.12] text-zinc-50 mb-4">
               Servicios
-            </span>
-            <h2 className="text-[clamp(28px,3.5vw,42px)] font-semibold tracking-tight leading-[1.15] text-[#f5f5f5] mb-4">
-              Infraestructura digital operativa
             </h2>
-            <p className="text-sm md:text-base text-[#a1a1aa] leading-relaxed max-w-[520px]">
-              No construimos p&aacute;ginas gen&eacute;ricas. Dise&ntilde;amos sistemas que resuelven problemas operativos y generan resultados medibles.
+            <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[480px]">
+              Todo lo que necesitás para tener una presencia web profesional, sin complicaciones.
             </p>
           </div>
         </FadeIn>
 
-        <div className="space-y-0.5">
-          {services.map((service, index) => (
-            <FadeIn key={service.title} delay={index * 0.06}>
-              <motion.div
-                whileHover={{ x: 2 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-                className="group border-t border-[#1f1f23] py-6 md:py-7 cursor-default hover:border-[#27272a] transition-colors duration-300"
-              >
-                <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-10">
-                  <span className="text-[10px] font-mono text-[#52525b] tracking-widest shrink-0 mt-0.5">
-                    {service.number}
-                  </span>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-base md:text-lg font-semibold text-[#f5f5f5] mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm text-[#a1a1aa] leading-relaxed max-w-[560px]">
-                      {service.description}
-                    </p>
+        <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <FadeIn key={service.title} delay={index * 0.06}>
+                <div className="bg-[#18181b] border border-zinc-800/80 rounded-xl p-7 md:p-8 hover:border-zinc-700/80 transition-colors duration-300 h-full">
+                  <div className="w-9 h-9 bg-zinc-800/50 rounded-lg flex items-center justify-center mb-4 text-zinc-400">
+                    <Icon className="w-4.5 h-4.5" />
                   </div>
-                  <div className="flex flex-wrap gap-2 shrink-0">
-                    {service.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[10px] font-mono text-[#52525b] bg-[#18181b] border border-[#1f1f23] px-2.5 py-1 rounded"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                  <h3 className="text-base font-semibold text-zinc-50 mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-zinc-400 leading-relaxed">
+                    {service.description}
+                  </p>
                 </div>
-              </motion.div>
-            </FadeIn>
-          ))}
+              </FadeIn>
+            );
+          })}
         </div>
       </div>
     </section>

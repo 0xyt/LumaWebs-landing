@@ -15,21 +15,21 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Adan Labs | Desarrollo Web, Automatización e IA para Negocios",
+  title: "Adan Labs | Diseño y Desarrollo Web de Alto Impacto",
   description:
-    "Sistemas web, automatización de procesos, integración CRM e inteligencia artificial aplicada. Landing pages, dashboards y funnels de alta conversión.",
+    "Creamos y remodelamos páginas web desde cero. Desarrollo web a medida, diseño minimalista, gestión de dominios y mantenimiento técnico.",
   openGraph: {
-    title: "Adan Labs | Desarrollo Web, Automatización e IA para Negocios",
+    title: "Adan Labs | Diseño y Desarrollo Web de Alto Impacto",
     description:
-      "Sistemas web, automatización de procesos, integración CRM e inteligencia artificial aplicada.",
+      "Creamos y remodelamos páginas web desde cero. Desarrollo web a medida, diseño minimalista, gestión de dominios y mantenimiento técnico.",
     siteName: "Adan Labs",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Adan Labs | Desarrollo Web, Automatización e IA para Negocios",
+    title: "Adan Labs | Diseño y Desarrollo Web de Alto Impacto",
     description:
-      "Sistemas web, automatización de procesos, integración CRM e inteligencia artificial aplicada.",
+      "Creamos y remodelamos páginas web desde cero. Desarrollo web a medida, diseño minimalista.",
   },
   icons: { icon: "/favicon.ico" },
   robots: { index: true, follow: true },

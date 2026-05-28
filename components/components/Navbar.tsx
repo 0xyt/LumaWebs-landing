@@ -5,9 +5,9 @@ import Link from "next/link";
 
 const navLinks = [
   { label: "Servicios", href: "#servicios" },
-  { label: "Proceso", href: "#proceso" },
-  { label: "Proyectos", href: "#proyectos" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Portfolio", href: "#portfolio" },
+  { label: "Método", href: "#metodo" },
+  { label: "Contacto", href: "#contacto" },
 ];
 
 export const Navbar = () => {
@@ -24,7 +24,7 @@ export const Navbar = () => {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#09090b]/60 backdrop-blur-sm border-b border-[#1f1f23]"
+          ? "backdrop-blur-md bg-zinc-950/70 border-b border-zinc-800/40"
           : "bg-transparent"
       }`}
     >
@@ -42,7 +42,7 @@ export const Navbar = () => {
             <path d="M11 17L17 11" stroke="#f5f5f5" strokeWidth="1.2" strokeLinecap="round" />
             <path d="M6.5 11L11 6.5" stroke="#f5f5f5" strokeWidth="1.2" strokeLinecap="round" />
           </svg>
-          <span className="text-[#f5f5f5] text-sm font-semibold tracking-tight">
+          <span className="text-zinc-50 text-sm font-semibold tracking-tight">
             Adan Labs
           </span>
         </Link>
@@ -52,7 +52,7 @@ export const Navbar = () => {
             <a
               key={link.href}
               href={link.href}
-              className="text-xs text-[#a1a1aa] hover:text-[#f5f5f5] transition-colors duration-200 tracking-wide"
+              className="text-xs text-zinc-400 hover:text-zinc-50 transition-colors duration-200 tracking-wide"
             >
               {link.label}
             </a>
@@ -61,9 +61,9 @@ export const Navbar = () => {
 
         <a
           href="#contacto"
-          className="hidden md:inline-flex items-center rounded-md text-xs px-3.5 py-1.5 bg-[#f5f5f5] text-[#09090b] font-medium hover:bg-[#e4e4e7] transition-all"
+          className="hidden md:inline-flex items-center rounded-lg text-xs px-4 py-2 bg-zinc-50 text-zinc-950 font-medium hover:bg-zinc-200 transition-all"
         >
-          Agendar diagnóstico
+          Iniciar un Proyecto
         </a>
 
         <button
@@ -71,20 +71,20 @@ export const Navbar = () => {
           className="md:hidden flex flex-col gap-1 p-1.5"
           aria-label="Toggle menu"
         >
-          <span className={`block w-4 h-[1px] bg-[#a1a1aa] transition-all ${mobileOpen ? "rotate-45 translate-y-[2.5px] w-4" : ""}`} />
-          <span className={`block w-4 h-[1px] bg-[#a1a1aa] transition-all ${mobileOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-4 h-[1px] bg-[#a1a1aa] transition-all ${mobileOpen ? "-rotate-45 -translate-y-[2.5px] w-4" : ""}`} />
+          <span className={`block w-4 h-[1px] bg-zinc-400 transition-all ${mobileOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} />
+          <span className={`block w-4 h-[1px] bg-zinc-400 transition-all ${mobileOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-4 h-[1px] bg-zinc-400 transition-all ${mobileOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} />
         </button>
       </nav>
 
       {mobileOpen && (
-        <div className="md:hidden bg-[#09090b]/95 backdrop-blur-sm border-t border-[#1f1f23] px-6 py-5 space-y-3.5">
+        <div className="md:hidden bg-zinc-950/95 backdrop-blur-md border-t border-zinc-800/40 px-6 py-5 space-y-3.5">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block text-xs text-[#a1a1aa] hover:text-[#f5f5f5] transition-colors tracking-wide"
+              className="block text-xs text-zinc-400 hover:text-zinc-50 transition-colors tracking-wide"
             >
               {link.label}
             </a>
@@ -92,9 +92,9 @@ export const Navbar = () => {
           <a
             href="#contacto"
             onClick={() => setMobileOpen(false)}
-            className="block text-xs font-medium bg-[#f5f5f5] text-[#09090b] rounded-md px-3.5 py-1.5 text-center hover:bg-[#e4e4e7] transition-all mt-2"
+            className="block text-xs font-medium bg-zinc-50 text-zinc-950 rounded-lg px-4 py-2 text-center hover:bg-zinc-200 transition-all mt-2"
           >
-            Agendar diagnóstico
+            Iniciar un Proyecto
           </a>
         </div>
       )}
