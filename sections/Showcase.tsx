@@ -5,8 +5,8 @@ import { ArrowUpRight } from "lucide-react";
 
 function MacWindow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="rounded-lg border border-zinc-800/50 bg-gradient-to-br from-zinc-900 to-black overflow-hidden shadow-2xl">
-      <div className="flex items-center gap-1.5 px-4 pt-3 pb-2.5 border-b border-zinc-800/50 bg-zinc-900/50">
+    <div className="rounded-lg border border-zinc-800/50 bg-gradient-to-br from-zinc-900 to-black shadow-2xl">
+      <div className="flex items-center gap-1.5 px-4 pt-3 pb-2.5 border-b border-zinc-800/50 bg-zinc-900/50 rounded-t-lg">
         <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
         <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
         <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
@@ -16,8 +16,8 @@ function MacWindow({ children }: { children: React.ReactNode }) {
           </span>
         </div>
       </div>
-      <div className="relative min-h-[200px] md:min-h-[260px]">
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-950 to-black" />
+      <div className="relative min-h-[180px] md:min-h-[240px]">
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-950 to-black rounded-b-lg" />
         <div className="relative p-5 md:p-7 space-y-5">
           <div className="space-y-1.5">
             <div className="h-4 w-24 bg-zinc-800/40 rounded" />
@@ -46,23 +46,23 @@ function MacWindow({ children }: { children: React.ReactNode }) {
 
 function PhoneFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="rounded-[20px] border-[2.5px] border-zinc-600/70 bg-black overflow-hidden shadow-2xl shadow-black/80 w-[140px] md:w-[170px]">
-      <div className="flex items-center justify-between px-4 pt-3 pb-1.5">
-        <span className="text-[9px] text-zinc-400 font-semibold">9:41</span>
+    <div className="rounded-[18px] border-[2.5px] border-zinc-600/70 bg-black shadow-2xl shadow-black/80 w-[110px] md:w-[160px] overflow-hidden">
+      <div className="flex items-center justify-between px-3 md:px-4 pt-2.5 md:pt-3 pb-1 md:pb-1.5">
+        <span className="text-[8px] md:text-[9px] text-zinc-400 font-semibold">9:41</span>
         <div className="flex items-center gap-1">
-          <div className="w-3 h-1.5 rounded-[1px] border border-zinc-500" />
+          <div className="w-2.5 h-1.5 md:w-3 md:h-1.5 rounded-[1px] border border-zinc-500" />
           <svg width="12" height="8" viewBox="0 0 14 10" fill="none">
             <path d="M1 5h12M7 1v8" stroke="#a1a1aa" strokeWidth="0.8" />
           </svg>
         </div>
       </div>
-      <div className="px-3 py-1.5">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-[9px] font-mono text-zinc-500">Lumina</span>
+      <div className="px-2.5 md:px-3 py-1 md:py-1.5">
+        <div className="flex items-center justify-between mb-1.5 md:mb-2">
+          <span className="text-[8px] md:text-[9px] font-mono text-zinc-500">Lumina</span>
           <div className="flex flex-col gap-[2px]">
-            <span className="w-3 h-[1px] bg-zinc-500" />
-            <span className="w-3 h-[1px] bg-zinc-500" />
-            <span className="w-3 h-[1px] bg-zinc-500" />
+            <span className="w-2.5 md:w-3 h-[1px] bg-zinc-500" />
+            <span className="w-2.5 md:w-3 h-[1px] bg-zinc-500" />
+            <span className="w-2.5 md:w-3 h-[1px] bg-zinc-500" />
           </div>
         </div>
         {children}
@@ -97,9 +97,9 @@ export const Showcase = () => {
               href="https://lumina-studio-amber-eta.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative md:col-span-2 rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] overflow-hidden hover:border-zinc-700 transition-all duration-500 min-h-[420px] flex flex-col"
+              className="group relative md:col-span-2 rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] hover:border-zinc-700 transition-all duration-500 min-h-[420px] flex flex-col"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-indigo-500/5 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-indigo-500/5 to-transparent pointer-events-none rounded-xl" />
 
               <div className="relative p-6 md:p-8 flex flex-col h-full">
                 <div className="flex items-start justify-between mb-5">
@@ -109,24 +109,24 @@ export const Showcase = () => {
                   <ArrowUpRight className="w-4 h-4 text-zinc-500 group-hover:text-zinc-50 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300 shrink-0" />
                 </div>
 
-                <div className="flex-1 relative">
+                <div className="flex-1 relative pb-14 md:pb-24">
                   <div className="group-hover:scale-[1.005] transition-all duration-500 ease-out">
                     <MacWindow />
                   </div>
 
-                  <div className="absolute bottom-2 right-2 md:bottom-4 md:right-4 z-10 group-hover:scale-[1.015] transition-all duration-500 ease-out">
+                  <div className="absolute bottom-0 right-0 md:bottom-2 md:right-2 z-10 group-hover:scale-[1.015] transition-all duration-500 ease-out">
                     <PhoneFrame>
-                      <div className="rounded-lg bg-gradient-to-b from-zinc-800/30 to-zinc-900/50 min-h-[80px] flex items-center justify-center mb-2">
-                        <div className="w-8 h-8 rounded-full bg-zinc-700/50 flex items-center justify-center">
-                          <div className="w-4 h-4 rounded-full bg-zinc-600/50" />
+                      <div className="rounded-lg bg-gradient-to-b from-zinc-800/30 to-zinc-900/50 min-h-[60px] md:min-h-[80px] flex items-center justify-center mb-1.5 md:mb-2">
+                        <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-zinc-700/50 flex items-center justify-center">
+                          <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-zinc-600/50" />
                         </div>
                       </div>
-                      <div className="space-y-1 mb-2">
-                        <div className="h-2 w-full bg-zinc-800/40 rounded" />
-                        <div className="h-2 w-2/3 bg-zinc-800/30 rounded" />
+                      <div className="space-y-1 mb-1.5 md:mb-2">
+                        <div className="h-1.5 md:h-2 w-full bg-zinc-800/40 rounded" />
+                        <div className="h-1.5 md:h-2 w-2/3 bg-zinc-800/30 rounded" />
                       </div>
-                      <div className="h-7 w-full bg-zinc-700/50 rounded-lg flex items-center justify-center mb-1.5">
-                        <span className="text-[8px] text-zinc-400 font-mono">Explorar</span>
+                      <div className="h-6 md:h-7 w-full bg-zinc-700/50 rounded-lg flex items-center justify-center">
+                        <span className="text-[7px] md:text-[8px] text-zinc-400 font-mono">Explorar</span>
                       </div>
                     </PhoneFrame>
                   </div>
