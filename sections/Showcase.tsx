@@ -1,114 +1,119 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "../components/components/FadeIn";
+import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    name: "Lumina Studio",
-    category: "Estudio Fotográfico",
-    description:
-      "Sistema web completo con galerías dinámicas, booking de sesiones y panel administrativo integrado.",
-    gradient: "from-violet-900/30 via-violet-950/20 to-transparent",
-    accent: "border-violet-500/20 group-hover:border-violet-500/40",
-    url: "https://lumina-studio-amber-eta.vercel.app/",
-    tags: ["NEXT.JS", "TAILWIND", "VERCEL"],
-    span: "md:col-span-2",
+    name: "Flowly",
+    industry: "Consultoría Financiera",
+    problem: "Gestión manual de leads, seguimiento inconsistente y pérdida de oportunidades por demoras en la respuesta.",
+    solution: "Sistema de pipelines automatizados con webhooks en tiempo real, notificaciones vía WhatsApp API y dashboard centralizado con métricas de conversión.",
+    stack: ["Next.js", "Node.js", "PostgreSQL", "WhatsApp API"],
+    automation: "Captura → Lead scoring → Notificación → Seguimiento → Pipeline CRM",
+    result: "60% más leads calificados. Respuesta inicial en menos de 2 minutos.",
+    gradient: "from-indigo-950/30 to-transparent",
+    border: "group-hover:border-indigo-500/30",
+    url: "#",
   },
   {
-    name: "FlowCore",
-    category: "Automatización Inteligente",
-    description:
-      "Plataforma de automatización de flujos CRM con integración de WhatsApp y webhooks en tiempo real.",
-    gradient: "from-blue-900/30 via-blue-950/20 to-transparent",
-    accent: "border-blue-500/20 group-hover:border-blue-500/40",
+    name: "PanelGo",
+    industry: "Logística Operativa",
+    problem: "Sin visibilidad en tiempo real, reportes manuales y datos operativos dispersos en múltiples fuentes.",
+    solution: "Dashboard operativo con métricas en vivo, integración de fuentes de datos, alertas automáticas y reportes semanales generados sin intervención.",
+    stack: ["Next.js", "D3.js", "APIs REST", "PostgreSQL"],
+    automation: "Datos → Procesamiento → Visualización → Alertas → Reportes automáticos",
+    result: "Reducción del 30% en tiempos operativos. Datos centralizados en tiempo real.",
+    gradient: "from-blue-950/30 to-transparent",
+    border: "group-hover:border-blue-500/30",
     url: "#",
-    tags: ["NODE.JS", "WEBHOOKS", "AI"],
-    span: "",
   },
   {
-    name: "Nova Dashboard",
-    category: "SaaS Analytics",
-    description:
-      "Panel de control en tiempo real con visualización de métricas, reportes automatizados y alertas inteligentes.",
-    gradient: "from-emerald-900/30 via-emerald-950/20 to-transparent",
-    accent: "border-emerald-500/20 group-hover:border-emerald-500/40",
+    name: "BrandKit",
+    industry: "Retail & Ecommerce",
+    problem: "Marca inconsistente en todos los canales, web desactualizada y sin un funnel de ventas estructurado.",
+    solution: "Ecosistema digital completo: landing page premium, sistema de branding, funnel automatizado con CRM y secuencia de seguimiento multicanal.",
+    stack: ["Next.js", "Tailwind", "Figma", "Webhooks"],
+    automation: "Lead → CRM → Email secuencia → WhatsApp → Dashboard conversión",
+    result: "Landing page con tasa de conversión del 12%. Automatización completa del funnel.",
+    gradient: "from-violet-950/30 to-transparent",
+    border: "group-hover:border-violet-500/30",
     url: "#",
-    tags: ["REACT", "D3.JS", "API"],
-    span: "",
-  },
-  {
-    name: "BrandSync",
-    category: "Identidad & Diseño de Marca",
-    description:
-      "Ecosistema de branding digital: identidad visual, guía de estilo, componentes UI y landing page corporativa.",
-    gradient: "from-amber-900/30 via-amber-950/20 to-transparent",
-    accent: "border-amber-500/20 group-hover:border-amber-500/40",
-    url: "#",
-    tags: ["FIGMA", "TAILWIND", "NEXT.JS"],
-    span: "md:col-span-2",
   },
 ];
 
 export const Showcase = () => {
   return (
-    <section
-      id="showcase"
-      className="py-24 md:py-32 border-t border-zinc-800/20"
-    >
+    <section id="proyectos" className="py-28 md:py-36 border-t border-[#1f1f23]">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <div className="text-center space-y-4 mb-16">
-            <span className="font-mono text-xs uppercase tracking-widest text-blue-400">
-              Portfolio
+          <div className="max-w-2xl mb-20">
+            <span className="text-[10px] font-mono text-[#52525b] tracking-[0.25em] uppercase block mb-4">
+              Proyectos
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-b from-zinc-50 to-zinc-400 bg-clip-text text-transparent">
-              Proyectos selectos
+            <h2 className="text-[clamp(28px,3.5vw,42px)] font-semibold tracking-tight leading-[1.15] text-[#f5f5f5] mb-4">
+              Casos de estudio
             </h2>
-            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
-              Cada proyecto es una pieza única de ingeniería digital. Resultados reales, código real.
+            <p className="text-sm md:text-base text-[#a1a1aa] leading-relaxed max-w-[520px]">
+              Proyectos reales con resultados medibles. Cada sistema está diseñado para resolver un problema operativo específico.
             </p>
           </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="space-y-8">
           {projects.map((project, index) => (
             <FadeIn key={project.name} delay={index * 0.1}>
               <a
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group relative block rounded-2xl border border-zinc-800/60 overflow-hidden transition-all duration-500 hover:-translate-y-1 ${project.span} ${project.accent}`}
+                className={`group relative block rounded-xl border border-[#1f1f23] overflow-hidden transition-all duration-500 hover:-translate-y-0.5 ${project.border}`}
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-60`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-40`} />
 
-                <div className="relative p-8 min-h-[280px] flex flex-col justify-between">
-                  <div className="flex items-start justify-between">
+                <div className="relative p-7 md:p-9">
+                  <div className="flex items-start justify-between mb-6">
                     <div className="space-y-1">
-                      <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
-                        {project.category}
+                      <span className="text-[10px] font-mono text-[#52525b] tracking-[0.2em] uppercase">
+                        {project.industry}
                       </span>
-                      <h3 className="text-xl font-semibold text-zinc-50">
+                      <h3 className="text-lg md:text-xl font-semibold text-[#f5f5f5]">
                         {project.name}
                       </h3>
                     </div>
-                    <ArrowUpRight className="w-5 h-5 text-zinc-600 group-hover:text-zinc-50 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />
+                    <ArrowUpRight className="w-4 h-4 text-[#52525b] group-hover:text-[#f5f5f5] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300 shrink-0" />
                   </div>
 
-                  <div className="space-y-4">
-                    <p className="text-sm text-zinc-400 leading-relaxed">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="font-mono text-[10px] uppercase tracking-widest text-blue-400/80 bg-blue-500/5 border border-blue-500/10 px-2.5 py-1 rounded"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <div className="text-[10px] font-mono text-[#52525b] tracking-[0.2em] uppercase mb-1.5">Problema</div>
+                      <p className="text-sm text-[#a1a1aa] leading-relaxed">{project.problem}</p>
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-mono text-[#52525b] tracking-[0.2em] uppercase mb-1.5">Solución</div>
+                      <p className="text-sm text-[#a1a1aa] leading-relaxed">{project.solution}</p>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-4 md:gap-6 pt-5 border-t border-[#1f1f23]">
+                    <div>
+                      <div className="text-[10px] font-mono text-[#52525b] tracking-[0.2em] uppercase mb-2">Stack</div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.stack.map((tech) => (
+                          <span key={tech} className="text-[10px] font-mono text-[#a1a1aa] bg-[#18181b] border border-[#1f1f23] px-2 py-0.5 rounded">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-mono text-[#52525b] tracking-[0.2em] uppercase mb-2">Automatización</div>
+                      <p className="text-xs text-[#a1a1aa] leading-relaxed">{project.automation}</p>
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-mono text-[#52525b] tracking-[0.2em] uppercase mb-2">Resultado</div>
+                      <p className="text-xs text-[#a1a1aa] leading-relaxed">{project.result}</p>
                     </div>
                   </div>
                 </div>
@@ -116,6 +121,15 @@ export const Showcase = () => {
             </FadeIn>
           ))}
         </div>
+
+        <FadeIn delay={0.3}>
+          <p className="text-center text-xs text-[#52525b] mt-10">
+            M&aacute;s proyectos disponibles bajo solicitud.{" "}
+            <a href="#contacto" className="text-[#a1a1aa] hover:text-[#f5f5f5] transition-colors">
+            Contactar para ver casos adicionales
+            </a>
+          </p>
+        </FadeIn>
       </div>
     </section>
   );

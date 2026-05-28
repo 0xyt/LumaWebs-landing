@@ -15,25 +15,24 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Adan Labs | Infraestructura Digital de Alto Rendimiento",
+  title: "Adan Labs | Desarrollo Web, Automatización e IA para Negocios",
   description:
-    "Diseñamos y programamos infraestructuras digitales de alto rendimiento. Desarrollo web fullstack, automatización inteligente e integración de IA.",
+    "Sistemas web, automatización de procesos, integración CRM e inteligencia artificial aplicada. Landing pages, dashboards y funnels de alta conversión.",
   openGraph: {
-    title: "Adan Labs | Infraestructura Digital de Alto Rendimiento",
+    title: "Adan Labs | Desarrollo Web, Automatización e IA para Negocios",
     description:
-      "Diseñamos y programamos infraestructuras digitales de alto rendimiento. Desarrollo web fullstack, automatización inteligente e integración de IA.",
+      "Sistemas web, automatización de procesos, integración CRM e inteligencia artificial aplicada.",
     siteName: "Adan Labs",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Adan Labs | Infraestructura Digital de Alto Rendimiento",
+    title: "Adan Labs | Desarrollo Web, Automatización e IA para Negocios",
     description:
-      "Diseñamos y programamos infraestructuras digitales de alto rendimiento.",
+      "Sistemas web, automatización de procesos, integración CRM e inteligencia artificial aplicada.",
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
+  icons: { icon: "/favicon.ico" },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

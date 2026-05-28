@@ -38,17 +38,17 @@ export const Contact = () => {
 
   if (state === "success") {
     return (
-      <section id="contacto" className="py-24 md:py-32 border-t border-zinc-800/20">
+      <section id="contacto" className="py-28 md:py-36 border-t border-[#1f1f23]">
         <div className="max-w-xl mx-auto px-6 text-center">
           <FadeIn>
-            <div className="bg-[#18181b] border border-zinc-800/60 rounded-2xl p-10 md:p-14">
-              <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <CheckCircle className="w-6 h-6 text-blue-400" />
+            <div className="rounded-xl border border-[#1f1f23] bg-[#0c0c0e] p-10 md:p-14">
+              <div className="w-10 h-10 bg-[#3b82f6]/10 border border-[#3b82f6]/20 rounded-lg flex items-center justify-center mx-auto mb-5">
+                <CheckCircle className="w-5 h-5 text-[#3b82f6]/60" />
               </div>
-              <h2 className="text-2xl font-semibold text-zinc-50 mb-3">
+              <h2 className="text-lg font-semibold text-[#f5f5f5] mb-2">
                 Diagnóstico recibido
               </h2>
-              <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+              <p className="text-sm text-[#a1a1aa] leading-relaxed mb-6">
                 Analizaremos tu solicitud y te contactaremos en menos de 24 horas para discutir los siguientes pasos.
               </p>
               <button
@@ -56,7 +56,7 @@ export const Contact = () => {
                   setState("idle");
                   setFormData({ name: "", email: "", phone: "", project: "" });
                 }}
-                className="text-sm text-blue-400 hover:text-blue-300 transition-colors font-mono"
+                className="text-[11px] font-mono text-[#52525b] hover:text-[#a1a1aa] transition-colors"
               >
                 Enviar otro diagnóstico
               </button>
@@ -68,67 +68,60 @@ export const Contact = () => {
   }
 
   return (
-    <section
-      id="contacto"
-      className="py-24 md:py-32 border-t border-zinc-800/20"
-    >
+    <section id="contacto" className="py-28 md:py-36 border-t border-[#1f1f23]">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <div className="text-center space-y-4 mb-16">
-            <span className="font-mono text-xs uppercase tracking-widest text-blue-400">
+          <div className="max-w-2xl mb-16">
+            <span className="text-[10px] font-mono text-[#52525b] tracking-[0.25em] uppercase block mb-4">
               Contacto
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-b from-zinc-50 to-zinc-400 bg-clip-text text-transparent">
-              Iniciemos un diagnóstico
+            <h2 className="text-[clamp(28px,3.5vw,42px)] font-semibold tracking-tight leading-[1.15] text-[#f5f5f5] mb-4">
+              Evaluemos tu proyecto
             </h2>
-            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
-              Contanos sobre tu proyecto. Sin compromisos, sin reuniones innecesarias.
+            <p className="text-sm md:text-base text-[#a1a1aa] leading-relaxed max-w-[520px]">
+              Contanos sobre tu operación actual y lo que necesitas resolver. Sin compromisos, sin reuniones innecesarias.
             </p>
           </div>
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-xl mx-auto bg-[#18181b] border border-zinc-800/60 rounded-2xl p-8 md:p-12"
-          >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <label htmlFor="name" className="text-xs font-mono uppercase tracking-widest text-zinc-500">
-                  Nombre completo
-                </label>
-                <input
-                  required
-                  type="text"
-                  name="name"
-                  id="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Tu nombre"
-                  className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-zinc-50 placeholder-zinc-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm transition-all"
-                />
+          <div className="max-w-xl">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid sm:grid-cols-2 gap-5">
+                <div className="space-y-1.5">
+                  <label htmlFor="name" className="text-[10px] font-mono text-[#52525b] tracking-widest uppercase">
+                    Nombre
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    name="name"
+                    id="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Tu nombre"
+                    className="w-full bg-[#09090b] border border-[#1f1f23] rounded-lg px-3.5 py-2.5 text-sm text-[#f5f5f5] placeholder-[#52525b] focus:outline-none focus:border-[#3b82f6]/50 transition-colors"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label htmlFor="email" className="text-[10px] font-mono text-[#52525b] tracking-widest uppercase">
+                    Email
+                  </label>
+                  <input
+                    required
+                    type="email"
+                    name="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="tu@correo.com"
+                    className="w-full bg-[#09090b] border border-[#1f1f23] rounded-lg px-3.5 py-2.5 text-sm text-[#f5f5f5] placeholder-[#52525b] focus:outline-none focus:border-[#3b82f6]/50 transition-colors"
+                  />
+                </div>
               </div>
 
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-xs font-mono uppercase tracking-widest text-zinc-500">
-                  Correo electrónico
-                </label>
-                <input
-                  required
-                  type="email"
-                  name="email"
-                  id="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="tu@correo.com"
-                  className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-zinc-50 placeholder-zinc-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm transition-all"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="phone" className="text-xs font-mono uppercase tracking-widest text-zinc-500">
+              <div className="space-y-1.5">
+                <label htmlFor="phone" className="text-[10px] font-mono text-[#52525b] tracking-widest uppercase">
                   WhatsApp / Teléfono
                 </label>
                 <input
@@ -139,12 +132,12 @@ export const Contact = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+591 65947291"
-                  className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-zinc-50 placeholder-zinc-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm transition-all"
+                  className="w-full bg-[#09090b] border border-[#1f1f23] rounded-lg px-3.5 py-2.5 text-sm text-[#f5f5f5] placeholder-[#52525b] focus:outline-none focus:border-[#3b82f6]/50 transition-colors"
                 />
               </div>
 
-              <div className="space-y-2">
-                <label htmlFor="project" className="text-xs font-mono uppercase tracking-widest text-zinc-500">
+              <div className="space-y-1.5">
+                <label htmlFor="project" className="text-[10px] font-mono text-[#52525b] tracking-widest uppercase">
                   Descripción del proyecto
                 </label>
                 <textarea
@@ -155,32 +148,32 @@ export const Contact = () => {
                   value={formData.project}
                   onChange={handleChange}
                   placeholder="Contanos brevemente qué necesitas..."
-                  className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-zinc-50 placeholder-zinc-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm transition-all resize-none"
+                  className="w-full bg-[#09090b] border border-[#1f1f23] rounded-lg px-3.5 py-2.5 text-sm text-[#f5f5f5] placeholder-[#52525b] focus:outline-none focus:border-[#3b82f6]/50 transition-colors resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={state === "loading"}
-                className="w-full rounded-lg text-sm px-6 py-3.5 bg-zinc-50 text-zinc-950 font-medium hover:bg-zinc-200 transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2"
+                className="w-full rounded-lg text-sm px-5 py-3 bg-[#f5f5f5] text-[#09090b] font-medium hover:bg-[#e4e4e7] transition-all duration-200 disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 {state === "loading" ? (
                   "Enviando..."
                 ) : (
                   <>
-                    Iniciar Diagnóstico Tecnológico
-                    <Send className="w-4 h-4" />
+                    Solicitar evaluación
+                    <Send className="w-3.5 h-3.5" />
                   </>
                 )}
               </button>
 
               {state === "error" && (
-                <p className="text-xs text-red-400 text-center">
+                <p className="text-[11px] text-[#ef4444]/70 text-center">
                   Ocurrió un error al enviar. Intentalo de nuevo.
                 </p>
               )}
             </form>
-          </motion.div>
+          </div>
         </FadeIn>
       </div>
     </section>

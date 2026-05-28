@@ -5,65 +5,39 @@ import { site } from "@/lib/config";
 export default function TerminosPage() {
   return (
     <main className="min-h-screen bg-[#09090b] py-24 px-6">
-      <div className="max-w-[680px] mx-auto">
+      <div className="max-w-[640px] mx-auto">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-xs font-mono text-zinc-500 hover:text-zinc-300 transition-colors uppercase tracking-widest mb-8"
+          className="inline-flex items-center gap-2 text-[10px] font-mono text-[#52525b] hover:text-[#a1a1aa] transition-colors uppercase tracking-widest mb-8"
         >
-          <ArrowLeft className="w-3.5 h-3.5" /> Volver al inicio
+          <ArrowLeft className="w-3 h-3" /> Volver
         </Link>
 
-        <h1 className="text-3xl font-bold text-zinc-50 tracking-tight mb-4">
+        <h1 className="text-xl md:text-2xl font-semibold text-[#f5f5f5] tracking-tight mb-3">
           Términos y Condiciones
         </h1>
-        <p className="text-sm text-zinc-500 mb-8">
-          Última actualización: Mayo 2026
-        </p>
+        <p className="text-xs text-[#52525b] mb-8">Última actualización: Mayo 2026</p>
 
-        <div className="space-y-8 text-sm text-zinc-400 leading-relaxed">
+        <div className="space-y-8 text-sm text-[#a1a1aa] leading-relaxed">
           <section>
-            <h2 className="text-lg font-semibold text-zinc-50 mb-2">
-              1. Servicios
-            </h2>
-            <p>
-              {site.name} ofrece servicios de diseño web, desarrollo, branding y automatización. Cada proyecto se rige por un acuerdo de trabajo específico acordado antes del inicio.
-            </p>
+            <h2 className="text-sm font-semibold text-[#f5f5f5] mb-2">1. Servicios</h2>
+            <p>{site.name} ofrece servicios de diseño web, desarrollo, branding y automatización. Cada proyecto se rige por un acuerdo de trabajo específico acordado antes del inicio.</p>
           </section>
-
           <section>
-            <h2 className="text-lg font-semibold text-zinc-50 mb-2">
-              2. Pagos y entregables
-            </h2>
-            <p>
-              Los proyectos requieren un adelanto acordado antes del inicio del trabajo. El saldo restante se abona al completar los entregables definidos. Los tiempos de entrega son estimados y pueden variar según la complejidad y la rapidez de respuesta del cliente.
-            </p>
+            <h2 className="text-sm font-semibold text-[#f5f5f5] mb-2">2. Pagos y entregables</h2>
+            <p>Los proyectos requieren un adelanto acordado antes del inicio del trabajo. El saldo restante se abona al completar los entregables definidos. Los tiempos de entrega son estimados y pueden variar según la complejidad y la rapidez de respuesta del cliente.</p>
           </section>
-
           <section>
-            <h2 className="text-lg font-semibold text-zinc-50 mb-2">
-              3. Revisiones
-            </h2>
-            <p>
-              Cada plan incluye un número específico de rondas de revisión. Cambios fuera del alcance original pueden tener costo adicional.
-            </p>
+            <h2 className="text-sm font-semibold text-[#f5f5f5] mb-2">3. Revisiones</h2>
+            <p>Cada plan incluye un número específico de rondas de revisión. Cambios fuera del alcance original pueden tener costo adicional.</p>
           </section>
-
           <section>
-            <h2 className="text-lg font-semibold text-zinc-50 mb-2">
-              4. Propiedad intelectual
-            </h2>
-            <p>
-              Al completar el pago total, el cliente recibe los derechos de uso del sitio entregado. {site.name} puede usar el proyecto como referencia en su portfolio salvo acuerdo en contrario.
-            </p>
+            <h2 className="text-sm font-semibold text-[#f5f5f5] mb-2">4. Propiedad intelectual</h2>
+            <p>Al completar el pago total, el cliente recibe los derechos de uso del sitio entregado. {site.name} puede usar el proyecto como referencia en su portfolio salvo acuerdo en contrario.</p>
           </section>
-
           <section>
-            <h2 className="text-lg font-semibold text-zinc-50 mb-2">
-              5. Limitación de responsabilidad
-            </h2>
-            <p>
-              {site.name} no se responsabiliza por pérdidas derivadas del uso del sitio web entregado, incluyendo interrupciones del servicio de hosting de terceros.
-            </p>
+            <h2 className="text-sm font-semibold text-[#f5f5f5] mb-2">5. Limitación de responsabilidad</h2>
+            <p>{site.name} no se responsabiliza por pérdidas derivadas del uso del sitio web entregado, incluyendo interrupciones del servicio de hosting de terceros.</p>
           </section>
         </div>
       </div>

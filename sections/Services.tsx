@@ -2,90 +2,97 @@
 
 import { motion } from "framer-motion";
 import { FadeIn } from "../components/components/FadeIn";
-import { Code2, Workflow, BrainCircuit } from "lucide-react";
 
 const services = [
   {
-    icon: Code2,
-    title: "Ingeniería de Frontend & SaaS",
+    number: "01",
+    title: "Landing Systems",
     description:
-      "Sitios interactivos, aplicaciones web a medida y optimización extrema de rendimiento en Next.js. Experiencias de usuario que convierten.",
-    tags: ["Next.js", "React", "TailwindCSS", "Vercel"],
+      "Landing pages enfocadas en conversión con Next.js, formularios inteligentes y flujos de captura automatizados. Diseño sistemático orientado a resultados medibles.",
+    tags: ["Next.js", "Formularios", "CTA", "SEO"],
   },
   {
-    icon: Workflow,
-    title: "Sistemas de Automatización Avanzada",
+    number: "02",
+    title: "Automation Systems",
     description:
-      "Conexión de flujos de trabajo, webhooks y optimización de bases de datos operativas integradas con tu CRM. Menos fricción, más resultados.",
-    tags: ["APIs", "Webhooks", "CRM", "Bases de datos"],
+      "Automatización de leads, seguimiento y procesos operativos mediante webhooks, APIs y conexión CRM. Reducción de tiempos manuales y eliminación de tareas repetitivas.",
+    tags: ["Webhooks", "APIs", "Flujos", "CRM"],
   },
   {
-    icon: BrainCircuit,
-    title: "Integración de IA & Modelos de Lenguaje",
+    number: "03",
+    title: "CRM Integration",
     description:
-      "Automatización de comunicaciones, asistentes inteligentes y capas cognitivas aplicadas a tu negocio. IA que genera valor real.",
-    tags: ["LLMs", "Assistants", "NLP", "Automation"],
+      "Integración de formularios, pipelines de ventas, notificaciones y paneles de seguimiento en tiempo real. Datos centralizados sin fricción.",
+    tags: ["Formspree", "Pipelines", "Notificaciones", "Dashboard"],
+  },
+  {
+    number: "04",
+    title: "Business Dashboards",
+    description:
+      "Paneles operativos con métricas en vivo, visualización de datos y reportes automatizados para toma de decisiones basada en datos.",
+    tags: ["Dashboards", "Tiempo real", "Reportes", "Métricas"],
+  },
+  {
+    number: "05",
+    title: "AI Integrations",
+    description:
+      "IA aplicada a procesos reales: asistentes inteligentes, clasificación de leads, automatización cognitiva y modelos de lenguaje integrados a flujos operativos.",
+    tags: ["LLMs", "Asistentes", "NLP", "Automatización"],
   },
 ];
 
 export const Services = () => {
   return (
-    <section
-      id="servicios"
-      className="py-24 md:py-32 border-t border-zinc-800/20"
-    >
+    <section id="servicios" className="py-28 md:py-36 border-t border-[#1f1f23]">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <div className="text-center space-y-4 mb-16">
-            <span className="font-mono text-xs uppercase tracking-widest text-blue-400">
+          <div className="max-w-2xl mb-20">
+            <span className="text-[10px] font-mono text-[#52525b] tracking-[0.25em] uppercase block mb-4">
               Servicios
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-b from-zinc-50 to-zinc-400 bg-clip-text text-transparent">
-              Ingeniería de procesos digitales
+            <h2 className="text-[clamp(28px,3.5vw,42px)] font-semibold tracking-tight leading-[1.15] text-[#f5f5f5] mb-4">
+              Infraestructura digital operativa
             </h2>
-            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
-              No construimos páginas genéricas. Diseñamos sistemas que resuelven problemas reales de negocio.
+            <p className="text-sm md:text-base text-[#a1a1aa] leading-relaxed max-w-[520px]">
+              No construimos p&aacute;ginas gen&eacute;ricas. Dise&ntilde;amos sistemas que resuelven problemas operativos y generan resultados medibles.
             </p>
           </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-3 gap-5">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <FadeIn key={service.title} delay={index * 0.1}>
-                <motion.div
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="group relative bg-[#18181b] border border-zinc-800/60 rounded-2xl p-8 cursor-default hover:border-zinc-700/80 transition-all duration-300 h-full flex flex-col"
-                >
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-                  <div className="relative z-10 flex flex-col h-full">
-                    <div className="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-lg flex items-center justify-center mb-5 text-blue-400">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-zinc-50 mb-3">
+        <div className="space-y-0.5">
+          {services.map((service, index) => (
+            <FadeIn key={service.title} delay={index * 0.06}>
+              <motion.div
+                whileHover={{ x: 2 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="group border-t border-[#1f1f23] py-6 md:py-7 cursor-default hover:border-[#27272a] transition-colors duration-300"
+              >
+                <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-10">
+                  <span className="text-[10px] font-mono text-[#52525b] tracking-widest shrink-0 mt-0.5">
+                    {service.number}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-base md:text-lg font-semibold text-[#f5f5f5] mb-2">
                       {service.title}
                     </h3>
-                    <p className="text-sm text-zinc-400 leading-relaxed mb-6 flex-1">
+                    <p className="text-sm text-[#a1a1aa] leading-relaxed max-w-[560px]">
                       {service.description}
                     </p>
-                    <div className="flex flex-wrap gap-2 mt-auto">
-                      {service.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="font-mono text-[10px] uppercase tracking-widest text-zinc-500 bg-zinc-800/50 border border-zinc-700/50 px-2 py-1 rounded"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
                   </div>
-                </motion.div>
-              </FadeIn>
-            );
-          })}
+                  <div className="flex flex-wrap gap-2 shrink-0">
+                    {service.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[10px] font-mono text-[#52525b] bg-[#18181b] border border-[#1f1f23] px-2.5 py-1 rounded"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </FadeIn>
+          ))}
         </div>
       </div>
     </section>
