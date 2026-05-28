@@ -1,67 +1,95 @@
 "use client";
 
 import { FadeIn } from "../components/components/FadeIn";
+import { Check, Gauge, Timer, Search } from "lucide-react";
 
-function CodeIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400">
-      <polyline points="16 18 22 12 16 6" />
-      <polyline points="8 6 2 12 8 18" />
-    </svg>
-  );
-}
-
-function RefreshIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400">
-      <polyline points="23 4 23 10 17 10" />
-      <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10" />
-    </svg>
-  );
-}
-
-function GlobeIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400">
-      <circle cx="12" cy="12" r="10" />
-      <line x1="2" y1="12" x2="22" y2="12" />
-      <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
-    </svg>
-  );
-}
-
-function ShieldIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-    </svg>
-  );
-}
-
-const services = [
+const plans = [
   {
-    icon: CodeIcon,
-    title: "Desarrollo Web Fullstack",
-    description:
-      "Sitios interactivos (Starter/Premium) programados desde cero con Next.js y TailwindCSS para una velocidad y estabilidad insuperables.",
+    tag: "LAUNCH",
+    tagBg: "bg-zinc-800/50 border-zinc-700/50 text-zinc-400",
+    title: "Starter Pack",
+    desc: "Ideal para lanzamientos rápidos, negocios locales o profesionales independientes.",
+    price: "150",
+    priceLabel: "Bs",
+    priceNote: "Desde",
+    gradient: "from-zinc-50 to-zinc-400",
+    features: [
+      "Diseño One-Page (Landing Page de impacto)",
+      "Optimización móvil (Mobile-First)",
+      "Configuración y Adquisición de Dominio propio",
+      "Velocidad de carga ultrarrápida (Next.js)",
+    ],
+    metrics: [
+      { label: "Rendimiento", pct: 98, color: "bg-green-500" },
+      { label: "Velocidad", pct: 95, color: "bg-green-500" },
+    ],
+    cta: "Iniciar Proyecto",
+    ctaStyle: "solid",
   },
   {
-    icon: RefreshIcon,
-    title: "Rediseño y Remodelación Estética",
-    description:
-      "Tomamos tu web antigua o lenta y la transformamos en una experiencia moderna en modo oscuro que retiene clientes.",
+    tag: "POPULAR",
+    tagBg: "bg-blue-500/10 border-blue-500/20 text-blue-400",
+    title: "Custom / Premium Pack",
+    desc: "Sitios web corporativos completos y experiencias digitales diseñadas a medida.",
+    price: "400",
+    priceLabel: "Bs",
+    priceNote: "Desde",
+    gradient: "from-zinc-50 to-zinc-400",
+    features: [
+      "Estructura multipágina escalable",
+      "Animaciones y transiciones de interfaz fluidas",
+      "Maquetación y diseño UI exclusivo desde Figma",
+      "SEO optimizado para motores de búsqueda",
+    ],
+    metrics: [
+      { label: "Rendimiento", pct: 100, color: "bg-green-500" },
+      { label: "SEO", pct: 100, color: "bg-green-500" },
+    ],
+    cta: "Solicitar Cotización",
+    ctaStyle: "solid",
+    premium: true,
   },
   {
-    icon: GlobeIcon,
-    title: "Despliegue e Infraestructura Cloud",
-    description:
-      "Adquisición de dominios, configuración DNS y alojamiento en servidores globales de alta velocidad a través de Vercel.",
+    tag: "REMODEL",
+    tagBg: "bg-zinc-800/50 border-zinc-700/50 text-zinc-400",
+    title: "Rediseño Web",
+    desc: "Remodelación estética y técnica de sitios web obsoletos, lentos o basados en plantillas genéricas.",
+    price: "250",
+    priceLabel: "Bs",
+    priceNote: "Precio único",
+    gradient: "from-zinc-50 to-zinc-400",
+    features: [
+      "Lavado de cara estético completo (Modo Oscuro Premium)",
+      "Migración de código antiguo a Next.js y Tailwind CSS",
+      "Optimización de Core Web Vitals (Rendimiento al 100%)",
+    ],
+    metrics: [
+      { label: "Rendimiento", pct: 100, color: "bg-green-500" },
+      { label: "Velocidad", pct: 97, color: "bg-green-500" },
+    ],
+    cta: "Más Información",
+    ctaStyle: "outline",
   },
   {
-    icon: ShieldIcon,
-    title: "Soporte Técnico Continuo",
-    description:
-      "Monitoreo, actualizaciones periódicas y optimización para que tu web nunca deje de vender mientras tú descansas.",
+    tag: "CARE",
+    tagBg: "bg-zinc-800/50 border-zinc-700/50 text-zinc-400",
+    title: "Soporte Técnico y Mantenimiento",
+    desc: "Monitoreo técnico y actualizaciones periódicas para que tu sitio web nunca deje de funcionar.",
+    price: "50",
+    priceLabel: "Bs / por mantenimiento",
+    priceNote: "Desde",
+    gradient: "from-zinc-50 to-zinc-400",
+    features: [
+      "Actualizaciones de contenido y textos de forma inmediata",
+      "Revisión preventiva de caídas del sitio",
+      "Optimización y limpieza mensual de velocidad",
+    ],
+    metrics: [
+      { label: "Tiempo activo", pct: 99.9, color: "bg-green-500" },
+      { label: "Optimización", pct: 95, color: "bg-green-500" },
+    ],
+    cta: "Contratar",
+    ctaStyle: "outline",
   },
 ];
 
@@ -72,33 +100,97 @@ export const Services = () => {
         <FadeIn>
           <div className="max-w-2xl mb-14">
             <h2 className="text-[clamp(26px,3.5vw,40px)] font-semibold tracking-tight leading-[1.12] text-zinc-50 mb-4">
-              Servicios
+              Planes y Precios
             </h2>
             <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[480px]">
-              Todo lo que necesitás para tener una presencia web profesional, desde el dominio hasta el mantenimiento.
+              Productos diseñados para cada etapa de tu negocio. Precios transparentes, sin sorpresas.
             </p>
           </div>
         </FadeIn>
 
         <div className="grid sm:grid-cols-2 gap-4">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <FadeIn key={service.title} delay={index * 0.06}>
-                <div className="group rounded-xl border border-zinc-800/80 bg-[#0c0c0e] p-7 md:p-8 hover:border-zinc-700/80 transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.05)] h-full">
-                  <div className="w-10 h-10 bg-zinc-800/40 rounded-lg flex items-center justify-center mb-4 group-hover:bg-zinc-700/40 transition-colors">
-                    <Icon />
+          {plans.map((plan, index) => (
+            <FadeIn key={plan.title} delay={index * 0.06}>
+              <div
+                className={`group relative rounded-xl border bg-[#0c0c0e] p-7 md:p-8 transition-all duration-300 hover:scale-[1.01] flex flex-col h-full ${
+                  plan.premium
+                    ? "border-zinc-700/60 hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(59,130,246,0.06)]"
+                    : "border-zinc-800/80 hover:border-zinc-700/80"
+                }`}
+              >
+                {plan.premium && (
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-500/5 via-transparent to-transparent pointer-events-none" />
+                )}
+
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <span className={`text-[10px] font-mono tracking-widest uppercase px-2 py-0.5 rounded border ${plan.tagBg}`}>
+                        {plan.tag}
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono text-zinc-600">{plan.priceNote}</span>
                   </div>
-                  <h3 className="text-base font-semibold text-zinc-50 mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm text-zinc-400 leading-relaxed">
-                    {service.description}
-                  </p>
+
+                  <h3 className="text-lg font-semibold text-zinc-50 mb-2">{plan.title}</h3>
+                  <p className="text-sm text-zinc-400 leading-relaxed mb-5">{plan.desc}</p>
+
+                  <div className="mb-5">
+                    <span className="text-[32px] md:text-[38px] font-bold tracking-tight bg-gradient-to-b text-transparent bg-clip-text from-zinc-50 to-zinc-400">
+                      {plan.price}
+                    </span>
+                    <span className="text-sm text-zinc-400 ml-1.5">{plan.priceLabel}</span>
+                  </div>
+
+                  <ul className="space-y-2.5 mb-6 flex-1">
+                    {plan.features.map((feat) => (
+                      <li key={feat} className="flex items-start gap-2.5 text-sm text-zinc-400">
+                        <Check className="w-4 h-4 text-zinc-500 shrink-0 mt-0.5" />
+                        <span className="leading-relaxed">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="space-y-2.5 mb-6 pt-4 border-t border-zinc-800/40">
+                    {plan.metrics.map((m) => (
+                      <div key={m.label} className="space-y-1">
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-zinc-500">{m.label}</span>
+                          <span className="text-zinc-400 font-mono text-[11px]">{m.pct}%</span>
+                        </div>
+                        <div className="h-1 bg-zinc-800/40 rounded-full overflow-hidden">
+                          <div
+                            className={`h-full rounded-full ${m.color} transition-all duration-700`}
+                            style={{ width: `${m.pct}%` }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {plan.ctaStyle === "solid" ? (
+                    <a
+                      href="#contacto"
+                      className={`w-full rounded-lg text-sm px-5 py-2.5 font-medium transition-all duration-200 text-center ${
+                        plan.premium
+                          ? "bg-blue-500 text-white hover:bg-blue-400"
+                          : "bg-zinc-50 text-zinc-950 hover:bg-zinc-200"
+                      }`}
+                    >
+                      {plan.cta}
+                    </a>
+                  ) : (
+                    <a
+                      href="#contacto"
+                      className="w-full rounded-lg text-sm px-5 py-2.5 font-medium border border-zinc-800 text-zinc-400 hover:bg-zinc-900 hover:text-zinc-50 transition-all duration-200 text-center"
+                    >
+                      {plan.cta}
+                    </a>
+                  )}
                 </div>
-              </FadeIn>
-            );
-          })}
+              </div>
+            </FadeIn>
+          ))}
         </div>
       </div>
     </section>
