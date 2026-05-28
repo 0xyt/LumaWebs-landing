@@ -142,7 +142,7 @@ export const Contact = () => {
               </div>
 
               <button type="submit" disabled={state === "loading" || !accepted} className="w-full rounded-lg text-sm px-5 py-3 bg-zinc-50 text-zinc-950 font-medium hover:bg-zinc-200 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 group">
-                {state === "loading" ? "Enviando..." : "Enviar Solicitud de Proyecto"}
+                {state === "loading" ? "Procesando solicitud..." : "Enviar Solicitud de Proyecto"}
                 <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </button>
 

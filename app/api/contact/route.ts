@@ -2,32 +2,35 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
-    const data = await request.json();
+    const { name, email, phone, service, project } = await request.json();
 
-    const { name, email, phone, project } = data;
-
-    if (!name || !email || !phone || !project) {
+    if (!name || !email || !phone || !service || !project) {
       return NextResponse.json(
         { success: false, error: "Faltan campos requeridos" },
         { status: 400 }
       );
     }
 
-    const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
+    const formspreeUrl = process.env.FORMSPREE_URL;
 
-    if (webhookUrl) {
-      await fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          phone,
-          project,
-          source: "adan-labs-contact-form",
-          timestamp: new Date().toISOString(),
-        }),
-      });
+    if (!formspreeUrl) {
+      return NextResponse.json(
+        { success: false, error: "Servicio de contacto no configurado" },
+        { status: 500 }
+      );
+    }
+
+    const resp = await fetch(formspreeUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, phone, service, project }),
+    });
+
+    if (!resp.ok) {
+      return NextResponse.json(
+        { success: false, error: "Error al enviar el mensaje" },
+        { status: 502 }
+      );
     }
 
     return NextResponse.json({ success: true });
