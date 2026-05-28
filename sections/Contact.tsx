@@ -4,6 +4,8 @@ import { useState, FormEvent, useEffect } from "react";
 import { FadeIn } from "../components/components/FadeIn";
 import { Send, CheckCircle } from "lucide-react";
 
+const FORMSPREE_URL = "https://formspree.io/f/xjgzlapk";
+
 const SERVICE_OPTIONS = [
   "Seleccioná un servicio",
   "Starter Pack",
@@ -35,7 +37,7 @@ export const Contact = () => {
     e.preventDefault();
     setState("loading");
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(FORMSPREE_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
