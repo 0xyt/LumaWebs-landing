@@ -16,29 +16,53 @@ function MacWindow({ children }: { children: React.ReactNode }) {
           </span>
         </div>
       </div>
-      <div className="p-0">{children}</div>
+      <div className="relative min-h-[200px] md:min-h-[260px]">
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-950 to-black" />
+        <div className="relative p-5 md:p-7 space-y-5">
+          <div className="space-y-1.5">
+            <div className="h-4 w-24 bg-zinc-800/40 rounded" />
+            <div className="h-7 w-3/4 bg-zinc-800/30 rounded" />
+            <div className="h-7 w-1/2 bg-zinc-800/20 rounded" />
+          </div>
+          <div className="space-y-2">
+            <div className="h-2.5 w-full bg-zinc-800/30 rounded" />
+            <div className="h-2.5 w-5/6 bg-zinc-800/20 rounded" />
+            <div className="h-2.5 w-2/3 bg-zinc-800/20 rounded" />
+          </div>
+          <div className="flex gap-3 pt-1">
+            <div className="h-9 w-32 bg-zinc-700/60 rounded-lg" />
+            <div className="h-9 w-28 bg-zinc-800/40 rounded-lg border border-zinc-700/30" />
+          </div>
+          <div className="grid grid-cols-3 gap-3 pt-2">
+            {[...Array(3)].map((_, i) => (
+              <div key={i} className="aspect-[4/3] rounded-lg bg-zinc-800/30" />
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
 function PhoneFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto w-[70%] md:w-[80%] rounded-[24px] border-[3px] border-zinc-700/60 bg-black overflow-hidden shadow-2xl">
-      <div className="flex items-center justify-between px-5 pt-4 pb-2">
-        <span className="text-[10px] text-zinc-400 font-semibold">9:41</span>
+    <div className="rounded-[20px] border-[2.5px] border-zinc-600/70 bg-black overflow-hidden shadow-2xl shadow-black/80 w-[140px] md:w-[170px]">
+      <div className="flex items-center justify-between px-4 pt-3 pb-1.5">
+        <span className="text-[9px] text-zinc-400 font-semibold">9:41</span>
         <div className="flex items-center gap-1">
-          <div className="w-3.5 h-2 rounded-[2px] border border-zinc-500" />
-          <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5h12M7 1v8" stroke="#a1a1aa" strokeWidth="0.8"/></svg>
+          <div className="w-3 h-1.5 rounded-[1px] border border-zinc-500" />
+          <svg width="12" height="8" viewBox="0 0 14 10" fill="none">
+            <path d="M1 5h12M7 1v8" stroke="#a1a1aa" strokeWidth="0.8" />
+          </svg>
         </div>
       </div>
-
-      <div className="px-4 py-2">
-        <div className="flex items-center justify-between mb-4">
-          <span className="text-[10px] font-mono text-zinc-500">Lumina</span>
-          <div className="flex flex-col gap-[3px]">
-            <span className="w-4 h-[1.5px] bg-zinc-500" />
-            <span className="w-4 h-[1.5px] bg-zinc-500" />
-            <span className="w-4 h-[1.5px] bg-zinc-500" />
+      <div className="px-3 py-1.5">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-[9px] font-mono text-zinc-500">Lumina</span>
+          <div className="flex flex-col gap-[2px]">
+            <span className="w-3 h-[1px] bg-zinc-500" />
+            <span className="w-3 h-[1px] bg-zinc-500" />
+            <span className="w-3 h-[1px] bg-zinc-500" />
           </div>
         </div>
         {children}
@@ -73,45 +97,39 @@ export const Showcase = () => {
               href="https://lumina-studio-amber-eta.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative md:col-span-2 row-span-2 rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] overflow-hidden hover:border-zinc-700 transition-all duration-500 min-h-[420px] flex flex-col"
+              className="group relative md:col-span-2 rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] overflow-hidden hover:border-zinc-700 transition-all duration-500 min-h-[420px] flex flex-col"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-indigo-500/5 to-transparent pointer-events-none" />
 
               <div className="relative p-6 md:p-8 flex flex-col h-full">
-                <div className="flex items-start justify-between mb-4">
+                <div className="flex items-start justify-between mb-5">
                   <span className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">
-                    Vista Escritorio
+                    Diseño Responsivo de Alto Rendimiento
                   </span>
-                  <ArrowUpRight className="w-4 h-4 text-zinc-500 group-hover:text-zinc-50 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300" />
+                  <ArrowUpRight className="w-4 h-4 text-zinc-500 group-hover:text-zinc-50 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300 shrink-0" />
                 </div>
 
-                <div className="flex-1">
-                  <MacWindow>
-                    <div className="relative min-h-[240px]">
-                      <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-950 to-black" />
-                      <div className="relative p-6 md:p-8 space-y-6">
-                        <div className="space-y-1.5">
-                          <div className="h-4 w-24 bg-zinc-800/40 rounded" />
-                          <div className="h-8 w-3/4 bg-zinc-800/30 rounded" />
-                          <div className="h-8 w-1/2 bg-zinc-800/20 rounded" />
-                        </div>
-                        <div className="space-y-2">
-                          <div className="h-2.5 w-full bg-zinc-800/30 rounded" />
-                          <div className="h-2.5 w-5/6 bg-zinc-800/20 rounded" />
-                          <div className="h-2.5 w-2/3 bg-zinc-800/20 rounded" />
-                        </div>
-                        <div className="flex gap-3 pt-2">
-                          <div className="h-9 w-32 bg-zinc-700/60 rounded-lg" />
-                          <div className="h-9 w-28 bg-zinc-800/40 rounded-lg border border-zinc-700/30" />
-                        </div>
-                        <div className="grid grid-cols-3 gap-3 pt-4">
-                          {[...Array(3)].map((_, i) => (
-                            <div key={i} className="aspect-[4/3] rounded-lg bg-zinc-800/30" />
-                          ))}
+                <div className="flex-1 relative">
+                  <div className="group-hover:scale-[1.005] transition-all duration-500 ease-out">
+                    <MacWindow />
+                  </div>
+
+                  <div className="absolute bottom-2 right-2 md:bottom-4 md:right-4 z-10 group-hover:scale-[1.015] transition-all duration-500 ease-out">
+                    <PhoneFrame>
+                      <div className="rounded-lg bg-gradient-to-b from-zinc-800/30 to-zinc-900/50 min-h-[80px] flex items-center justify-center mb-2">
+                        <div className="w-8 h-8 rounded-full bg-zinc-700/50 flex items-center justify-center">
+                          <div className="w-4 h-4 rounded-full bg-zinc-600/50" />
                         </div>
                       </div>
-                    </div>
-                  </MacWindow>
+                      <div className="space-y-1 mb-2">
+                        <div className="h-2 w-full bg-zinc-800/40 rounded" />
+                        <div className="h-2 w-2/3 bg-zinc-800/30 rounded" />
+                      </div>
+                      <div className="h-7 w-full bg-zinc-700/50 rounded-lg flex items-center justify-center mb-1.5">
+                        <span className="text-[8px] text-zinc-400 font-mono">Explorar</span>
+                      </div>
+                    </PhoneFrame>
+                  </div>
                 </div>
 
                 <div className="flex flex-wrap gap-2 mt-5">
@@ -129,51 +147,12 @@ export const Showcase = () => {
           </FadeIn>
 
           <FadeIn delay={0.08}>
-            <div className="rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] hover:border-zinc-700 transition-all duration-500 min-h-[240px] flex flex-col">
+            <div className="rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] hover:border-zinc-700 transition-all duration-500 min-h-[420px] flex flex-col">
               <div className="p-6 md:p-8 flex flex-col h-full">
-                <div className="flex items-start justify-between mb-4">
-                  <span className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">
-                    Vista Móvil
-                  </span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
-                </div>
-
-                <div className="flex-1 flex items-center justify-center py-2">
-                  <PhoneFrame>
-                    <div className="rounded-lg bg-gradient-to-b from-zinc-800/30 to-zinc-900/50 min-h-[100px] flex items-center justify-center mb-3">
-                      <div className="w-10 h-10 rounded-full bg-zinc-700/50 flex items-center justify-center">
-                        <div className="w-5 h-5 rounded-full bg-zinc-600/50" />
-                      </div>
-                    </div>
-                    <div className="space-y-1.5 mb-3">
-                      <div className="h-2.5 w-full bg-zinc-800/40 rounded" />
-                      <div className="h-2.5 w-2/3 bg-zinc-800/30 rounded" />
-                    </div>
-                    <div className="h-8 w-full bg-zinc-700/50 rounded-lg flex items-center justify-center mb-2">
-                      <span className="text-[9px] text-zinc-400 font-mono">Explorar</span>
-                    </div>
-                    <div className="grid grid-cols-3 gap-1">
-                      <div className="h-6 rounded bg-zinc-800/30" />
-                      <div className="h-6 rounded bg-zinc-800/40" />
-                      <div className="h-6 rounded bg-zinc-800/30" />
-                    </div>
-                  </PhoneFrame>
-                </div>
-
-                <p className="text-[10px] text-zinc-600 text-center mt-3 font-mono tracking-wider">
-                  Responsive · Mobile First
-                </p>
-              </div>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.1}>
-            <div className="md:col-span-3 rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] hover:border-zinc-700 transition-all duration-500">
-              <div className="p-6 md:p-8">
                 <span className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase block mb-6">
                   Métricas de Rendimiento
                 </span>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-5 flex-1 justify-center">
                   {[
                     { label: "Velocidad de Carga", value: "0.3s", pct: 98 },
                     { label: "Rendimiento", value: "100%", pct: 100 },
