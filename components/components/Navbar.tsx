@@ -27,22 +27,21 @@ export const Navbar = () => {
         }`}
       >
         <div className="backdrop-blur-xl bg-black/40 border border-zinc-800/50 rounded-full px-5 py-2 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5">
+            <Link href="/" className="flex items-center gap-2.5 group">
             <svg
-              width="20"
-              height="20"
-              viewBox="0 0 22 22"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="shrink-0"
+              className="shrink-0 transition-all duration-300 group-hover:scale-110"
             >
-              <rect x="1.5" y="1.5" width="19" height="19" rx="3" stroke="#f5f5f5" strokeWidth="1.2" />
-              <path d="M6.5 17L17 6.5" stroke="#f5f5f5" strokeWidth="1.2" strokeLinecap="round" />
-              <path d="M11 17L17 11" stroke="#f5f5f5" strokeWidth="1.2" strokeLinecap="round" />
-              <path d="M6.5 11L11 6.5" stroke="#f5f5f5" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M4 20L11 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-zinc-50" />
+              <path d="M20 20L13 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-zinc-400" />
+              <circle cx="12" cy="4" r="1.5" fill="currentColor" className="text-zinc-50 animate-pulse" />
             </svg>
-            <span className="text-zinc-50 text-sm font-semibold tracking-tight">
-              Adan Labs
+            <span className="font-sans font-bold tracking-tight text-zinc-50 text-lg">
+              Adan <span className="text-zinc-400 font-light tracking-wider ml-0.5">Labs</span>
             </span>
           </Link>
 

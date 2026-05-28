@@ -1,7 +1,7 @@
 "use client";
 
 import { FadeIn } from "../components/components/FadeIn";
-import { Check, Gauge, Timer, Search } from "lucide-react";
+import { Check } from "lucide-react";
 
 const plans = [
   {
@@ -14,9 +14,9 @@ const plans = [
     priceNote: "Desde",
     gradient: "from-zinc-50 to-zinc-400",
     features: [
-      "Diseño One-Page (Landing Page de impacto)",
+      "Diseño One-Page (Landing Page)",
       "Optimización móvil (Mobile-First)",
-      "Configuración y Adquisición de Dominio propio",
+      "Adquisición de Dominio propio",
       "Velocidad de carga ultrarrápida (Next.js)",
     ],
     metrics: [
@@ -29,8 +29,8 @@ const plans = [
   {
     tag: "POPULAR",
     tagBg: "bg-blue-500/10 border-blue-500/20 text-blue-400",
-    title: "Custom / Premium Pack",
-    desc: "Sitios web corporativos completos y experiencias digitales diseñadas a medida.",
+    title: "Premium Pack",
+    desc: "Estructura multipágina escalable, animaciones fluidas, UI exclusiva y SEO optimizado.",
     price: "400",
     priceLabel: "Bs",
     priceNote: "Desde",
@@ -53,7 +53,7 @@ const plans = [
     tag: "REMODEL",
     tagBg: "bg-zinc-800/50 border-zinc-700/50 text-zinc-400",
     title: "Rediseño Web",
-    desc: "Remodelación estética y técnica de sitios web obsoletos, lentos o basados en plantillas genéricas.",
+    desc: "Remodelación estética completa, optimización de velocidad y migración a código moderno.",
     price: "250",
     priceLabel: "Bs",
     priceNote: "Precio único",
@@ -74,15 +74,15 @@ const plans = [
     tag: "CARE",
     tagBg: "bg-zinc-800/50 border-zinc-700/50 text-zinc-400",
     title: "Soporte Técnico y Mantenimiento",
-    desc: "Monitoreo técnico y actualizaciones periódicas para que tu sitio web nunca deje de funcionar.",
+    desc: "Monitoreo, actualizaciones inmediatas y limpieza mensual de rendimiento.",
     price: "50",
     priceLabel: "Bs / por mantenimiento",
     priceNote: "Desde",
     gradient: "from-zinc-50 to-zinc-400",
     features: [
-      "Actualizaciones de contenido y textos de forma inmediata",
-      "Revisión preventiva de caídas del sitio",
-      "Optimización y limpieza mensual de velocidad",
+      "Monitoreo técnico continuo",
+      "Actualizaciones de contenido inmediatas",
+      "Limpieza mensual de rendimiento",
     ],
     metrics: [
       { label: "Tiempo activo", pct: 99.9, color: "bg-green-500" },
@@ -151,22 +151,7 @@ export const Services = () => {
                     ))}
                   </ul>
 
-                  <div className="space-y-2.5 mb-6 pt-4 border-t border-zinc-800/40">
-                    {plan.metrics.map((m) => (
-                      <div key={m.label} className="space-y-1">
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-zinc-500">{m.label}</span>
-                          <span className="text-zinc-400 font-mono text-[11px]">{m.pct}%</span>
-                        </div>
-                        <div className="h-1 bg-zinc-800/40 rounded-full overflow-hidden">
-                          <div
-                            className={`h-full rounded-full ${m.color} transition-all duration-700`}
-                            style={{ width: `${m.pct}%` }}
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                  <div className="pt-4 border-t border-zinc-800/40 flex-1" />
 
                   {plan.ctaStyle === "solid" ? (
                     <a
