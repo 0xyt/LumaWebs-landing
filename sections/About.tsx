@@ -24,9 +24,9 @@ export const About = () => {
           </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto items-start">
-          <FadeIn delay={0.1}>
-            <div className="space-y-4">
+        <FadeIn>
+          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            <div className="space-y-4 pt-0">
               <p className="text-base text-[var(--text-secondary)] leading-relaxed">
                 Adan Labs es un estudio digital con base en Bolivia.
               </p>
@@ -42,10 +42,8 @@ export const About = () => {
                 segundo.
               </p>
             </div>
-          </FadeIn>
 
-          <FadeIn delay={0.2}>
-            <div className="bg-[var(--bg-surface)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 md:p-8">
+            <div className="bg-[var(--bg-surface)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 md:p-8 h-fit">
               <h4 className="font-syne text-sm font-semibold text-[var(--text-primary)] mb-4 uppercase tracking-wider">
                 Por qué elegirnos
               </h4>
@@ -63,8 +61,8 @@ export const About = () => {
                 ))}
               </ul>
             </div>
-          </FadeIn>
-        </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
