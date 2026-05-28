@@ -107,8 +107,24 @@ export default function BriefingForm() {
             </select>
           </div>
 
-          {/* Botón de envío */}
-          <div className="pt-4">
+          {/* Consentimiento */}
+          <div className="flex items-start gap-3" style={{ marginTop: '1rem' }}>
+            <input
+              type="checkbox"
+              id="consent"
+              required
+              style={{ marginTop: '3px', accentColor: 'var(--accent)' }}
+              className="shrink-0"
+            />
+            <label htmlFor="consent" style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
+              Acepto la{' '}
+              <a href="/privacidad" style={{ color: 'var(--accent)' }}>Política de Privacidad</a>
+              {' '}y el uso de mis datos para responder a esta consulta.
+            </label>
+          </div>
+
+          {/* Botón de envío */}
+          <div className="pt-4">
             <button
               type="submit"
               disabled={state.submitting}

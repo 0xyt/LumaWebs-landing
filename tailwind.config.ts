@@ -9,13 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'brand-bg': '#050509',
-        'brand-primary': '#FFFFFF',
-        'brand-secondary': '#8A8F98',
-        'brand-accent': '#2D6AEF',
+        base: "#09090d",
+        surface: "#111116",
+        elevated: "#18181f",
+        accent: "#7c6fff",
+        "accent-muted": "rgba(124,111,255,0.12)",
       },
       fontFamily: {
-        display: ['system-ui', 'sans-serif'],
+        syne: ["Syne", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

@@ -1,33 +1,32 @@
-// app/page.tsx
-import { Hero } from "../sections/Hero"; 
-import { Showcase } from "../sections/Showcase"; 
-import { HowItWorks } from "../sections/HowItWorks";
+import { Navbar } from "../components/components/Navbar";
+import { Hero } from "../sections/Hero";
+import { Services } from "../sections/Services";
+import { Process } from "../sections/Process";
 import { Portfolio } from "../sections/Portfolio";
-import { Testimonials } from "../sections/Testimonials"; 
-import { Footer } from "../sections/Footer"; 
-import WhatsAppCTA from "../components/components/WhatsAppCTA"; 
+import { About } from "../sections/About";
+import { Pricing } from "../sections/Pricing";
+import { FAQ } from "../sections/FAQ";
+import { CTA } from "../sections/CTA";
+import { Footer } from "../sections/Footer";
+import WhatsAppCTA from "../components/components/WhatsAppCTA";
 
 export default function Home() {
   return (
-    // Se fuerza contención estricta x (overflow-x-hidden) y optimización de renderizado
-    <main className="relative min-h-screen w-full overflow-x-hidden bg-[#050509] antialiased">
-      
-      {/* Brillo radial optimizado con contención y hardware acceleration activa */}
-      <div 
-        className="fixed top-0 left-0 w-full h-full bg-gradient-radial from-[#2D6AEF]/5 to-transparent opacity-30 pointer-events-none z-0 will-change-transform" 
-        style={{ transform: 'translateZ(0)' }}
-      />
+    <main className="relative min-h-screen w-full overflow-x-hidden bg-[var(--bg-base)] antialiased">
+      <Navbar />
 
-      {/* Capa de renderizado controlado */}
       <div className="relative z-10 w-full flex flex-col">
         <Hero />
-        <Showcase />
-        <HowItWorks />
+        <Services />
+        <Process />
         <Portfolio />
-        <Testimonials />
+        <About />
+        <Pricing />
+        <FAQ />
+        <CTA />
         <Footer />
       </div>
-      
+
       <WhatsAppCTA />
     </main>
   );

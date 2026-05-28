@@ -1,59 +1,105 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Section } from "../components/components/Section";
-import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { FadeIn } from "../components/components/FadeIn";
+import { site } from "@/lib/config";
+
+const techStack = [
+  { name: "Next.js", src: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>' },
+  { name: "Vercel", src: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2L2 22h20L12 2z"/></svg>' },
+  { name: "TailwindCSS", src: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>' },
+  { name: "Figma", src: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="10"/></svg>' },
+];
 
 export const Hero = () => {
   return (
-    <Section fullWidth className="relative min-h-[95vh] flex flex-col items-center justify-center text-center overflow-hidden py-20 md:py-0">
-      
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full max-w-4xl px-6 flex flex-col items-center"
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124,111,255,0.15) 0%, transparent 70%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
+
+      <div
+        className="relative z-10 w-full max-w-4xl px-6 flex flex-col items-center"
+        style={{
+          paddingTop: "160px",
+          paddingBottom: "100px",
+        }}
       >
-        {/* Badge estilizado ultra-fino */}
-        <div className="mb-8 px-4 py-1.5 border border-white/5 rounded-full backdrop-blur-md bg-white/[0.02] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
-          <span className="text-[10px] font-semibold tracking-[0.2em] text-zinc-400 uppercase">
-            Transformación Digital &bull; Adan Labs
-          </span>
-        </div>
+        <FadeIn delay={0}>
+          <div className="mb-8 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--success)] animate-pulse" />
+            <span className="text-xs font-medium text-[var(--accent)] tracking-wider uppercase">
+              Sistemas digitales · Bolivia
+            </span>
+          </div>
+        </FadeIn>
 
-        {/* Título de Alto Impacto */}
-        <h1 className="font-lexend text-[2.6rem] sm:text-7xl font-bold leading-[1.1] text-white tracking-[-0.03em] mb-8">
-          Diseño de alto impacto, <br className="hidden sm:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-400 to-blue-600">
-            rendimiento absoluto.
-          </span>
-        </h1>
-
-        {/* Subtítulo Premium */}
-        <p className="text-base sm:text-lg text-zinc-400 max-w-xl leading-relaxed mb-12 font-normal tracking-tight">
-          No dejes que una página web lenta o mal diseñada ahuyente a tus clientes.
-          Te ayudamos a destacar en internet con un diseño moderno de alta gama que convierte las visitas, en ventas reales.
-        </p>
-
-        {/* Botones estilo SaaS Moderno */}
-        <div className="flex flex-col sm:flex-row gap-4 w-full justify-center px-4 sm:px-0">
-          <Link
-            href="/briefing"
-            className="group inline-flex items-center justify-center gap-2 bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-zinc-200 transition-all duration-300 shadow-lg shadow-white/5 min-h-[44px]"
+        <FadeIn delay={0.1}>
+          <h1
+            className="text-[clamp(40px,6vw,72px)] font-syne font-bold tracking-[-0.04em] leading-[1.1] text-[var(--text-primary)] mb-6 max-w-[800px]"
           >
-            Quiero mi landing 
-            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
-          </Link>
-          
-          <a
-            href="#productos"
-            className="inline-flex items-center justify-center text-zinc-300 px-8 py-4 rounded-full font-medium border border-white/10 backdrop-blur-sm bg-white/[0.01] hover:border-white/20 hover:text-white transition-all duration-300 min-h-[44px]"
-          >
-            Explorar Soluciones
-          </a>
-        </div>
-      </motion.div>
-    </Section>
+            Construimos el sistema digital que tu negocio necesita.
+          </h1>
+        </FadeIn>
+
+        <FadeIn delay={0.2}>
+          <p className="text-base sm:text-lg text-[var(--text-secondary)] max-w-[600px] leading-relaxed mb-12 font-inter">
+            Desde una landing page hasta automatización completa con IA. Diseño
+            premium, tecnología real, resultados medibles.
+          </p>
+        </FadeIn>
+
+        <FadeIn delay={0.3}>
+          <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
+            <Link
+              href="/briefing"
+              className="cta-primary text-center justify-center"
+            >
+              Empezar proyecto →
+            </Link>
+            <a href="#portafolio" className="cta-secondary text-center justify-center">
+              Ver portfolio
+            </a>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.4} className="mt-16">
+          <div className="flex flex-col items-center gap-4">
+            <span className="text-xs text-[var(--text-tertiary)] tracking-wider uppercase">
+              Construido con
+            </span>
+            <div className="flex items-center gap-4">
+              {techStack.map((tech) => (
+                <div
+                  key={tech.name}
+                  className="flex items-center gap-1.5 opacity-40 hover:opacity-60 transition-opacity"
+                >
+                  <img
+                    src={tech.src}
+                    alt={tech.name}
+                    className="w-4 h-4"
+                  />
+                  <span className="text-[11px] text-[var(--text-tertiary)] font-mono">
+                    {tech.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
   );
 };

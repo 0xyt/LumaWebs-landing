@@ -1,13 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
-    // Ignora errores de ESLint durante el despliegue
     ignoreDuringBuilds: true,
   },
   typescript: {
-    // Ignora errores de TypeScript durante el despliegue
     ignoreBuildErrors: true,
   },
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
+  compress: true,
+  outputFileTracingRoot: process.cwd(),
 };
 
 export default nextConfig;
