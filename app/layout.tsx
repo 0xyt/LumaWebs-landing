@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import { Syne, Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { site } from "@/lib/config";
-
-const syne = Syne({
-  subsets: ["latin"],
-  variable: "--font-syne",
-  display: "swap",
-});
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sans",
   display: "swap",
 });
 
@@ -22,21 +15,21 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Adan Labs | Sistemas Digitales para Negocios",
+  title: "Adan Labs | Infraestructura Digital de Alto Rendimiento",
   description:
-    "Diseñamos y construimos sistemas web que convierten visitas en clientes. Landing pages, automatización y branding digital.",
+    "Diseñamos y programamos infraestructuras digitales de alto rendimiento. Desarrollo web fullstack, automatización inteligente e integración de IA.",
   openGraph: {
-    title: "Adan Labs | Sistemas Digitales para Negocios",
+    title: "Adan Labs | Infraestructura Digital de Alto Rendimiento",
     description:
-      "Diseñamos y construimos sistemas web que convierten visitas en clientes.",
+      "Diseñamos y programamos infraestructuras digitales de alto rendimiento. Desarrollo web fullstack, automatización inteligente e integración de IA.",
     siteName: "Adan Labs",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Adan Labs | Sistemas Digitales para Negocios",
+    title: "Adan Labs | Infraestructura Digital de Alto Rendimiento",
     description:
-      "Diseñamos y construimos sistemas web que convierten visitas en clientes.",
+      "Diseñamos y programamos infraestructuras digitales de alto rendimiento.",
   },
   icons: {
     icon: "/favicon.ico",
@@ -49,10 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="es"
-      className={`${syne.variable} ${inter.variable} ${jetbrainsMono.variable}`}
-    >
+    <html lang="es" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body>{children}</body>
     </html>
   );

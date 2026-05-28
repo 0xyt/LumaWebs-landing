@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { site } from "@/lib/config";
 
 const navLinks = [
   { label: "Servicios", href: "#servicios" },
-  { label: "Portfolio", href: "#portafolio" },
-  { label: "Nosotros", href: "#nosotros" },
+  { label: "Showcase", href: "#showcase" },
+  { label: "Infraestructura", href: "#infraestructura" },
+  { label: "Contacto", href: "#contacto" },
 ];
 
 export const Navbar = () => {
@@ -24,17 +24,28 @@ export const Navbar = () => {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[rgba(9,9,13,0.85)] backdrop-blur-xl border-b border-[rgba(255,255,255,0.06)]"
+          ? "bg-zinc-950/70 backdrop-blur-md border-b border-zinc-800/40"
           : "bg-transparent"
       }`}
-      style={{ height: "64px" }}
     >
-      <nav className="max-w-6xl mx-auto px-6 h-full flex items-center justify-between">
-        <Link
-          href="/"
-          className="font-syne text-lg font-bold text-[var(--text-primary)] tracking-tight hover:opacity-80 transition-opacity"
-        >
-          {site.name}
+      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-3 group">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="shrink-0"
+          >
+            <rect x="2" y="2" width="24" height="24" rx="4" stroke="#fafafa" strokeWidth="1.5" />
+            <path d="M8 20L20 8" stroke="#fafafa" strokeWidth="1.5" strokeLinecap="round" />
+            <path d="M14 20L20 14" stroke="#fafafa" strokeWidth="1.5" strokeLinecap="round" />
+            <path d="M8 14L14 8" stroke="#fafafa" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
+          <span className="text-zinc-50 text-lg font-semibold tracking-tight">
+            Adan Labs
+          </span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
@@ -42,7 +53,7 @@ export const Navbar = () => {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-150"
+              className="text-sm text-zinc-400 hover:text-zinc-50 transition-colors duration-200"
             >
               {link.label}
             </a>
@@ -50,12 +61,10 @@ export const Navbar = () => {
         </div>
 
         <a
-          href={site.whatsappLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center gap-1.5 text-xs font-medium text-[var(--accent)] border border-[var(--accent-border)] rounded-md px-4 py-2 hover:bg-[var(--accent-muted)] transition-all duration-150"
+          href="#contacto"
+          className="hidden md:inline-flex items-center rounded-lg text-sm px-4 py-2 bg-zinc-50 text-zinc-950 font-medium hover:bg-zinc-200 transition-all"
         >
-          Contactar →
+          Agendar Consultoría
         </a>
 
         <button
@@ -64,17 +73,17 @@ export const Navbar = () => {
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-5 h-[1.5px] bg-[var(--text-primary)] transition-transform ${
+            className={`block w-5 h-[1.5px] bg-zinc-50 transition-transform ${
               mobileOpen ? "rotate-45 translate-y-[5.5px]" : ""
             }`}
           />
           <span
-            className={`block w-5 h-[1.5px] bg-[var(--text-primary)] transition-opacity ${
+            className={`block w-5 h-[1.5px] bg-zinc-50 transition-opacity ${
               mobileOpen ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`block w-5 h-[1.5px] bg-[var(--text-primary)] transition-transform ${
+            className={`block w-5 h-[1.5px] bg-zinc-50 transition-transform ${
               mobileOpen ? "-rotate-45 -translate-y-[5.5px]" : ""
             }`}
           />
@@ -82,25 +91,23 @@ export const Navbar = () => {
       </nav>
 
       {mobileOpen && (
-        <div className="md:hidden bg-[var(--bg-surface)] border-t border-[rgba(255,255,255,0.06)] px-6 py-6 space-y-4">
+        <div className="md:hidden bg-zinc-950/95 backdrop-blur-md border-t border-zinc-800/40 px-6 py-6 space-y-4">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              className="block text-sm text-zinc-400 hover:text-zinc-50 transition-colors"
             >
               {link.label}
             </a>
           ))}
           <a
-            href={site.whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contacto"
             onClick={() => setMobileOpen(false)}
-            className="block text-sm font-medium text-[var(--accent)] border border-[var(--accent-border)] rounded-md px-4 py-2 text-center hover:bg-[var(--accent-muted)] transition-all"
+            className="block text-sm font-medium bg-zinc-50 text-zinc-950 rounded-lg px-4 py-2 text-center hover:bg-zinc-200 transition-all"
           >
-            Contactar →
+            Agendar Consultoría
           </a>
         </div>
       )}

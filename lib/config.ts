@@ -1,6 +1,6 @@
 export const site = {
   name: 'Adan Labs',
-  tagline: 'Sistemas digitales para negocios que quieren crecer.',
+  tagline: 'Infraestructura digital de alto rendimiento.',
   url: 'https://adanlabs.com',
   email: 'hola@adanlabs.com',
   whatsapp: '59165947291',
@@ -9,14 +9,8 @@ export const site = {
 }
 
 export const metadata = {
-  title: `${site.name} | Sistemas Digitales para Negocios`,
-  description: 'Diseñamos y construimos sistemas web que convierten visitas en clientes. Landing pages, automatización y branding digital.',
-  ogTitle: `${site.name} | Sistemas Digitales para Negocios`,
-  ogDescription: 'Diseñamos y construimos sistemas web que convierten visitas en clientes.',
-}
-
-export const pricing = {
-  starter: { from: 150, currency: 'USD', label: 'Starter' },
-  growth: { from: 400, currency: 'USD', label: 'Growth' },
-  systems: { label: 'Sistemas', custom: true },
+  title: `${site.name} | Infraestructura Digital de Alto Rendimiento`,
+  description: 'Diseñamos y programamos infraestructuras digitales de alto rendimiento. Desarrollo web fullstack, automatización inteligente e integración de IA.',
+  ogTitle: `${site.name} | Infraestructura Digital de Alto Rendimiento`,
+  ogDescription: 'Diseñamos y programamos infraestructuras digitales de alto rendimiento.',
 }

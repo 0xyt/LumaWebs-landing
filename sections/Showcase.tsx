@@ -1,111 +1,122 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Section } from "../components/components/Section";
-import { GlowBorder } from "../components/components/GlowBorder";
-import { Zap, Layers3, Target } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { FadeIn } from "../components/components/FadeIn";
 
-const products = [
+const projects = [
   {
-    icon: Zap,
-    title: "Landing Pages Básicas",
-    description: "Esenciales y rápidas. Perfectas para validar ideas o lanzamientos de producto sencillos.",
-    features: ["Diseño Responsive", "Sección Hero Impactante", "Formulario de Contacto", "Carga Rápida"],
-    price: "200Bs",
+    name: "Lumina Studio",
+    category: "Estudio Fotográfico",
+    description:
+      "Sistema web completo con galerías dinámicas, booking de sesiones y panel administrativo integrado.",
+    gradient: "from-violet-900/30 via-violet-950/20 to-transparent",
+    accent: "border-violet-500/20 group-hover:border-violet-500/40",
+    url: "https://lumina-studio-amber-eta.vercel.app/",
+    tags: ["NEXT.JS", "TAILWIND", "VERCEL"],
+    span: "md:col-span-2",
   },
   {
-    icon: Layers3,
-    title: "Completas (Premium)",
-    description: "Experiencias de marca completas. Alto impacto visual, animaciones avanzadas y SEO.",
-    features: ["Todo lo Básico", "Animaciones Premium", "Product Showcase Avanzado", "SEO On-Page Básica", "Soporte prioritario"],
-    price: "400Bs",
+    name: "FlowCore",
+    category: "Automatización Inteligente",
+    description:
+      "Plataforma de automatización de flujos CRM con integración de WhatsApp y webhooks en tiempo real.",
+    gradient: "from-blue-900/30 via-blue-950/20 to-transparent",
+    accent: "border-blue-500/20 group-hover:border-blue-500/40",
+    url: "#",
+    tags: ["NODE.JS", "WEBHOOKS", "AI"],
+    span: "",
+  },
+  {
+    name: "Nova Dashboard",
+    category: "SaaS Analytics",
+    description:
+      "Panel de control en tiempo real con visualización de métricas, reportes automatizados y alertas inteligentes.",
+    gradient: "from-emerald-900/30 via-emerald-950/20 to-transparent",
+    accent: "border-emerald-500/20 group-hover:border-emerald-500/40",
+    url: "#",
+    tags: ["REACT", "D3.JS", "API"],
+    span: "",
+  },
+  {
+    name: "BrandSync",
+    category: "Identidad & Diseño de Marca",
+    description:
+      "Ecosistema de branding digital: identidad visual, guía de estilo, componentes UI y landing page corporativa.",
+    gradient: "from-amber-900/30 via-amber-950/20 to-transparent",
+    accent: "border-amber-500/20 group-hover:border-amber-500/40",
+    url: "#",
+    tags: ["FIGMA", "TAILWIND", "NEXT.JS"],
+    span: "md:col-span-2",
   },
 ];
 
 export const Showcase = () => {
   return (
-    <Section id="productos" className="py-24 md:py-32 border-t border-white/[0.02]">
-      <div className="text-center space-y-4 mb-24">
-        <h2 className="font-lexend text-4xl md:text-5xl font-extrabold tracking-tighter text-white">
-          Nuestras Soluciones Web
-        </h2>
-        <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto px-4">
-          Elegancia digital diseñada para el éxito de tu negocio. 
-          Elige entre nuestras paginas básicas para lanzamientos rápidos o completas para una experiencia de marca premium que cautiva.
-        </p>
-      </div>
+    <section
+      id="showcase"
+      className="py-24 md:py-32 border-t border-zinc-800/20"
+    >
+      <div className="max-w-6xl mx-auto px-6">
+        <FadeIn>
+          <div className="text-center space-y-4 mb-16">
+            <span className="font-mono text-xs uppercase tracking-widest text-blue-400">
+              Portfolio
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-b from-zinc-50 to-zinc-400 bg-clip-text text-transparent">
+              Proyectos selectos
+            </h2>
+            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+              Cada proyecto es una pieza única de ingeniería digital. Resultados reales, código real.
+            </p>
+          </div>
+        </FadeIn>
 
-      <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto px-4 sm:px-0">
-        {products.map((product, index) => {
-          const Icon = product.icon;
-          const isPremium = index === 1;
-          return (
-            <motion.div
-              key={product.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              viewport={{ once: true, amount: 0.2 }}
-              className="relative group h-full"
-            >
-              <GlowBorder 
-                className={`h-full rounded-3xl transition-all duration-500 bg-zinc-950/[0.2] backdrop-blur-xl border ${
-                  isPremium 
-                    ? 'border-blue-500/20 group-hover:border-blue-500/40 shadow-2xl shadow-blue-500/[0.02]' 
-                    : 'border-white/5 group-hover:border-white/10'
-                }`}
+        <div className="grid md:grid-cols-3 gap-5">
+          {projects.map((project, index) => (
+            <FadeIn key={project.name} delay={index * 0.1}>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group relative block rounded-2xl border border-zinc-800/60 overflow-hidden transition-all duration-500 hover:-translate-y-1 ${project.span} ${project.accent}`}
               >
-                {isPremium && (
-                  <div className="absolute -top-3 right-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase shadow-lg shadow-blue-500/20 z-20 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                    <span>RECOMENDADO</span>
-                  </div>
-                )}
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-60`} />
 
-                <div className="flex flex-col justify-between h-full space-y-10 p-8 sm:p-10">
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 bg-white/[0.02] border border-white/5 rounded-2xl">
-                        <Icon className="w-6 h-6 text-blue-400" />
-                      </div>
-                      <h3 className="font-lexend text-2xl md:text-3xl font-bold tracking-tight text-white">
-                        {product.title}
+                <div className="relative p-8 min-h-[280px] flex flex-col justify-between">
+                  <div className="flex items-start justify-between">
+                    <div className="space-y-1">
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+                        {project.category}
+                      </span>
+                      <h3 className="text-xl font-semibold text-zinc-50">
+                        {project.name}
                       </h3>
                     </div>
-                    
-                    <p className="text-base text-zinc-400 leading-relaxed min-h-[50px]">
-                      {product.description}
-                    </p>
-                    
-                    <ul className="space-y-4 pt-6 border-t border-white/[0.05]">
-                      {product.features.map(feat => (
-                        <li key={feat} className="flex items-center gap-3 text-sm text-zinc-300">
-                          <Target className="w-4 h-4 text-blue-400/70 shrink-0" /> 
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <ArrowUpRight className="w-5 h-5 text-zinc-600 group-hover:text-zinc-50 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />
                   </div>
 
-                  <div className="pt-6 border-t border-white/[0.05] flex flex-col items-start gap-1">
-                    <span className="text-zinc-500 text-xs font-semibold uppercase tracking-widest">Desde</span>
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="font-lexend text-5xl md:text-6xl font-black bg-gradient-to-b from-white to-zinc-400 bg-clip-text text-transparent tracking-tighter">
-                        {product.price.replace("Bs", "")}
-                      </span>
-                      <span className="font-lexend text-xl font-bold text-blue-400">Bs</span>
+                  <div className="space-y-4">
+                    <p className="text-sm text-zinc-400 leading-relaxed">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="font-mono text-[10px] uppercase tracking-widest text-blue-400/80 bg-blue-500/5 border border-blue-500/10 px-2.5 py-1 rounded"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                    <span className="flex items-center gap-1.5 text-xs text-zinc-500 mt-1">
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                      {index === 0 ? "Entrega en 3–5 días" : "Entrega en 5–7 días"}
-                    </span>
                   </div>
                 </div>
-              </GlowBorder>
-            </motion.div>
-          );
-        })}
+              </a>
+            </FadeIn>
+          ))}
+        </div>
       </div>
-    </Section>
+    </section>
   );
 };
