@@ -1,14 +1,33 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import { FadeIn } from "../components/components/FadeIn";
 import { Send, CheckCircle } from "lucide-react";
 
+const SERVICE_OPTIONS = [
+  "Seleccioná un servicio",
+  "Starter Pack",
+  "Premium Pack",
+  "Rediseño Web",
+  "Soporte Técnico y Mantenimiento",
+];
+
 export const Contact = () => {
   const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", project: "" });
+  const [formData, setFormData] = useState({
+    name: "", email: "", phone: "", service: "", project: "",
+  });
+  const [accepted, setAccepted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  useEffect(() => {
+    const handler = (e: CustomEvent) => {
+      setFormData((prev) => ({ ...prev, service: e.detail }));
+    };
+    window.addEventListener("selectService", handler as EventListener);
+    return () => window.removeEventListener("selectService", handler as EventListener);
+  }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -44,7 +63,7 @@ export const Contact = () => {
                 Te contactaremos en menos de 24 horas para coordinar los próximos pasos.
               </p>
               <button
-                onClick={() => { setState("idle"); setFormData({ name: "", email: "", phone: "", project: "" }); }}
+                onClick={() => { setState("idle"); setFormData({ name: "", email: "", phone: "", service: "", project: "" }); setAccepted(false); }}
                 className="text-[11px] font-mono text-zinc-500 hover:text-zinc-400 transition-colors"
               >
                 Enviar otra solicitud
@@ -93,11 +112,36 @@ export const Contact = () => {
               </div>
 
               <div className="space-y-1.5">
+                <label htmlFor="service" className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">Tipo de Servicio</label>
+                <select required name="service" id="service" value={formData.service} onChange={handleChange} className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-50 focus:outline-none focus:border-zinc-600 transition-colors appearance-none">
+                  {SERVICE_OPTIONS.map((opt) => (
+                    <option key={opt} value={opt === SERVICE_OPTIONS[0] ? "" : opt} className="bg-zinc-900 text-zinc-50">
+                      {opt}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="space-y-1.5">
                 <label htmlFor="project" className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">Descripción del proyecto</label>
                 <textarea required name="project" id="project" rows={4} value={formData.project} onChange={handleChange} placeholder="Contanos brevemente qué necesitas..." className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-zinc-600 transition-colors resize-none" />
               </div>
 
-              <button type="submit" disabled={state === "loading"} className="w-full rounded-lg text-sm px-5 py-3 bg-zinc-50 text-zinc-950 font-medium hover:bg-zinc-200 transition-all duration-200 disabled:opacity-50 flex items-center justify-center gap-2 group">
+              <div className="flex items-start gap-3 mt-4 mb-6">
+                <input
+                  required
+                  type="checkbox"
+                  id="terms"
+                  checked={accepted}
+                  onChange={(e) => setAccepted(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 shrink-0 rounded border-zinc-700 bg-zinc-900 accent-emerald-500 focus:ring-emerald-500 focus:ring-offset-0"
+                />
+                <label htmlFor="terms" className="text-xs text-zinc-400 leading-normal select-none">
+                  Acepto los <a href="#terminos" className="text-zinc-200 underline hover:text-white transition-colors">Términos y Condiciones</a> y la <a href="#privacidad" className="text-zinc-200 underline hover:text-white transition-colors">Política de Privacidad</a> de Adan Labs.
+                </label>
+              </div>
+
+              <button type="submit" disabled={state === "loading" || !accepted} className="w-full rounded-lg text-sm px-5 py-3 bg-zinc-50 text-zinc-950 font-medium hover:bg-zinc-200 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 group">
                 {state === "loading" ? "Enviando..." : "Enviar Solicitud de Proyecto"}
                 <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </button>

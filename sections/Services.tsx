@@ -93,6 +93,11 @@ const plans = [
   },
 ];
 
+const handleSelectService = (title: string) => {
+  window.dispatchEvent(new CustomEvent("selectService", { detail: title }));
+  document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
+};
+
 export const Services = () => {
   return (
     <section id="servicios" className="py-28 md:py-36 border-t border-zinc-800/20">
@@ -154,8 +159,9 @@ export const Services = () => {
                   <div className="pt-4 border-t border-zinc-800/40 flex-1" />
 
                   {plan.ctaStyle === "solid" ? (
-                    <a
-                      href="#contacto"
+                    <button
+                      type="button"
+                      onClick={() => handleSelectService(plan.title)}
                       className={`w-full rounded-lg text-sm px-5 py-2.5 font-medium transition-all duration-200 text-center ${
                         plan.premium
                           ? "bg-blue-500 text-white hover:bg-blue-400"
@@ -163,14 +169,15 @@ export const Services = () => {
                       }`}
                     >
                       {plan.cta}
-                    </a>
+                    </button>
                   ) : (
-                    <a
-                      href="#contacto"
+                    <button
+                      type="button"
+                      onClick={() => handleSelectService(plan.title)}
                       className="w-full rounded-lg text-sm px-5 py-2.5 font-medium border border-zinc-800 text-zinc-400 hover:bg-zinc-900 hover:text-zinc-50 transition-all duration-200 text-center"
                     >
                       {plan.cta}
-                    </a>
+                    </button>
                   )}
                 </div>
               </div>
