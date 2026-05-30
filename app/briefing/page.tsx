@@ -178,7 +178,7 @@ export default function BriefingForm() {
             disabled={state.submitting}
             className="w-full bg-[#f5f5f5] text-[#09090b] font-medium py-3 px-5 rounded-lg hover:bg-[#e4e4e7] transition-all flex items-center justify-center gap-2 text-sm disabled:opacity-50"
           >
-            {state.submitting ? "Enviando..." : "Enviar briefing"}
+            {state.submitting ? "Enviando..." : "Enviar formulario"}
             <Send className="w-3.5 h-3.5" />
           </button>
 

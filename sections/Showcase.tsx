@@ -104,7 +104,7 @@ export const Showcase = () => {
               <div className="relative p-6 md:p-8 flex flex-col h-full">
                 <div className="flex items-start justify-between mb-5">
                   <span className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">
-                    Diseño Responsivo de Alto Rendimiento
+                    Diseño adaptable de alto rendimiento
                   </span>
                   <ArrowUpRight className="w-4 h-4 text-zinc-500 group-hover:text-zinc-50 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300 shrink-0" />
                 </div>
@@ -133,7 +133,7 @@ export const Showcase = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-2 mt-5">
-                  {["NEXT.JS", "TAILWIND CSS", "VERCEL EDGE"].map((tag) => (
+                  {["NEXT.JS", "TAILWIND CSS", "VERCEL"].map((tag) => (
                     <span
                       key={tag}
                       className="text-[10px] font-mono tracking-wider text-zinc-300 bg-zinc-900/80 border border-zinc-800 py-1 px-2.5 rounded-md"

@@ -4,7 +4,7 @@ import { FadeIn } from "../components/components/FadeIn";
 
 const differentiators = [
   "Entrega directa sin intermediarios",
-  "Tecnología moderna, no WordPress",
+  "Tecnología moderna, no plantillas genéricas",
   "Comunicación por WhatsApp en tiempo real",
   "Código propio, no plantillas",
 ];
@@ -37,8 +37,7 @@ export const About = () => {
                 plantillas.
               </p>
               <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-                Trabajamos con tecnología moderna (Next.js, Vercel, APIs) y
-                diseño pensado para comunicar profesionalismo desde el primer
+                Trabajamos con tecnología moderna y diseño pensado para comunicar profesionalismo desde el primer
                 segundo.
               </p>
             </div>

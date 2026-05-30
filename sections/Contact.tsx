@@ -4,12 +4,12 @@ import { useState, FormEvent, useEffect } from "react";
 import { FadeIn } from "../components/components/FadeIn";
 import { Send, CheckCircle } from "lucide-react";
 
-const FORMSPREE_URL = "https://formspree.io/f/xjgzlapk";
+const FORMSPREE_URL = "https://formspree.io/xjgzlapk";
 
 const SERVICE_OPTIONS = [
   "Seleccioná un servicio",
-  "Starter Pack",
-  "Premium Pack",
+  "Paquete Inicial",
+  "Paquete Premium",
   "Rediseño Web",
   "Soporte Técnico y Mantenimiento",
 ];

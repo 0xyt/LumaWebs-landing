@@ -9,7 +9,7 @@ const projects = [
     name: "Lumina Studio",
     category: "Fotografía y video",
     description:
-      "Sitio web completo para estudio fotográfico. Sistema de galerías, formulario de contacto y branding digital.",
+      "Sitio web completo para estudio fotográfico. Sistema de galerías, formulario de contacto e identidad de marca digital.",
     image: "/images/portfolio/lumina-studio.png",
     url: "https://lumina-studio-amber-eta.vercel.app/",
     tags: ["Next.js", "TailwindCSS", "Vercel"],

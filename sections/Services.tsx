@@ -5,19 +5,18 @@ import { Check } from "lucide-react";
 
 const plans = [
   {
-    tag: "LAUNCH",
+    tag: "LANZAMIENTO",
     tagBg: "bg-zinc-800/50 border-zinc-700/50 text-zinc-400",
-    title: "Starter Pack",
+    title: "Paquete Inicial",
     desc: "Ideal para lanzamientos rápidos, negocios locales o profesionales independientes.",
     price: "150",
     priceLabel: "Bs",
     priceNote: "Desde",
     gradient: "from-zinc-50 to-zinc-400",
     features: [
-      "Diseño One-Page (Landing Page)",
-      "Optimización móvil (Mobile-First)",
-      "Adquisición de Dominio propio",
-      "Velocidad de carga ultrarrápida (Next.js)",
+      "Página web única (One Page)",
+      "Diseño adaptado a celulares",
+      "Carga ultrarrápida y optimizada",
     ],
     metrics: [
       { label: "Rendimiento", pct: 98, color: "bg-green-500" },
@@ -29,17 +28,17 @@ const plans = [
   {
     tag: "POPULAR",
     tagBg: "bg-blue-500/10 border-blue-500/20 text-blue-400",
-    title: "Premium Pack",
-    desc: "Estructura multipágina escalable, animaciones fluidas, UI exclusiva y SEO optimizado.",
+    title: "Paquete Premium",
+    desc: "Estructura multipágina escalable, animaciones fluidas, diseño exclusivo y posicionamiento en buscadores.",
     price: "400",
     priceLabel: "Bs",
     priceNote: "Desde",
     gradient: "from-zinc-50 to-zinc-400",
     features: [
-      "Estructura multipágina escalable",
-      "Animaciones y transiciones de interfaz fluidas",
-      "Maquetación y diseño UI exclusivo desde Figma",
-      "SEO optimizado para motores de búsqueda",
+      "Varias páginas para tu negocio",
+      "Animaciones profesionales y transiciones suaves",
+      "Diseño visual exclusivo creado desde cero",
+      "Posicionamiento en Google (SEO)",
     ],
     metrics: [
       { label: "Rendimiento", pct: 100, color: "bg-green-500" },
@@ -50,18 +49,18 @@ const plans = [
     premium: true,
   },
   {
-    tag: "REMODEL",
+    tag: "REMODELACIÓN",
     tagBg: "bg-zinc-800/50 border-zinc-700/50 text-zinc-400",
     title: "Rediseño Web",
-    desc: "Remodelación estética completa, optimización de velocidad y migración a código moderno.",
+    desc: "Remodelación estética completa, optimización de velocidad y migración a tecnología moderna.",
     price: "250",
     priceLabel: "Bs",
     priceNote: "Precio único",
     gradient: "from-zinc-50 to-zinc-400",
     features: [
-      "Lavado de cara estético completo (Modo Oscuro Premium)",
-      "Migración de código antiguo a Next.js y Tailwind CSS",
-      "Optimización de Core Web Vitals (Rendimiento al 100%)",
+      "Renovación visual completa de tu sitio",
+      "Actualización de tecnología obsoleta a estándares modernos",
+      "Rendimiento optimizado al máximo (100%)",
     ],
     metrics: [
       { label: "Rendimiento", pct: 100, color: "bg-green-500" },
@@ -71,7 +70,7 @@ const plans = [
     ctaStyle: "outline",
   },
   {
-    tag: "CARE",
+    tag: "MANTENIMIENTO",
     tagBg: "bg-zinc-800/50 border-zinc-700/50 text-zinc-400",
     title: "Soporte Técnico y Mantenimiento",
     desc: "Monitoreo, actualizaciones inmediatas y limpieza mensual de rendimiento.",
@@ -80,9 +79,9 @@ const plans = [
     priceNote: "Desde",
     gradient: "from-zinc-50 to-zinc-400",
     features: [
-      "Monitoreo técnico continuo",
-      "Actualizaciones de contenido inmediatas",
-      "Limpieza mensual de rendimiento",
+      "Supervisión técnica permanente",
+      "Actualizaciones de contenido sin demora",
+      "Revisión mensual de velocidad y rendimiento",
     ],
     metrics: [
       { label: "Tiempo activo", pct: 99.9, color: "bg-green-500" },

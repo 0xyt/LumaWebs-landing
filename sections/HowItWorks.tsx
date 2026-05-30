@@ -8,7 +8,7 @@ const steps = [
   {
     icon: FileText,
     title: "Llenás el formulario",
-    description: "Contanos tu idea en el briefing y contanos qué necesitas.",
+    description: "Contanos tu idea en el formulario y decinos qué necesitas.",
   },
   {
     icon: MessageCircle,
@@ -18,7 +18,7 @@ const steps = [
   {
     icon: PenTool,
     title: "Diseñamos tu web",
-    description: "Creamos una landing page moderna y optimizada para tu negocio.",
+    description: "Creamos una página web moderna y optimizada para tu negocio.",
   },
   {
     icon: Rocket,
@@ -35,7 +35,7 @@ export const HowItWorks = () => {
           ¿Cómo funciona?
         </h2>
         <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto px-4">
-          Cuatro pasos simples para tener tu landing page lista.
+          Cuatro pasos simples para tener tu página web lista.
         </p>
       </div>
 

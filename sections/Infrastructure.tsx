@@ -11,7 +11,7 @@ export const Infrastructure = () => {
         <FadeIn>
           <div className="text-center">
             <span className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase block mb-4">
-              Stack Tecnológico
+              Tecnología que usamos
             </span>
             <p className="text-sm text-zinc-400 leading-relaxed max-w-xl mx-auto">
               {stack.join(" • ")}

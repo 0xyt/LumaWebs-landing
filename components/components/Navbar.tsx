@@ -67,7 +67,7 @@ export const Navbar = () => {
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="md:hidden flex flex-col gap-1 p-1"
-              aria-label="Toggle menu"
+              aria-label="Abrir menú"
             >
               <span className={`block w-4 h-[1px] bg-zinc-400 transition-all ${mobileOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} />
               <span className={`block w-4 h-[1px] bg-zinc-400 transition-all ${mobileOpen ? "opacity-0" : ""}`} />

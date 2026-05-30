@@ -42,7 +42,7 @@ function CodeEditorMockup() {
 
         <div className="absolute -bottom-3 -right-3 bg-zinc-50/10 backdrop-blur-xl border border-zinc-700/50 rounded-lg px-3 py-2 flex items-center gap-2">
           <Zap className="w-3.5 h-3.5 text-green-400" />
-          <span className="text-[10px] font-mono text-green-400">100% Core Web Vitals</span>
+          <span className="text-[10px] font-mono text-green-400">100% Rendimiento Web Optimizado</span>
         </div>
       </div>
     </div>

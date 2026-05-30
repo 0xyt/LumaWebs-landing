@@ -7,35 +7,35 @@ import { FadeIn } from "../components/components/FadeIn";
 const faqs = [
   {
     q: "¿Cuánto tarda el desarrollo de un sistema?",
-    a: "Depende de la complejidad. Una landing page con automatización básica puede estar lista en 5-7 días hábiles. Un sistema completo con CRM, dashboards e integraciones requiere entre 2 y 4 semanas. Durante el discovery definimos plazos precisos.",
+    a: "Depende de la complejidad. Una página web con funciones básicas puede estar lista en 5-7 días hábiles. Un sistema completo con base de datos de clientes, panel de control y conexiones externas requiere entre 2 y 4 semanas. Durante la primera conversación definimos plazos precisos.",
   },
   {
     q: "¿Ofrecen mantenimiento después de la entrega?",
-    a: "Sí. Ofrecemos planes de mantenimiento mensual que incluyen actualizaciones, monitoreo, soporte técnico y ajustes menores. También podemos gestionar hosting y dominio.",
+    a: "Sí. Ofrecemos planes de mantenimiento mensual que incluyen actualizaciones, supervisión, soporte técnico y ajustes menores. También podemos gestionar el alojamiento web y tu dominio.",
   },
   {
     q: "¿Qué incluye el servicio de automatización?",
-    a: "Incluye conexión de herramientas mediante webhooks y APIs, configuración de flujos automatizados (captura, notificaciones, seguimiento), integración CRM y dashboard de monitoreo. Cada automatización se diseña a medida según los procesos del negocio.",
+    a: "Incluye conexión de tus herramientas mediante enlaces automáticos, configuración de procesos automatizados (captura de datos, notificaciones, seguimiento), integración con tu sistema de gestión y panel de control. Cada automatización se diseña a medida según los procesos de tu negocio.",
   },
   {
     q: "¿Trabajan con empresas fuera de Bolivia?",
-    a: "Sí. Trabajamos con clientes de toda Latinoamérica y Estados Unidos. La comunicación es 100% remota vía WhatsApp y email, con entregas en la nube.",
+    a: "Sí. Trabajamos con clientes de toda Latinoamérica y Estados Unidos. La comunicación es 100% por WhatsApp y correo electrónico, con entregas en línea.",
   },
   {
-    q: "¿Puedo integrar mi CRM actual?",
-    a: "Sí. Integramos con la mayoría de CRMs del mercado mediante APIs y webhooks. Si tu CRM no tiene API pública, evaluamos alternativas personalizadas.",
+    q: "¿Puedo conectar mi sistema de gestión actual?",
+    a: "Sí. Conectamos con la mayoría de sistemas de gestión del mercado mediante enlaces automáticos. Si tu sistema no tiene conexión pública, evaluamos alternativas personalizadas.",
   },
   {
     q: "¿Qué tecnología usan para los desarrollos?",
-    a: "Next.js como framework principal, TailwindCSS para estilos, Node.js para backend, PostgreSQL para datos y Vercel para deploy. Para automatización usamos webhooks, APIs REST y servicios serverless.",
+    a: "Usamos Next.js como base principal, TailwindCSS para diseños modernos, Node.js para la lógica del servidor, y Vercel para publicar tu sitio. Para automatización usamos conexiones automáticas seguras y servicios en la nube.",
   },
   {
     q: "¿Cómo manejan la seguridad de los datos?",
-    a: "Todo el código se maneja en repositorios privados de GitHub. Las conexiones son cifradas (HTTPS/SSL). No almacenamos datos sensibles en servidores propios. Las integraciones con terceros usan autenticación segura por API keys o OAuth.",
+    a: "Todo el código se maneja en repositorios privados. Las conexiones son cifradas y seguras. No almacenamos datos sensibles en servidores propios. Las conexiones con servicios externos usan autenticación segura.",
   },
   {
-    q: "¿Ofrecen hosting y dominio?",
-    a: "Sí. Incluimos hosting en Vercel con CDN global, certificado SSL automático y dominio personalizado. También ofrecemos opciones de hosting privado si el cliente lo requiere.",
+    q: "¿Ofrecen alojamiento web y dominio?",
+    a: "Sí. Incluimos alojamiento web con entrega rápida en todo el mundo, certificado de seguridad automático y dominio personalizado. También ofrecemos opciones de alojamiento privado si lo necesitas.",
   },
 ];
 

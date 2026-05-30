@@ -5,9 +5,9 @@ import { Section } from "../components/components/Section";
 import { Star } from "lucide-react";
 
 const testimonials = [
-  { quote: "Adan Labs superó mis expectativas. La landing premium es rápida, elegante y ha triplicado mis leads en un mes.", name: "Lucia Ch.", role: "Clínica Vital", stars: 5 },
-  { quote: "Necesitaba algo rápido para mi startup. La landing básica fue la solución perfecta: limpia, funcional y responsiva.", name: "Carlos Ruiz", role: "Barberia Estilo Urbano.", stars: 4 },
-  { quote: "Un trato profesional y un resultado increíble. Las animaciones en mi página premium son impresionantes.", name: "Sofía Martínez", role: "Nails Studio", stars: 5 },
+  { quote: "Adan Labs superó mis expectativas. Mi página premium es rápida, elegante y he triplicado mis consultas en un mes.", name: "Lucia Ch.", role: "Clínica Vital", stars: 5 },
+  { quote: "Necesitaba algo rápido para mi emprendimiento. La página básica fue la solución perfecta: limpia, funcional y se ve bien en celulares.", name: "Carlos Ruiz", role: "Barbería Estilo Urbano", stars: 4 },
+  { quote: "Un trato profesional y un resultado increíble. Las animaciones en mi página son impresionantes.", name: "Sofía Martínez", role: "Nails Studio", stars: 5 },
 ];
 
 export const Testimonials = () => {
