@@ -39,7 +39,6 @@ export const Process = () => {
         </FadeIn>
 
         <div className="relative max-w-3xl mx-auto">
-          <div className="absolute left-[19px] top-0 bottom-0 w-px bg-gradient-to-b from-zinc-800 via-zinc-700 to-zinc-800 hidden md:block" />
 
           <div className="grid md:grid-cols-3 gap-8 md:gap-12">
             {steps.map((step, index) => (
