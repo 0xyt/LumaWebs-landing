@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { FadeIn } from "../components/components/FadeIn";
 
 const steps = [
@@ -45,7 +46,13 @@ export const Process = () => {
               <FadeIn key={step.number} delay={index * 0.1}>
                 <div className="relative md:text-center">
                   <div className="hidden md:flex absolute -top-1 left-0 right-0 justify-center">
-                    <div className="w-[10px] h-[10px] rounded-full bg-zinc-800 border-2 border-zinc-600 shadow-[0_0_10px_rgba(59,130,246,0.15)]" />
+                    <motion.div
+                      initial={{ scale: 1, backgroundColor: "rgb(39 39 42)", borderColor: "rgb(82 82 91)" }}
+                      whileInView={{ scale: [1, 1.3, 1], backgroundColor: "rgb(96 165 250)", borderColor: "rgb(59 130 246)" }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                      className="w-[10px] h-[10px] rounded-full border-2 shadow-[0_0_12px_rgba(59,130,246,0.3)]"
+                    />
                   </div>
                   <div className="md:pt-6">
                     <span className="text-[10px] font-mono text-zinc-500 tracking-widest block mb-2 md:text-center">
