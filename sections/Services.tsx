@@ -26,9 +26,9 @@ const plans = [
     ctaStyle: "solid",
   },
   {
-    tag: "PROFESIONAL",
+    tag: "POPULAR",
     tagBg: "bg-blue-500/10 border-blue-500/20 text-blue-400",
-    title: "Paquete Premium",
+    title: "Paquete Profesional",
     desc: "Estructura multipágina escalable, animaciones fluidas, diseño exclusivo y posicionamiento en buscadores.",
     price: "400",
     priceLabel: "Bs",
