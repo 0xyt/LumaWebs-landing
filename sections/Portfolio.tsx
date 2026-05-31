@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FadeIn } from "../components/components/FadeIn";
 import { ArrowUpRight } from "lucide-react";
+import { site } from "@/lib/config";
 
 const projects = [
   {
@@ -106,7 +107,7 @@ export const Portfolio = () => {
               Más proyectos en desarrollo — Si querés ver más trabajo o discutir
               tu proyecto específico,{" "}
               <a
-                href="https://wa.me/59165947291"
+                href={site.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[var(--accent)] hover:underline"

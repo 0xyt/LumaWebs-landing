@@ -1,9 +1,10 @@
 import { MessageCircle } from 'lucide-react';
+import { site } from "@/lib/config";
 
 const WhatsAppCTA = () => {
   return (
     <a
-      href="https://wa.me/59165947291"
+      href={site.whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform hover:bg-[#1fa854]"
