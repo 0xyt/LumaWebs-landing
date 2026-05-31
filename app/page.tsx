@@ -8,7 +8,7 @@ import { Footer } from "../sections/Footer";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen w-full overflow-x-hidden bg-[#050505] antialiased">
+    <main className="relative min-h-screen w-full bg-[#050505] antialiased">
       <Navbar />
       <Hero />
       <Showcase />

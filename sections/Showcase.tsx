@@ -73,7 +73,7 @@ function PhoneFrame({ children }: { children: React.ReactNode }) {
 
 export const Showcase = () => {
   return (
-    <section id="portfolio" className="py-28 md:py-36 border-t border-zinc-800/20 relative">
+    <section id="portfolio" className="py-28 md:py-36 border-t border-zinc-800/20 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_40%_at_50%_50%,rgba(59,130,246,0.04)_0%,transparent_70%)]" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
