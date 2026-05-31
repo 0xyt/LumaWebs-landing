@@ -76,9 +76,9 @@ export const Showcase = () => {
     <section id="portfolio" className="py-28 md:py-36 border-t border-zinc-800/20 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_40%_at_50%_50%,rgba(59,130,246,0.04)_0%,transparent_70%)]" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6">
         <FadeIn>
-          <div className="max-w-2xl mb-14">
+          <div className="max-w-2xl mb-10 md:mb-14">
             <div className="relative inline-block">
               <div className="absolute -inset-20 blur-[120px] bg-indigo-500/10 pointer-events-none" />
               <div className="relative flex items-center gap-2 mb-1">
@@ -97,30 +97,30 @@ export const Showcase = () => {
           </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-3 gap-3 md:gap-4">
           <FadeIn delay={0.05}>
             <a
               href="https://lumina-studio-amber-eta.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative md:col-span-2 rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] hover:border-zinc-700 transition-all duration-500 min-h-[420px] flex flex-col overflow-hidden"
+              className="group relative md:col-span-2 rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] hover:border-zinc-700 transition-all duration-500 min-h-[300px] md:min-h-[420px] flex flex-col overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-indigo-500/5 to-transparent pointer-events-none rounded-xl" />
 
-              <div className="relative p-6 md:p-8 flex flex-col h-full">
-                <div className="flex items-start justify-between mb-5">
+              <div className="relative p-4 md:p-8 flex flex-col h-full min-w-0">
+                <div className="flex items-start justify-between mb-4 md:mb-5">
                   <span className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">
                     Diseño adaptable de alto rendimiento
                   </span>
                   <ArrowUpRight className="w-4 h-4 text-zinc-500 group-hover:text-zinc-50 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300 shrink-0" />
                 </div>
 
-                <div className="flex-1 relative pb-14 md:pb-24">
+                <div className="flex-1 relative pb-14 md:pb-24 min-w-0">
                   <div className="group-hover:scale-[1.005] transition-all duration-500 ease-out">
                     <MacWindow />
                   </div>
 
-                  <div className="absolute bottom-2 right-2 z-10 group-hover:scale-[1.015] transition-all duration-500 ease-out">
+                  <div className="absolute bottom-1 right-1 md:bottom-2 md:right-2 z-10 group-hover:scale-[1.015] transition-all duration-500 ease-out">
                     <PhoneFrame>
                       <div className="rounded-lg bg-gradient-to-b from-zinc-800/30 to-zinc-900/50 min-h-[60px] md:min-h-[80px] flex items-center justify-center mb-1.5 md:mb-2">
                         <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-zinc-700/50 flex items-center justify-center">
@@ -153,8 +153,8 @@ export const Showcase = () => {
           </FadeIn>
 
           <FadeIn delay={0.08}>
-            <div className="rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] hover:border-zinc-700 transition-all duration-500 min-h-[420px] flex flex-col overflow-hidden">
-              <div className="p-6 md:p-8 flex flex-col h-full">
+            <div className="rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] hover:border-zinc-700 transition-all duration-500 min-h-[300px] md:min-h-[420px] flex flex-col overflow-hidden">
+              <div className="p-4 md:p-8 flex flex-col h-full min-w-0">
                 <span className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase block mb-6">
                   Métricas de Rendimiento
                 </span>
