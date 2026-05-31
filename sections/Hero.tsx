@@ -102,6 +102,13 @@ export const Hero = () => {
             <CodeEditorMockup />
           </motion.div>
         </div>
+
+      </div>
+
+      <div className="absolute bottom-4 left-0 right-0 text-center z-20">
+        <span className="text-[10px] font-mono text-zinc-700 tracking-wider">
+          P&aacute;gina hecha por <span className="text-zinc-500">Adan Labs</span>
+        </span>
       </div>
     </section>
   );
