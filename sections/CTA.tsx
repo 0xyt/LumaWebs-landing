@@ -32,7 +32,7 @@ export const CTA = () => {
         <FadeIn delay={0.2}>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/briefing"
+              href="/contacto"
               className="cta-primary text-center justify-center"
             >
               Iniciar proyecto →
