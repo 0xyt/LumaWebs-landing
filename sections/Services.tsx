@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 
 const plans = [
   {
-    tag: "LANZAMIENTO",
+    tag: "STARTER",
     tagBg: "bg-zinc-800/50 border-zinc-700/50 text-zinc-400",
     title: "Paquete Inicial",
     desc: "Ideal para lanzamientos rápidos, negocios locales o profesionales independientes.",
@@ -26,7 +26,7 @@ const plans = [
     ctaStyle: "solid",
   },
   {
-    tag: "POPULAR",
+    tag: "PROFESIONAL",
     tagBg: "bg-blue-500/10 border-blue-500/20 text-blue-400",
     title: "Paquete Premium",
     desc: "Estructura multipágina escalable, animaciones fluidas, diseño exclusivo y posicionamiento en buscadores.",

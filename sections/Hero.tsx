@@ -86,7 +86,7 @@ export const Hero = () => {
             </div>
 
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-              {["Next.js", "TailwindCSS", "Vercel", "Linux Mint"].map((tag) => (
+              {["Next.js", "TailwindCSS", "Vercel", "Linux"].map((tag) => (
                 <span key={tag} className="text-[10px] font-mono text-zinc-600 tracking-wide uppercase">
                   {tag}
                 </span>
