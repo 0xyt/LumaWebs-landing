@@ -33,6 +33,9 @@ export const Navbar = () => {
                 alt="Adan Labs"
                 className="h-8 w-auto shrink-0 transition-all duration-300 group-hover:scale-110"
               />
+              <span className="text-lg font-bold tracking-tight bg-gradient-to-b text-transparent bg-clip-text from-zinc-50 to-zinc-400">
+                Adan Labs
+              </span>
             </Link>
 
           <div className="hidden md:flex items-center gap-6">
