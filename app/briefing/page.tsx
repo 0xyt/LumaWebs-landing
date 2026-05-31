@@ -1,33 +1,67 @@
 "use client";
 
-import { useForm, ValidationError } from "@formspree/react";
+import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, Send, Sparkles } from "lucide-react";
+import { ArrowLeft, Send, CheckCircle } from "lucide-react";
 import Link from "next/link";
 
-export default function BriefingForm() {
-  const [state, handleSubmit] = useForm("mqejpwno");
+const FORMSPREE_URL = "https://formspree.io/xjgzlapk";
 
-  if (state.succeeded) {
+const SERVICE_OPTIONS = [
+  "Seleccioná un servicio",
+  "Paquete Inicial",
+  "Paquete Premium",
+  "Rediseño Web",
+  "Soporte Técnico y Mantenimiento",
+];
+
+export default function BriefingForm() {
+  const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [formData, setFormData] = useState({
+    name: "", email: "", phone: "", service: "", project: "",
+  });
+  const [accepted, setAccepted] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setState("loading");
+    try {
+      const res = await fetch(FORMSPREE_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error("Error");
+      setState("success");
+    } catch {
+      setState("error");
+    }
+  };
+
+  if (state === "success") {
     return (
       <div className="min-h-screen bg-[#09090b] flex items-center justify-center px-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="max-w-md w-full bg-[#0c0c0e] border border-[#1f1f23] p-8 md:p-10 rounded-xl text-center space-y-5"
+          className="max-w-md w-full bg-[#0c0c0e] border border-zinc-800/80 p-8 md:p-10 rounded-xl text-center space-y-5"
         >
-          <div className="w-10 h-10 bg-[#3b82f6]/10 border border-[#3b82f6]/20 rounded-lg flex items-center justify-center mx-auto">
-            <Sparkles className="w-5 h-5 text-[#3b82f6]/60" />
+          <div className="w-10 h-10 bg-zinc-800/50 rounded-lg flex items-center justify-center mx-auto">
+            <CheckCircle className="w-5 h-5 text-zinc-400" />
           </div>
-          <h2 className="text-lg font-semibold text-[#f5f5f5] tracking-tight">
-            Briefing recibido
+          <h2 className="text-lg font-semibold text-zinc-50 tracking-tight">
+            Solicitud recibida
           </h2>
-          <p className="text-sm text-[#a1a1aa] leading-relaxed">
-            Analizaremos tus respuestas y te enviaremos una propuesta personalizada a tu WhatsApp en las próximas horas.
+          <p className="text-sm text-zinc-400 leading-relaxed">
+            Te contactaremos en menos de 24 horas para coordinar los próximos pasos.
           </p>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-[11px] font-mono text-[#52525b] hover:text-[#a1a1aa] transition-colors pt-2"
+            className="inline-flex items-center gap-2 text-[11px] font-mono text-zinc-500 hover:text-zinc-400 transition-colors pt-2"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Volver al inicio
           </Link>
@@ -42,148 +76,82 @@ export default function BriefingForm() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-2xl w-full bg-[#0c0c0e] border border-[#1f1f23] p-8 md:p-10 rounded-xl space-y-8"
+        className="max-w-lg w-full"
       >
-        <div className="space-y-2">
+        <div className="space-y-2 mb-8 text-center">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-[10px] font-mono text-[#52525b] hover:text-[#a1a1aa] transition-colors uppercase tracking-widest mb-2"
+            className="inline-flex items-center gap-2 text-[10px] font-mono text-zinc-500 hover:text-zinc-400 transition-colors uppercase tracking-widest mb-2"
           >
             <ArrowLeft className="w-3 h-3" /> Volver
           </Link>
-          <h1 className="text-xl md:text-2xl font-semibold text-[#f5f5f5] tracking-tight">
+          <h1 className="text-xl md:text-2xl font-semibold text-zinc-50 tracking-tight">
             Contanos tu proyecto
           </h1>
-          <p className="text-sm text-[#a1a1aa] leading-relaxed">
+          <p className="text-sm text-zinc-400 leading-relaxed">
             Completá este formulario y te contactamos en menos de 24 horas.
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="grid md:grid-cols-2 gap-4">
+        <div className="relative rounded-xl bg-[#0c0c0e] p-6 md:p-8">
+          <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-zinc-700/30 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 rounded-xl border border-zinc-800/80 pointer-events-none" />
+
+          <form onSubmit={handleSubmit} className="relative space-y-5">
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label htmlFor="name" className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">Nombre</label>
+                <input required type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Tu nombre" className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-zinc-600 transition-colors" />
+              </div>
+              <div className="space-y-1.5">
+                <label htmlFor="email" className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">Email</label>
+                <input required type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="tu@correo.com" className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-zinc-600 transition-colors" />
+              </div>
+            </div>
+
             <div className="space-y-1.5">
-              <label htmlFor="nombre" className="text-[10px] font-mono text-[#52525b] tracking-widest uppercase">
-                Tu nombre
-              </label>
+              <label htmlFor="phone" className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">Teléfono / WhatsApp</label>
+              <input required type="tel" name="phone" id="phone" value={formData.phone} onChange={handleChange} placeholder="+591 65947291" className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-zinc-600 transition-colors" />
+            </div>
+
+            <div className="space-y-1.5">
+              <label htmlFor="service" className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">Tipo de Servicio</label>
+              <select required name="service" id="service" value={formData.service} onChange={handleChange} className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-50 focus:outline-none focus:border-zinc-600 transition-colors appearance-none">
+                {SERVICE_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt === SERVICE_OPTIONS[0] ? "" : opt} className="bg-zinc-900 text-zinc-50">
+                    {opt}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="space-y-1.5">
+              <label htmlFor="project" className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">Descripción del proyecto</label>
+              <textarea required name="project" id="project" rows={4} value={formData.project} onChange={handleChange} placeholder="Contanos brevemente qué necesitas..." className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-zinc-600 transition-colors resize-none" />
+            </div>
+
+            <div className="flex items-start gap-3 mt-4 mb-6">
               <input
                 required
-                type="text"
-                name="nombre"
-                id="nombre"
-                className="w-full bg-[#09090b] border border-[#1f1f23] rounded-lg px-3.5 py-2.5 text-sm text-[#f5f5f5] placeholder-[#52525b] focus:outline-none focus:border-[#3b82f6]/50 transition-colors"
-                placeholder="Ej. Carlos Mendoza"
+                type="checkbox"
+                id="terms"
+                checked={accepted}
+                onChange={(e) => setAccepted(e.target.checked)}
+                className="mt-0.5 h-4 w-4 shrink-0 rounded border-zinc-700 bg-zinc-900 accent-emerald-500 focus:ring-emerald-500 focus:ring-offset-0"
               />
-            </div>
-            <div className="space-y-1.5">
-              <label htmlFor="whatsapp" className="text-[10px] font-mono text-[#52525b] tracking-widest uppercase">
-                WhatsApp
+              <label htmlFor="terms" className="text-xs text-zinc-400 leading-normal select-none">
+                Acepto los <Link href="/terminos" className="text-zinc-200 underline hover:text-white transition-colors">Términos y Condiciones</Link> y la <Link href="/privacidad" className="text-zinc-200 underline hover:text-white transition-colors">Política de Privacidad</Link> de Adan Labs.
               </label>
-              <input
-                required
-                type="tel"
-                name="whatsapp"
-                id="whatsapp"
-                className="w-full bg-[#09090b] border border-[#1f1f23] rounded-lg px-3.5 py-2.5 text-sm text-[#f5f5f5] placeholder-[#52525b] focus:outline-none focus:border-[#3b82f6]/50 transition-colors"
-                placeholder="+591 65947291"
-              />
             </div>
-          </div>
 
-          <div className="space-y-1.5">
-            <label htmlFor="empresa" className="text-[10px] font-mono text-[#52525b] tracking-widest uppercase">
-              Negocio y rubro
-            </label>
-            <input
-              required
-              type="text"
-              name="empresa"
-              id="empresa"
-              className="w-full bg-[#09090b] border border-[#1f1f23] rounded-lg px-3.5 py-2.5 text-sm text-[#f5f5f5] placeholder-[#52525b] focus:outline-none focus:border-[#3b82f6]/50 transition-colors"
-              placeholder="Ej. Nails Studio - Salón de belleza"
-            />
-          </div>
+            <button type="submit" disabled={state === "loading" || !accepted} className="w-full rounded-lg text-sm px-5 py-3 bg-zinc-50 text-zinc-950 font-medium hover:bg-zinc-200 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 group">
+              {state === "loading" ? "Procesando solicitud..." : "Enviar Solicitud de Proyecto"}
+              <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+            </button>
 
-          <div className="space-y-1.5">
-            <label htmlFor="objetivo" className="text-[10px] font-mono text-[#52525b] tracking-widest uppercase">
-              Objetivo principal
-            </label>
-            <select
-              name="objetivo"
-              id="objetivo"
-              className="w-full bg-[#09090b] border border-[#1f1f23] rounded-lg px-3.5 py-2.5 text-sm text-[#f5f5f5] focus:outline-none focus:border-[#3b82f6]/50 transition-colors appearance-none"
-            >
-              <option value="vender" className="bg-[#09090b]">Capturar leads y generar consultas</option>
-              <option value="catalogo" className="bg-[#09090b]">Mostrar catálogo de productos</option>
-              <option value="marca" className="bg-[#09090b]">Landing corporativa / marca</option>
-            </select>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="space-y-1.5">
-              <label htmlFor="colores" className="text-[10px] font-mono text-[#52525b] tracking-widest uppercase">
-                Colores preferidos
-              </label>
-              <input
-                type="text"
-                name="colores"
-                id="colores"
-                className="w-full bg-[#09090b] border border-[#1f1f23] rounded-lg px-3.5 py-2.5 text-sm text-[#f5f5f5] placeholder-[#52525b] focus:outline-none focus:border-[#3b82f6]/50 transition-colors"
-                placeholder="Ej. Negro y dorado"
-              />
-            </div>
-            <div className="space-y-1.5">
-              <label htmlFor="referencia" className="text-[10px] font-mono text-[#52525b] tracking-widest uppercase">
-                Web de referencia
-              </label>
-              <input
-                type="url"
-                name="referencia"
-                id="referencia"
-                className="w-full bg-[#09090b] border border-[#1f1f23] rounded-lg px-3.5 py-2.5 text-sm text-[#f5f5f5] placeholder-[#52525b] focus:outline-none focus:border-[#3b82f6]/50 transition-colors"
-                placeholder="https://ejemplo.com"
-              />
-            </div>
-          </div>
-
-          <div className="space-y-1.5">
-            <label htmlFor="plazo" className="text-[10px] font-mono text-[#52525b] tracking-widest uppercase">
-              Plazo estimado
-            </label>
-            <select
-              name="plazo"
-              id="plazo"
-              className="w-full bg-[#09090b] border border-[#1f1f23] rounded-lg px-3.5 py-2.5 text-sm text-[#f5f5f5] focus:outline-none focus:border-[#3b82f6]/50 transition-colors appearance-none"
-            >
-              <option value="urgente" className="bg-[#09090b]">Menos de 2 semanas</option>
-              <option value="estandar" className="bg-[#09090b]">3 a 4 semanas</option>
-              <option value="flexible" className="bg-[#09090b]">Sin prisa, máxima calidad</option>
-            </select>
-          </div>
-
-          <div className="flex items-start gap-3">
-            <input
-              type="checkbox"
-              id="consent"
-              required
-              className="shrink-0 mt-0.5 accent-[#3b82f6]"
-            />
-            <label htmlFor="consent" className="text-[11px] text-[#52525b] leading-relaxed">
-              Acepto la{" "}
-              <a href="/privacidad" className="text-[#a1a1aa] hover:text-[#f5f5f5] transition-colors">Política de Privacidad</a> y el uso de mis datos.
-            </label>
-          </div>
-
-          <button
-            type="submit"
-            disabled={state.submitting}
-            className="w-full bg-[#f5f5f5] text-[#09090b] font-medium py-3 px-5 rounded-lg hover:bg-[#e4e4e7] transition-all flex items-center justify-center gap-2 text-sm disabled:opacity-50"
-          >
-            {state.submitting ? "Enviando..." : "Enviar formulario"}
-            <Send className="w-3.5 h-3.5" />
-          </button>
-
-          <ValidationError errors={state.errors} className="text-[11px] text-[#ef4444]/70 block" />
-        </form>
+            {state === "error" && <p className="text-[11px] text-red-400/70 text-center">Ocurrió un error. Intentalo de nuevo.</p>}
+          </form>
+        </div>
       </motion.div>
     </div>
   );
