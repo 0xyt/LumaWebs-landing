@@ -103,7 +103,7 @@ export const Showcase = () => {
               href="https://lumina-studio-amber-eta.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative md:col-span-2 rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] hover:border-zinc-700 transition-all duration-500 min-h-[420px] flex flex-col"
+              className="group relative md:col-span-2 rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] hover:border-zinc-700 transition-all duration-500 min-h-[420px] flex flex-col overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-indigo-500/5 to-transparent pointer-events-none rounded-xl" />
 
@@ -120,7 +120,7 @@ export const Showcase = () => {
                     <MacWindow />
                   </div>
 
-                  <div className="absolute bottom-0 right-0 md:bottom-2 md:right-2 z-10 group-hover:scale-[1.015] transition-all duration-500 ease-out">
+                  <div className="absolute bottom-2 right-2 z-10 group-hover:scale-[1.015] transition-all duration-500 ease-out">
                     <PhoneFrame>
                       <div className="rounded-lg bg-gradient-to-b from-zinc-800/30 to-zinc-900/50 min-h-[60px] md:min-h-[80px] flex items-center justify-center mb-1.5 md:mb-2">
                         <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-zinc-700/50 flex items-center justify-center">
@@ -153,7 +153,7 @@ export const Showcase = () => {
           </FadeIn>
 
           <FadeIn delay={0.08}>
-            <div className="rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] hover:border-zinc-700 transition-all duration-500 min-h-[420px] flex flex-col">
+            <div className="rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] hover:border-zinc-700 transition-all duration-500 min-h-[420px] flex flex-col overflow-hidden">
               <div className="p-6 md:p-8 flex flex-col h-full">
                 <span className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase block mb-6">
                   Métricas de Rendimiento
