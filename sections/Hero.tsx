@@ -61,6 +61,12 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
           >
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-zinc-800 bg-zinc-900/50 mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse shrink-0" />
+              <span className="text-[10px] font-mono text-zinc-400 tracking-wider">
+                P&aacute;gina hecha por Adan Labs
+              </span>
+            </div>
             <h1 className="text-[clamp(30px,4.5vw,54px)] font-semibold tracking-tight leading-[1.08] text-zinc-50 mb-5">
               Creamos y remodelamos p&aacute;ginas web de alto impacto visual.
             </h1>
@@ -105,11 +111,6 @@ export const Hero = () => {
 
       </div>
 
-      <div className="absolute bottom-4 left-0 right-0 text-center z-20">
-        <span className="text-[10px] font-mono text-zinc-700 tracking-wider">
-          P&aacute;gina hecha por <span className="text-zinc-500">Adan Labs</span>
-        </span>
-      </div>
     </section>
   );
 };
