@@ -1,26 +1,36 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { FadeIn } from "../components/components/FadeIn";
+import { MessageSquare, PenTool, Code, Rocket } from "lucide-react";
 
 const steps = [
   {
     number: "01",
-    title: "Diagnóstico y Estructura",
+    icon: MessageSquare,
+    title: "Conocemos tu proyecto",
     description:
-      "Evaluamos tu marca y planificamos la arquitectura ideal para tu nueva web.",
+      "Conversamos sobre tu negocio, objetivos y lo que necesitas. Sin reuniones eternas ni burocracia.",
   },
   {
     number: "02",
-    title: "Desarrollo e Identidad",
+    icon: PenTool,
+    title: "Diseñamos la solución",
     description:
-      "Programamos el sitio cuidando cada animación, píxel y velocidad de carga.",
+      "Creamos el diseño y la estructura pensando en tus clientes y en lo que quieres comunicar.",
   },
   {
     number: "03",
-    title: "Lanzamiento Global",
+    icon: Code,
+    title: "Desarrollamos el sitio",
     description:
-      "Vinculamos tu dominio y desplegamos la web en producción con soporte continuo.",
+      "Codificamos cada detalle con tecnología moderna. Rápido, responsive y optimizado.",
+  },
+  {
+    number: "04",
+    icon: Rocket,
+    title: "Lanzamiento y soporte",
+    description:
+      "Publicamos tu sitio, configuramos dominio y te acompañamos después de la entrega.",
   },
 ];
 
@@ -31,43 +41,55 @@ export const Process = () => {
         <FadeIn>
           <div className="max-w-2xl mb-14">
             <h2 className="text-[clamp(26px,3.5vw,40px)] font-semibold tracking-tight leading-[1.12] text-zinc-50 mb-4">
-              Proceso
+              Así trabajamos
             </h2>
             <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[480px]">
-              Tres etapas, desde el diagnóstico hasta el lanzamiento de tu sitio web.
+              Un proceso claro y sin complicaciones. Desde la primera conversación hasta el lanzamiento.
             </p>
           </div>
         </FadeIn>
 
-        <div className="relative max-w-3xl mx-auto">
+        <div className="relative max-w-4xl mx-auto">
+          <div className="hidden md:block absolute left-[19px] top-0 bottom-0 w-px bg-gradient-to-b from-zinc-800 via-zinc-700/50 to-transparent" />
 
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-            {steps.map((step, index) => (
-              <FadeIn key={step.number} delay={index * 0.1}>
-                <div className="relative md:text-center">
-                  <div className="hidden md:flex absolute -top-1 left-0 right-0 justify-center">
-                    <motion.div
-                      initial={{ scale: 1, backgroundColor: "rgb(39 39 42)", borderColor: "rgb(82 82 91)" }}
-                      whileInView={{ scale: [1, 1.3, 1], backgroundColor: "rgb(96 165 250)", borderColor: "rgb(59 130 246)" }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                      className="w-[10px] h-[10px] rounded-full border-2 shadow-[0_0_12px_rgba(59,130,246,0.3)]"
-                    />
+          <div className="space-y-8 md:space-y-0">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <FadeIn key={step.number} delay={index * 0.1}>
+                  <div className="md:grid md:grid-cols-[48px_1fr] gap-6 items-start md:pb-12 relative">
+                    <div className="hidden md:flex relative z-10">
+                      <div className="w-10 h-10 rounded-full bg-[#0c0c0e] border border-zinc-700 flex items-center justify-center">
+                        <Icon className="w-4 h-4 text-blue-400" />
+                      </div>
+                    </div>
+
+                    <div className="md:hidden flex items-center gap-3 mb-3">
+                      <div className="w-8 h-8 rounded-full bg-[#0c0c0e] border border-zinc-700 flex items-center justify-center">
+                        <Icon className="w-3.5 h-3.5 text-blue-400" />
+                      </div>
+                      <span className="text-[10px] font-mono text-zinc-500 tracking-widest">
+                        {step.number}
+                      </span>
+                    </div>
+
+                    <div className="bg-[#0c0c0e] border border-zinc-800/80 rounded-xl p-5 md:p-6">
+                      <div className="hidden md:flex items-center gap-3 mb-2">
+                        <span className="text-[10px] font-mono text-zinc-500 tracking-widest">
+                          {step.number}
+                        </span>
+                      </div>
+                      <h3 className="text-sm font-semibold text-zinc-50 mb-1.5">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm text-zinc-400 leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
                   </div>
-                  <div className="md:pt-6">
-                    <span className="text-[10px] font-mono text-zinc-500 tracking-widest block mb-2 md:text-center">
-                      {step.number}
-                    </span>
-                    <h3 className="text-base font-semibold text-zinc-50 mb-2 md:text-center">
-                      {step.title}
-                    </h3>
-                    <p className="text-sm text-zinc-400 leading-relaxed md:text-center">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
+                </FadeIn>
+              );
+            })}
           </div>
         </div>
       </div>

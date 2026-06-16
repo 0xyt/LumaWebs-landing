@@ -1,5 +1,33 @@
 import { site } from "@/lib/config";
 
+const footerLinks = [
+  {
+    title: "Navegación",
+    links: [
+      { label: "Inicio", href: "/" },
+      { label: "Servicios", href: "#servicios" },
+      { label: "Portafolio", href: "#portafolio" },
+      { label: "Contacto", href: "#contacto" },
+    ],
+  },
+  {
+    title: "Servicios",
+    links: [
+      { label: "Landing Pages", href: "#servicios" },
+      { label: "Sitios Web", href: "#servicios" },
+      { label: "Remodelación", href: "#servicios" },
+      { label: "Mantenimiento", href: "#servicios" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Política de Privacidad", href: "/privacidad" },
+      { label: "Términos de Uso", href: "/terminos" },
+    ],
+  },
+];
+
 export const Footer = () => {
   return (
     <footer className="border-t border-zinc-800/20 py-14">
@@ -9,63 +37,45 @@ export const Footer = () => {
             <span className="text-sm font-semibold text-zinc-50 tracking-tight">
               {site.name}
             </span>
-            <p className="text-xs text-zinc-500 mt-2 leading-relaxed max-w-[180px]">
-              Desarrollo web a medida, diseño minimalista y optimización técnica.
+            <p className="text-xs text-zinc-500 mt-2 leading-relaxed max-w-[200px]">
+              Estudio digital independiente. Diseño, desarrollo y mejora de sitios web para
+              emprendedores y negocios locales.
             </p>
           </div>
 
-          <div>
-            <h4 className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase mb-3">
-              Navegación
-            </h4>
-            <ul className="space-y-2">
-              {[
-                { label: "Inicio", href: "/" },
-                { label: "Servicios", href: "#servicios" },
-                { label: "Portfolio", href: "#portfolio" },
-                { label: "Proceso", href: "#proceso" },
-              ].map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="text-xs text-zinc-400 hover:text-zinc-50 transition-colors duration-200">{link.label}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase mb-3">
-              Servicios
-            </h4>
-            <ul className="space-y-2">
-              {["Desarrollo Web", "Rediseño", "Dominios", "Mantenimiento"].map((s) => (
-                <li key={s}>
-                  <a href="#servicios" className="text-xs text-zinc-400 hover:text-zinc-50 transition-colors duration-200">{s}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase mb-3">
-              Legal
-            </h4>
-            <ul className="space-y-2">
-              {[
-                { label: "Política de Privacidad", href: "/privacidad" },
-                { label: "Términos de Uso", href: "/terminos" },
-              ].map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="text-xs text-zinc-400 hover:text-zinc-50 transition-colors duration-200">{link.label}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {footerLinks.map((group) => (
+            <div key={group.title}>
+              <h4 className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase mb-3">
+                {group.title}
+              </h4>
+              <ul className="space-y-2">
+                {group.links.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-xs text-zinc-400 hover:text-zinc-50 transition-colors duration-200"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="pt-6 border-t border-zinc-800/20 text-center">
+        <div className="pt-6 border-t border-zinc-800/20 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-[11px] text-zinc-500">
             &copy; {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
           </p>
+          <a
+            href={site.whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11px] text-zinc-500 hover:text-zinc-300 transition-colors"
+          >
+            WhatsApp
+          </a>
         </div>
       </div>
     </footer>

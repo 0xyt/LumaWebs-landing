@@ -3,39 +3,32 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FadeIn } from "../components/components/FadeIn";
+import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    q: "¿Cuánto tarda el desarrollo de un sistema?",
-    a: "Depende de la complejidad. Una página web con funciones básicas puede estar lista en 5-7 días hábiles. Un sistema completo con base de datos de clientes, panel de control y conexiones externas requiere entre 2 y 4 semanas. Durante la primera conversación definimos plazos precisos.",
+    q: "¿Cuánto tarda un proyecto?",
+    a: "Dependiendo de la complejidad, una landing page puede estar lista en 5 a 7 días hábiles. Un sitio web completo puede tomar de 1 a 3 semanas. Durante la primera conversación definimos plazos precisos.",
   },
   {
-    q: "¿Ofrecen mantenimiento después de la entrega?",
-    a: "Sí. Ofrecemos planes de mantenimiento mensual que incluyen actualizaciones, supervisión, soporte técnico y ajustes menores. También podemos gestionar el alojamiento web y tu dominio.",
+    q: "¿Necesito tener dominio?",
+    a: "No es necesario. Si no tienes dominio, podemos adquirir uno por ti y configurarlo. Si ya tienes uno, solo lo vinculamos al nuevo sitio.",
   },
   {
-    q: "¿Qué incluye el servicio de automatización?",
-    a: "Incluye conexión de tus herramientas mediante enlaces automáticos, configuración de procesos automatizados (captura de datos, notificaciones, seguimiento), integración con tu sistema de gestión y panel de control. Cada automatización se diseña a medida según los procesos de tu negocio.",
+    q: "¿Puedo solicitar cambios?",
+    a: "Sí. Cada proyecto incluye revisiones para ajustar detalles. Trabajo de forma iterativa para asegurarme de que el resultado sea exactamente lo que necesitas.",
   },
   {
-    q: "¿Trabajan con empresas fuera de Bolivia?",
-    a: "Sí. Trabajamos con clientes de toda Latinoamérica y Estados Unidos. La comunicación es 100% por WhatsApp y correo electrónico, con entregas en línea.",
+    q: "¿Ofrecen mantenimiento?",
+    a: "Sí. Tengo planes de mantenimiento mensual que incluyen actualizaciones de contenido, correcciones, monitoreo de seguridad y soporte técnico.",
   },
   {
-    q: "¿Puedo conectar mi sistema de gestión actual?",
-    a: "Sí. Conectamos con la mayoría de sistemas de gestión del mercado mediante enlaces automáticos. Si tu sistema no tiene conexión pública, evaluamos alternativas personalizadas.",
+    q: "¿Trabajan con negocios pequeños?",
+    a: "Sí, esa es mi especialidad. Trabajo principalmente con emprendedores, negocios locales y profesionales independientes que necesitan una presencia web profesional.",
   },
   {
-    q: "¿Qué tecnología usan para los desarrollos?",
-    a: "Usamos Next.js como base principal, TailwindCSS para diseños modernos, Node.js para la lógica del servidor, y Vercel para publicar tu sitio. Para automatización usamos conexiones automáticas seguras y servicios en la nube.",
-  },
-  {
-    q: "¿Cómo manejan la seguridad de los datos?",
-    a: "Todo el código se maneja en repositorios privados. Las conexiones son cifradas y seguras. No almacenamos datos sensibles en servidores propios. Las conexiones con servicios externos usan autenticación segura.",
-  },
-  {
-    q: "¿Ofrecen alojamiento web y dominio?",
-    a: "Sí. Incluimos alojamiento web con entrega rápida en todo el mundo, certificado de seguridad automático y dominio personalizado. También ofrecemos opciones de alojamiento privado si lo necesitas.",
+    q: "¿Qué incluye el hosting?",
+    a: "Todos los proyectos incluyen hosting con entrega rápida, certificado SSL automático y dominio personalizado. Utilizamos Vercel para un rendimiento óptimo global.",
   },
 ];
 
@@ -43,40 +36,45 @@ export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-28 md:py-36 border-t border-[#1f1f23]">
+    <section id="faq" className="py-28 md:py-36 border-t border-zinc-800/20">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <div className="max-w-2xl mb-16">
-            <span className="text-[10px] font-mono text-[#52525b] tracking-[0.25em] uppercase block mb-4">
-              FAQ
-            </span>
-            <h2 className="text-[clamp(28px,3.5vw,42px)] font-semibold tracking-tight leading-[1.15] text-[#f5f5f5]">
+          <div className="max-w-2xl mb-14">
+            <h2 className="text-[clamp(26px,3.5vw,40px)] font-semibold tracking-tight leading-[1.12] text-zinc-50 mb-4">
               Preguntas frecuentes
             </h2>
+            <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[480px]">
+              Respuestas claras para dudas comunes. Si falta algo, escríbeme directamente.
+            </p>
           </div>
         </FadeIn>
 
-        <div className="max-w-3xl">
+        <div className="max-w-3xl mx-auto space-y-2">
           {faqs.map((faq, index) => (
-            <FadeIn key={index} delay={index * 0.03}>
+            <FadeIn key={index} delay={index * 0.04}>
               <div
-                className={`border-t border-[#1f1f23] py-5 cursor-pointer group ${
-                  openIndex === index ? "border-[#27272a]" : ""
-                }`}
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                className={`rounded-xl border ${
+                  openIndex === index
+                    ? "border-zinc-700/60"
+                    : "border-zinc-800/60"
+                } bg-[#0c0c0e] transition-colors duration-200`}
               >
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="text-sm text-[#a1a1aa] group-hover:text-[#f5f5f5] transition-colors duration-200 pr-4 leading-relaxed">
+                <button
+                  onClick={() =>
+                    setOpenIndex(openIndex === index ? null : index)
+                  }
+                  className="w-full flex items-center justify-between px-5 py-4 text-left"
+                >
+                  <span className="text-sm text-zinc-300 font-medium pr-4">
                     {faq.q}
-                  </h3>
-                  <span
-                    className={`shrink-0 text-sm leading-none transition-transform duration-200 ${
-                      openIndex === index ? "rotate-45" : ""
-                    } text-[#52525b] mt-0.5`}
-                  >
-                    +
                   </span>
-                </div>
+                  <ChevronDown
+                    className={`w-4 h-4 text-zinc-500 shrink-0 transition-transform duration-200 ${
+                      openIndex === index ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
                 <AnimatePresence>
                   {openIndex === index && (
                     <motion.div
@@ -86,9 +84,11 @@ export const FAQ = () => {
                       transition={{ duration: 0.2, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="text-xs text-[#52525b] leading-relaxed pt-3 pb-1 max-w-[580px]">
-                        {faq.a}
-                      </p>
+                      <div className="px-5 pb-4">
+                        <p className="text-sm text-zinc-400 leading-relaxed">
+                          {faq.a}
+                        </p>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>

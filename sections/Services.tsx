@@ -1,101 +1,50 @@
 "use client";
 
 import { FadeIn } from "../components/components/FadeIn";
-import { Check } from "lucide-react";
+import { Monitor, Layout, RefreshCw, Wrench, ArrowRight } from "lucide-react";
 
-const plans = [
+const services = [
   {
-    tag: "STARTER",
-    tagBg: "bg-zinc-800/50 border-zinc-700/50 text-zinc-400",
-    title: "Paquete Inicial",
-    desc: "Ideal para lanzamientos rápidos, negocios locales o profesionales independientes.",
-    price: "250",
-    priceLabel: "Bs",
-    priceNote: "Desde",
-    gradient: "from-zinc-50 to-zinc-400",
-    features: [
-      "Página web única (One Page)",
-      "Diseño adaptado a celulares",
-      "Carga ultrarrápida y optimizada",
-    ],
-    metrics: [
-      { label: "Rendimiento", pct: 98, color: "bg-green-500" },
-      { label: "Velocidad", pct: 95, color: "bg-green-500" },
-    ],
-    cta: "Iniciar Proyecto",
-    ctaStyle: "solid",
+    icon: Layout,
+    title: "Landing Pages",
+    description:
+      "Páginas diseñadas para convertir visitantes en clientes. Ideales para campañas, lanzamientos y captación de leads.",
+    benefit: "Capta más clientes con una página enfocada en resultados.",
+    gradient: "from-blue-500/10 to-indigo-500/5",
+    border: "hover:border-blue-500/30",
+    iconBg: "bg-blue-500/10 text-blue-400",
   },
   {
-    tag: "POPULAR",
-    tagBg: "bg-blue-500/10 border-blue-500/20 text-blue-400",
-    title: "Paquete Profesional",
-    desc: "Estructura multipágina escalable, animaciones fluidas, diseño exclusivo y posicionamiento en buscadores.",
-    price: "500",
-    priceLabel: "Bs",
-    priceNote: "Desde",
-    gradient: "from-zinc-50 to-zinc-400",
-    features: [
-      "Varias páginas para tu negocio",
-      "Animaciones profesionales y transiciones suaves",
-      "Diseño visual exclusivo creado desde cero",
-      "Posicionamiento en Google (SEO)",
-    ],
-    metrics: [
-      { label: "Rendimiento", pct: 100, color: "bg-green-500" },
-      { label: "SEO", pct: 100, color: "bg-green-500" },
-    ],
-    cta: "Solicitar Cotización",
-    ctaStyle: "solid",
-    premium: true,
+    icon: Monitor,
+    title: "Sitios Web",
+    description:
+      "Presencia digital profesional para tu negocio. Sitios multiplataforma que comunican confianza desde el primer clic.",
+    benefit: "Tu negocio disponible 24/7 con una imagen profesional.",
+    gradient: "from-emerald-500/10 to-teal-500/5",
+    border: "hover:border-emerald-500/30",
+    iconBg: "bg-emerald-500/10 text-emerald-400",
   },
   {
-    tag: "REMODELACIÓN",
-    tagBg: "bg-zinc-800/50 border-zinc-700/50 text-zinc-400",
-    title: "Rediseño Web",
-    desc: "Remodelación estética completa, optimización de velocidad y migración a tecnología moderna.",
-    price: "150",
-    priceLabel: "Bs",
-    priceNote: "Precio único",
-    gradient: "from-zinc-50 to-zinc-400",
-    features: [
-      "Renovación visual completa de tu sitio",
-      "Actualización de tecnología obsoleta a estándares modernos",
-      "Rendimiento optimizado al máximo (100%)",
-    ],
-    metrics: [
-      { label: "Rendimiento", pct: 100, color: "bg-green-500" },
-      { label: "Velocidad", pct: 97, color: "bg-green-500" },
-    ],
-    cta: "Más Información",
-    ctaStyle: "outline",
+    icon: RefreshCw,
+    title: "Remodelación Web",
+    description:
+      "Modernizamos sitios existentes con diseño actual, mejor rendimiento y tecnología optimizada sin perder posicionamiento.",
+    benefit: "Renueva tu web sin empezar desde cero.",
+    gradient: "from-amber-500/10 to-orange-500/5",
+    border: "hover:border-amber-500/30",
+    iconBg: "bg-amber-500/10 text-amber-400",
   },
   {
-    tag: "MANTENIMIENTO",
-    tagBg: "bg-zinc-800/50 border-zinc-700/50 text-zinc-400",
-    title: "Soporte Técnico y Mantenimiento",
-    desc: "Monitoreo, actualizaciones inmediatas y limpieza mensual de rendimiento.",
-    price: "100",
-    priceLabel: "Bs / por mantenimiento",
-    priceNote: "Desde",
-    gradient: "from-zinc-50 to-zinc-400",
-    features: [
-      "Supervisión técnica permanente",
-      "Actualizaciones de contenido sin demora",
-      "Revisión mensual de velocidad y rendimiento",
-    ],
-    metrics: [
-      { label: "Tiempo activo", pct: 99.9, color: "bg-green-500" },
-      { label: "Optimización", pct: 95, color: "bg-green-500" },
-    ],
-    cta: "Contratar",
-    ctaStyle: "outline",
+    icon: Wrench,
+    title: "Mantenimiento",
+    description:
+      "Soporte técnico continuo, actualizaciones de contenido, correcciones y mejoras para mantener tu sitio siempre al día.",
+    benefit: "Tu web siempre actualizada, segura y funcionando.",
+    gradient: "from-purple-500/10 to-pink-500/5",
+    border: "hover:border-purple-500/30",
+    iconBg: "bg-purple-500/10 text-purple-400",
   },
 ];
-
-const handleSelectService = (title: string) => {
-  window.dispatchEvent(new CustomEvent("selectService", { detail: title }));
-  document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
-};
 
 export const Services = () => {
   return (
@@ -104,84 +53,46 @@ export const Services = () => {
         <FadeIn>
           <div className="max-w-2xl mb-14">
             <h2 className="text-[clamp(26px,3.5vw,40px)] font-semibold tracking-tight leading-[1.12] text-zinc-50 mb-4">
-              Planes y Precios
+              ¿Cómo puedo ayudarte?
             </h2>
             <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[480px]">
-              Productos diseñados para cada etapa de tu negocio. Precios transparentes, sin sorpresas.
+              Cada proyecto recibe atención personalizada. Esto es lo que hago:
             </p>
           </div>
         </FadeIn>
 
         <div className="grid sm:grid-cols-2 gap-4">
-          {plans.map((plan, index) => (
-            <FadeIn key={plan.title} delay={index * 0.06}>
-              <div
-                className={`group relative rounded-xl border bg-[#0c0c0e] p-7 md:p-8 transition-all duration-300 hover:scale-[1.01] flex flex-col h-full ${
-                  plan.premium
-                    ? "border-zinc-700/60 hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(59,130,246,0.06)]"
-                    : "border-zinc-800/80 hover:border-zinc-700/80"
-                }`}
-              >
-                {plan.premium && (
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-500/5 via-transparent to-transparent pointer-events-none" />
-                )}
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <FadeIn key={service.title} delay={index * 0.06}>
+                <div
+                  className={`group relative rounded-xl border border-zinc-800/80 bg-[#0c0c0e] p-7 md:p-8 transition-all duration-300 hover:scale-[1.01] ${service.border}`}
+                >
+                  <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${service.gradient} to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
-                <div className="relative z-10 flex flex-col h-full">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <span className={`text-[10px] font-mono tracking-widest uppercase px-2 py-0.5 rounded border ${plan.tagBg}`}>
-                        {plan.tag}
-                      </span>
+                  <div className="relative z-10">
+                    <div className={`w-10 h-10 rounded-lg ${service.iconBg} flex items-center justify-center mb-4`}>
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-mono text-zinc-600">{plan.priceNote}</span>
+
+                    <h3 className="text-base font-semibold text-zinc-50 mb-2">
+                      {service.title}
+                    </h3>
+
+                    <p className="text-sm text-zinc-400 leading-relaxed mb-4">
+                      {service.description}
+                    </p>
+
+                    <div className="flex items-center gap-2 text-xs text-zinc-300">
+                      <ArrowRight className="w-3 h-3 text-zinc-500" />
+                      <span>{service.benefit}</span>
+                    </div>
                   </div>
-
-                  <h3 className="text-lg font-semibold text-zinc-50 mb-2">{plan.title}</h3>
-                  <p className="text-sm text-zinc-400 leading-relaxed mb-5">{plan.desc}</p>
-
-                  <div className="mb-5">
-                    <span className="text-[32px] md:text-[38px] font-bold tracking-tight bg-gradient-to-b text-transparent bg-clip-text from-zinc-50 to-zinc-400">
-                      {plan.price}
-                    </span>
-                    <span className="text-sm text-zinc-400 ml-1.5">{plan.priceLabel}</span>
-                  </div>
-
-                  <ul className="space-y-2.5 mb-6 flex-1">
-                    {plan.features.map((feat) => (
-                      <li key={feat} className="flex items-start gap-2.5 text-sm text-zinc-400">
-                        <Check className="w-4 h-4 text-zinc-500 shrink-0 mt-0.5" />
-                        <span className="leading-relaxed">{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="pt-4 border-t border-zinc-800/40 flex-1" />
-
-                  {plan.ctaStyle === "solid" ? (
-                    <button
-                      type="button"
-                      onClick={() => handleSelectService(plan.title)}
-                      className={`w-full rounded-lg text-sm px-5 py-2.5 font-medium transition-all duration-200 text-center ${
-                        plan.premium
-                          ? "bg-blue-500 text-white hover:bg-blue-400"
-                          : "bg-zinc-50 text-zinc-950 hover:bg-zinc-200"
-                      }`}
-                    >
-                      {plan.cta}
-                    </button>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => handleSelectService(plan.title)}
-                      className="w-full rounded-lg text-sm px-5 py-2.5 font-medium border border-zinc-800 text-zinc-400 hover:bg-zinc-900 hover:text-zinc-50 transition-all duration-200 text-center"
-                    >
-                      {plan.cta}
-                    </button>
-                  )}
                 </div>
-              </div>
-            </FadeIn>
-          ))}
+              </FadeIn>
+            );
+          })}
         </div>
       </div>
     </section>
