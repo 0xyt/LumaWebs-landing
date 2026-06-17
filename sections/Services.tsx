@@ -1,7 +1,8 @@
 "use client";
 
 import { FadeIn } from "../components/components/FadeIn";
-import { Monitor, Layout, RefreshCw, Wrench, ArrowRight } from "lucide-react";
+import { Monitor, Layout, RefreshCw, Wrench, ArrowRight, MessageCircle } from "lucide-react";
+import { site } from "@/lib/config";
 
 const services = [
   {
@@ -94,6 +95,36 @@ export const Services = () => {
             );
           })}
         </div>
+
+        <FadeIn delay={0.18}>
+          <div className="mt-6 rounded-xl border border-emerald-500/20 bg-emerald-500/[0.04] p-5 md:p-6">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+              <div className="max-w-xl">
+                <p className="text-[10px] font-mono uppercase tracking-widest text-emerald-300/70 mb-2">
+                  Dudas de servicio
+                </p>
+                <h3 className="text-base md:text-lg font-semibold text-zinc-50 mb-1.5">
+                  ¿No sabes qué servicio elegir?
+                </h3>
+                <p className="text-sm text-zinc-400 leading-relaxed">
+                  Escríbeme por WhatsApp y te ayudo a identificar si necesitas una landing,
+                  un sitio completo, una remodelación o mantenimiento.
+                </p>
+              </div>
+
+              <a
+                href={site.whatsappLinks.serviceQuestion}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] px-5 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-[#1fa854] md:shrink-0"
+                aria-label="Consultar dudas sobre servicios por WhatsApp"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Resolver duda por WhatsApp
+              </a>
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

@@ -2,7 +2,8 @@
 
 import { useState, FormEvent, useEffect } from "react";
 import { FadeIn } from "../components/components/FadeIn";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, MessageCircle } from "lucide-react";
+import { site } from "@/lib/config";
 
 type Option = "default" | "crear" | "remodelar" | "mantenimiento" | "orientacion";
 
@@ -116,6 +117,31 @@ export const Contact = () => {
             <p className="text-sm text-zinc-400 leading-relaxed">
               Sin compromisos. Te respondo con una propuesta clara y sin vueltas.
             </p>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.06}>
+          <div className="mb-6 rounded-xl border border-blue-500/20 bg-blue-500/[0.04] p-5">
+            <p className="text-[10px] font-mono uppercase tracking-widest text-blue-300/70 mb-2">
+              Cotización rápida
+            </p>
+            <h3 className="text-base font-semibold text-zinc-50 mb-1.5">
+              ¿Quieres cotizar otra idea o proyecto?
+            </h3>
+            <p className="text-sm text-zinc-400 leading-relaxed mb-4">
+              Si ya tienes algo en mente y prefieres avanzar directo por chat,
+              envíame el contexto inicial por WhatsApp.
+            </p>
+            <a
+              href={site.whatsappLinks.quote}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-zinc-50 px-5 py-3 text-sm font-medium text-zinc-950 transition-all duration-200 hover:bg-zinc-200"
+              aria-label="Cotizar otra idea o proyecto por WhatsApp"
+            >
+              <MessageCircle className="h-4 w-4" />
+              Cotizar por WhatsApp
+            </a>
           </div>
         </FadeIn>
 
