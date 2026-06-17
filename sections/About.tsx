@@ -6,23 +6,23 @@ import { MessageCircle, User, Layers, Award } from "lucide-react";
 const values = [
   {
     icon: MessageCircle,
-    title: "Comunicación directa",
-    description: "Hablas directamente con quien desarrolla tu proyecto. Sin intermediarios ni equipos de ventas.",
+    title: "Te escuchamos primero",
+    description: "Antes de proponer algo, entendemos tu negocio, tus clientes y lo que quieres lograr.",
   },
   {
     icon: User,
-    title: "Trato personalizado",
-    description: "Cada proyecto es único. No usamos plantillas genéricas ni soluciones de catálogo.",
+    title: "Hablamos claro",
+    description: "No usamos palabras complicadas. Te explicamos cada paso para que sepas qué estás pagando.",
   },
   {
     icon: Layers,
-    title: "Soluciones adaptadas",
-    description: "Analizamos tu caso y construimos lo que realmente necesitas, ni más ni menos.",
+    title: "Pensamos en tus clientes",
+    description: "Ordenamos la página para que una persona entienda rápido qué ofreces y cómo contactarte.",
   },
   {
     icon: Award,
-    title: "Calidad antes que cantidad",
-    description: "Preferimos hacer pocos proyectos bien hechos a muchos proyectos mediocres.",
+    title: "Te acompañamos después",
+    description: "La página no termina al publicarla. Si necesitas cambios o ayuda, seguimos cerca.",
   },
 ];
 
@@ -33,12 +33,11 @@ export const About = () => {
         <FadeIn>
           <div className="max-w-2xl mb-14">
             <h2 className="text-[clamp(26px,3.5vw,40px)] font-semibold tracking-tight leading-[1.12] text-zinc-50 mb-4">
-              Diseño y desarrollo web con atención al detalle
+              ¿Por qué nosotros?
             </h2>
             <p className="text-sm md:text-base text-zinc-400 leading-relaxed">
-              Adan Labs es un estudio digital independiente. Trabajo directamente con emprendedores,
-              negocios locales y profesionales que necesitan una presencia web profesional,
-              sin complicaciones ni procesos corporativos innecesarios.
+              Porque no solo hacemos una página bonita. Te ayudamos a ordenar tu mensaje
+              para que tus visitantes entiendan, confíen y den el siguiente paso.
             </p>
           </div>
         </FadeIn>

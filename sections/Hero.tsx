@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 
 const trustIndicators = [
-  "Diseño personalizado",
-  "Comunicación directa",
-  "Soluciones adaptadas a cada proyecto",
+  "Te explico todo con palabras simples",
+  "Hablas directo conmigo",
+  "La página queda lista para recibir mensajes",
 ];
 
 export const Hero = () => {
@@ -26,21 +26,21 @@ export const Hero = () => {
             <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-zinc-800 bg-zinc-900/50 mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse shrink-0" />
               <span className="text-[10px] font-mono text-zinc-400 tracking-wider">
-                Estudio digital independiente
+                Páginas web para negocios locales
               </span>
             </div>
 
             <h1 className="text-[clamp(28px,4.5vw,56px)] font-semibold tracking-tight leading-[1.08] text-zinc-50 mb-5">
-              Desarrollo web estratégico{" "}
+              Creamos páginas web claras para que{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
-                para emprendedores y negocios locales
+                más clientes te encuentren y te escriban
               </span>
               .
             </h1>
 
             <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[560px] mb-8">
-              Diseñamos, desarrollamos y remodelamos sitios web con personalidad,
-              enfocados en transmitir confianza y ayudar a tu negocio a crecer.
+              Hacemos que tu negocio se vea confiable en internet, explicamos tus servicios
+              con palabras simples y dejamos listo el camino para que te contacten.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-10">
@@ -48,14 +48,14 @@ export const Hero = () => {
                 href="#servicios"
                 className="inline-flex items-center justify-center rounded-lg text-sm px-5 py-2.5 bg-zinc-50 text-zinc-950 font-medium hover:bg-zinc-200 transition-all duration-200 gap-2 group"
               >
-                Ver Servicios
+                Ver qué puedo hacer por ti
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </a>
               <a
                 href="#contacto"
                 className="inline-flex items-center justify-center rounded-lg text-sm px-5 py-2.5 border border-zinc-800 text-zinc-400 hover:bg-zinc-900 hover:text-zinc-50 transition-all duration-200"
               >
-                Solicitar Propuesta
+                Pedir cotización
               </a>
             </div>
 

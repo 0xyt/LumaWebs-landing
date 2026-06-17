@@ -5,61 +5,61 @@ import { Check, ArrowRight } from "lucide-react";
 
 const plans = [
   {
-    title: "Landing Pages",
+    title: "Página simple",
     from: "250",
     currency: "Bs",
     description:
-      "Página única enfocada en conversión. Ideal para campañas, lanzamientos o negocios que inician.",
+      "Una página para explicar qué vendes, mostrar confianza y recibir mensajes de clientes.",
     includes: [
-      "Diseño personalizado",
-      "Adaptación a móviles",
+      "Diseño hecho para tu negocio",
+      "Se ve bien en celulares",
       "Formulario de contacto",
-      "Optimización de velocidad",
-      "Hosting y dominio (primer año)",
+      "Botón para WhatsApp",
+      "Publicación de la página",
     ],
   },
   {
-    title: "Sitios Web",
+    title: "Página completa",
     from: "500",
     currency: "Bs",
     description:
-      "Presencia web completa con múltiples páginas. Para negocios que quieren profesionalizar su imagen digital.",
+      "Una página más completa para negocios que necesitan explicar varios servicios o mostrar más información.",
     includes: [
-      "Todo lo de Landing Page",
-      "Múltiples páginas",
-      "Animaciones profesionales",
-      "Posicionamiento SEO básico",
+      "Todo lo de Página simple",
+      "Varias secciones",
+      "Fotos, textos y servicios ordenados",
+      "Ayuda para aparecer en Google",
       "Integración de redes sociales",
-      "Panel de estadísticas",
+      "Revisión antes de publicar",
     ],
     popular: true,
   },
   {
-    title: "Remodelaciones",
+    title: "Mejorar tu página",
     from: "200",
     currency: "Bs",
     description:
-      "Modernización de sitios existentes. Actualizamos diseño, velocidad y tecnología.",
+      "Para páginas que ya existen, pero se ven viejas, confusas o difíciles de usar.",
     includes: [
-      "Rediseño visual completo",
-      "Optimización de rendimiento",
-      "Actualización tecnológica",
+      "Nuevo orden para el contenido",
+      "Mejor apariencia",
+      "Textos más claros",
       "Corrección de errores",
-      "Migración a hosting moderno",
+      "Mejor experiencia en celular",
     ],
   },
   {
-    title: "Mantenimiento",
+    title: "Ayuda mensual",
     from: "100",
     currency: "Bs",
     description:
-      "Soporte mensual para mantener tu sitio actualizado, seguro y funcionando correctamente.",
+      "Para que tu página siga al día sin que tengas que preocuparte por cambios pequeños.",
     includes: [
-      "Actualizaciones de contenido",
+      "Cambios de texto o fotos",
       "Corrección de errores",
-      "Monitoreo de seguridad",
-      "Reporte mensual",
-      "Soporte prioritario",
+      "Revisión mensual",
+      "Ayuda por WhatsApp",
+      "Respuesta con prioridad",
     ],
   },
 ];
@@ -76,10 +76,10 @@ export const Pricing = () => {
         <FadeIn>
           <div className="max-w-2xl mb-14">
             <h2 className="text-[clamp(26px,3.5vw,40px)] font-semibold tracking-tight leading-[1.12] text-zinc-50 mb-4">
-              Inversión
+              Precios desde
             </h2>
             <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[480px]">
-              Precios claros desde el inicio. Cada proyecto incluye lo esencial para que funcione.
+              Estos son precios base para que tengas una idea. Si tu caso es distinto, lo cotizamos aparte.
             </p>
           </div>
         </FadeIn>
@@ -136,7 +136,7 @@ export const Pricing = () => {
                         : "border border-zinc-800 text-zinc-400 hover:bg-zinc-900 hover:text-zinc-50"
                     }`}
                   >
-                    Solicitar Propuesta
+                    Pedir cotización
                     <ArrowRight className="w-3 h-3" />
                   </button>
                 </div>

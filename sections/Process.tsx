@@ -1,7 +1,7 @@
 "use client";
 
 import { FadeIn } from "../components/components/FadeIn";
-import { MessageSquare, PenTool, Code, Rocket } from "lucide-react";
+import { MessageSquare, PenTool, Eye, Rocket } from "lucide-react";
 
 const steps = [
   {
@@ -9,28 +9,28 @@ const steps = [
     icon: MessageSquare,
     title: "Conocemos tu proyecto",
     description:
-      "Conversamos sobre tu negocio, objetivos y lo que necesitas. Sin reuniones eternas ni burocracia.",
+      "Me cuentas qué vendes, a quién atiendes y qué quieres lograr con tu página.",
   },
   {
     number: "02",
     icon: PenTool,
     title: "Diseñamos la solución",
     description:
-      "Creamos el diseño y la estructura pensando en tus clientes y en lo que quieres comunicar.",
+      "Ordeno la información para que tus clientes entiendan rápido lo que ofreces.",
   },
   {
     number: "03",
-    icon: Code,
-    title: "Desarrollamos el sitio",
+    icon: Eye,
+    title: "Armamos y revisamos la página",
     description:
-      "Codificamos cada detalle con tecnología moderna. Rápido, responsive y optimizado.",
+      "Te muestro cómo va quedando, revisamos detalles y hacemos ajustes antes de publicarla.",
   },
   {
     number: "04",
     icon: Rocket,
-    title: "Lanzamiento y soporte",
+    title: "Publicamos y te acompaño",
     description:
-      "Publicamos tu sitio, configuramos dominio y te acompañamos después de la entrega.",
+      "Publicamos la página y te acompaño si luego necesitas cambiar textos, fotos o datos.",
   },
 ];
 
@@ -44,7 +44,7 @@ export const Process = () => {
               Así trabajamos
             </h2>
             <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[480px]">
-              Un proceso claro y sin complicaciones. Desde la primera conversación hasta el lanzamiento.
+              Todo se hace paso a paso, con explicaciones simples y sin vueltas.
             </p>
           </div>
         </FadeIn>

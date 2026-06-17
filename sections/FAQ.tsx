@@ -8,27 +8,27 @@ import { ChevronDown } from "lucide-react";
 const faqs = [
   {
     q: "¿Cuánto tarda un proyecto?",
-    a: "Dependiendo de la complejidad, una landing page puede estar lista en 5 a 7 días hábiles. Un sitio web completo puede tomar de 1 a 3 semanas. Durante la primera conversación definimos plazos precisos.",
+    a: "Una página simple puede estar lista en 5 a 7 días hábiles. Una página más completa puede tomar de 1 a 3 semanas. En la primera conversación te digo un tiempo más exacto.",
   },
   {
-    q: "¿Necesito tener dominio?",
-    a: "No es necesario. Si no tienes dominio, podemos adquirir uno por ti y configurarlo. Si ya tienes uno, solo lo vinculamos al nuevo sitio.",
+    q: "¿Necesito tener el nombre de mi página comprado?",
+    a: "No. Si todavía no lo tienes, te ayudo a conseguirlo. Si ya lo tienes, lo conectamos con tu nueva página.",
   },
   {
     q: "¿Puedo solicitar cambios?",
-    a: "Sí. Cada proyecto incluye revisiones para ajustar detalles. Trabajo de forma iterativa para asegurarme de que el resultado sea exactamente lo que necesitas.",
+    a: "Sí. Revisamos la página antes de publicarla y hacemos ajustes para que quede clara y correcta.",
   },
   {
-    q: "¿Ofrecen mantenimiento?",
-    a: "Sí. Tengo planes de mantenimiento mensual que incluyen actualizaciones de contenido, correcciones, monitoreo de seguridad y soporte técnico.",
+    q: "¿Puedes ayudarme después de publicar?",
+    a: "Sí. Puedo ayudarte cada mes con cambios de texto, fotos, horarios, precios o correcciones pequeñas.",
   },
   {
     q: "¿Trabajan con negocios pequeños?",
-    a: "Sí, esa es mi especialidad. Trabajo principalmente con emprendedores, negocios locales y profesionales independientes que necesitan una presencia web profesional.",
+    a: "Sí. Trabajo principalmente con emprendedores, negocios locales y profesionales independientes.",
   },
   {
-    q: "¿Qué incluye el hosting?",
-    a: "Todos los proyectos incluyen hosting con entrega rápida, certificado SSL automático y dominio personalizado. Utilizamos Vercel para un rendimiento óptimo global.",
+    q: "¿La página queda publicada en internet?",
+    a: "Sí. La página queda publicada para que puedas compartir el enlace con clientes por WhatsApp, redes sociales o tarjetas.",
   },
 ];
 
@@ -44,7 +44,7 @@ export const FAQ = () => {
               Preguntas frecuentes
             </h2>
             <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[480px]">
-              Respuestas claras para dudas comunes. Si falta algo, escríbeme directamente.
+              Respuestas simples para dudas comunes. Si falta algo, escríbeme directamente.
             </p>
           </div>
         </FadeIn>

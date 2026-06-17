@@ -14,11 +14,11 @@ export default function Home() {
     <main className="relative min-h-screen w-full bg-[#050505] antialiased">
       <Navbar />
       <Hero />
+      <About />
       <Services />
+      <Pricing />
       <Process />
       <Portfolio />
-      <About />
-      <Pricing />
       <FAQ />
       <Contact />
       <Footer />

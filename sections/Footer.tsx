@@ -6,17 +6,17 @@ const footerLinks = [
     links: [
       { label: "Inicio", href: "/" },
       { label: "Servicios", href: "#servicios" },
-      { label: "Portafolio", href: "#portafolio" },
+      { label: "Ejemplos", href: "#portafolio" },
       { label: "Contacto", href: "#contacto" },
     ],
   },
   {
     title: "Servicios",
     links: [
-      { label: "Landing Pages", href: "#servicios" },
-      { label: "Sitios Web", href: "#servicios" },
-      { label: "Remodelación", href: "#servicios" },
-      { label: "Mantenimiento", href: "#servicios" },
+      { label: "Página simple", href: "#servicios" },
+      { label: "Página completa", href: "#servicios" },
+      { label: "Mejorar una página", href: "#servicios" },
+      { label: "Ayuda mensual", href: "#servicios" },
     ],
   },
   {
@@ -38,8 +38,7 @@ export const Footer = () => {
               {site.name}
             </span>
             <p className="text-xs text-zinc-500 mt-2 leading-relaxed max-w-[200px]">
-              Estudio digital independiente. Diseño, desarrollo y mejora de sitios web para
-              emprendedores y negocios locales.
+              Páginas web claras para emprendedores y negocios locales.
             </p>
           </div>
 

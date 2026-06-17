@@ -7,40 +7,40 @@ import { site } from "@/lib/config";
 const services = [
   {
     icon: Layout,
-    title: "Landing Pages",
+    title: "Página simple",
     description:
-      "Páginas diseñadas para convertir visitantes en clientes. Ideales para campañas, lanzamientos y captación de leads.",
-    benefit: "Capta más clientes con una página enfocada en resultados.",
+      "Una sola página que explica tu negocio, muestra lo importante y permite que te escriban.",
+    benefit: "Ideal si quieres empezar rápido y verte más confiable.",
     gradient: "from-blue-500/10 to-indigo-500/5",
     border: "hover:border-blue-500/30",
     iconBg: "bg-blue-500/10 text-blue-400",
   },
   {
     icon: Monitor,
-    title: "Sitios Web",
+    title: "Página completa",
     description:
-      "Presencia digital profesional para tu negocio. Sitios multiplataforma que comunican confianza desde el primer clic.",
-    benefit: "Tu negocio disponible 24/7 con una imagen profesional.",
+      "Varias secciones o páginas para mostrar servicios, fotos, precios, preguntas y contacto.",
+    benefit: "Ideal si tienes más información que contar.",
     gradient: "from-emerald-500/10 to-teal-500/5",
     border: "hover:border-emerald-500/30",
     iconBg: "bg-emerald-500/10 text-emerald-400",
   },
   {
     icon: RefreshCw,
-    title: "Remodelación Web",
+    title: "Mejorar tu página actual",
     description:
-      "Modernizamos sitios existentes con diseño actual, mejor rendimiento y tecnología optimizada sin perder posicionamiento.",
-    benefit: "Renueva tu web sin empezar desde cero.",
+      "Ordeno, actualizo y hago más clara una página que ya existe para que se vea mejor.",
+    benefit: "Tu página se entiende mejor sin empezar de cero.",
     gradient: "from-amber-500/10 to-orange-500/5",
     border: "hover:border-amber-500/30",
     iconBg: "bg-amber-500/10 text-amber-400",
   },
   {
     icon: Wrench,
-    title: "Mantenimiento",
+    title: "Ayuda cada mes",
     description:
-      "Soporte técnico continuo, actualizaciones de contenido, correcciones y mejoras para mantener tu sitio siempre al día.",
-    benefit: "Tu web siempre actualizada, segura y funcionando.",
+      "Cambio textos, fotos, horarios, precios o detalles cuando tu negocio lo necesite.",
+    benefit: "No te quedas solo después de publicar la página.",
     gradient: "from-purple-500/10 to-pink-500/5",
     border: "hover:border-purple-500/30",
     iconBg: "bg-purple-500/10 text-purple-400",
@@ -54,10 +54,10 @@ export const Services = () => {
         <FadeIn>
           <div className="max-w-2xl mb-14">
             <h2 className="text-[clamp(26px,3.5vw,40px)] font-semibold tracking-tight leading-[1.12] text-zinc-50 mb-4">
-              ¿Cómo puedo ayudarte?
+              ¿Qué necesitas para tu negocio?
             </h2>
             <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[480px]">
-              Cada proyecto recibe atención personalizada. Esto es lo que hago:
+              Elige la opción que más se parezca a lo que necesitas. Si no estás seguro, te ayudo a decidir.
             </p>
           </div>
         </FadeIn>
@@ -104,11 +104,10 @@ export const Services = () => {
                   Dudas de servicio
                 </p>
                 <h3 className="text-base md:text-lg font-semibold text-zinc-50 mb-1.5">
-                  ¿No sabes qué servicio elegir?
+                  ¿No sabes cuál opción elegir?
                 </h3>
                 <p className="text-sm text-zinc-400 leading-relaxed">
-                  Escríbeme por WhatsApp y te ayudo a identificar si necesitas una landing,
-                  un sitio completo, una remodelación o mantenimiento.
+                  Escríbeme por WhatsApp y te digo cuál opción te conviene según tu negocio.
                 </p>
               </div>
 

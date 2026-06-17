@@ -1,6 +1,6 @@
 export const site = {
   name: 'Adan Labs',
-  tagline: 'Desarrollo web a medida, diseño minimalista y optimización técnica.',
+  tagline: 'Páginas web claras para negocios que quieren recibir más consultas.',
   url: 'https://adanlabs.com',
   email: 'hola@adanlabs.com',
   whatsapp: '59165947291',

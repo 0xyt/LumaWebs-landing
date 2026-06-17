@@ -15,21 +15,21 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Adan Labs | Desarrollo Web Estratégico para Emprendedores y Negocios Locales",
+  title: "Adan Labs | Páginas web claras para negocios locales",
   description:
-    "Estudio digital independiente. Diseñamos, desarrollamos y remodelamos sitios web profesionales para emprendedores, negocios locales y profesionales independientes.",
+    "Creamos y mejoramos páginas web fáciles de entender para emprendedores, negocios locales y profesionales independientes.",
   openGraph: {
-    title: "Adan Labs | Desarrollo Web Estratégico",
+    title: "Adan Labs | Páginas web claras para negocios locales",
     description:
-      "Diseñamos, desarrollamos y remodelamos sitios web con personalidad, enfocados en transmitir confianza y ayudar a tu negocio a crecer.",
+      "Creamos páginas web simples, bonitas y fáciles de usar para que tus clientes puedan encontrarte y contactarte.",
     siteName: "Adan Labs",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Adan Labs | Desarrollo Web Estratégico",
+    title: "Adan Labs | Páginas web claras",
     description:
-      "Diseñamos, desarrollamos y remodelamos sitios web con personalidad.",
+      "Páginas web simples, bonitas y fáciles de usar para negocios locales.",
   },
   icons: { icon: "/favicon.ico" },
   robots: { index: true, follow: true },

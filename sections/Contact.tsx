@@ -9,18 +9,18 @@ type Option = "default" | "crear" | "remodelar" | "mantenimiento" | "orientacion
 
 const options: { value: Option; label: string }[] = [
   { value: "default", label: "¿Qué estás buscando?" },
-  { value: "crear", label: "Crear un sitio web" },
-  { value: "remodelar", label: "Remodelar una web existente" },
-  { value: "mantenimiento", label: "Mantenimiento y soporte" },
-  { value: "orientacion", label: "Necesito orientación" },
+  { value: "crear", label: "Quiero una página nueva" },
+  { value: "remodelar", label: "Quiero mejorar mi página actual" },
+  { value: "mantenimiento", label: "Necesito ayuda con mi página" },
+  { value: "orientacion", label: "No sé qué necesito todavía" },
 ];
 
 const placeholders: Record<Option, string> = {
   default: "Cuéntame más sobre lo que necesitas...",
-  crear: "Cuéntame sobre tu negocio, qué tipo de sitio buscas y si tienes referencias de diseño...",
-  remodelar: "Cuéntame sobre tu sitio actual, qué te gustaría mejorar y cuál es tu presupuesto...",
-  mantenimiento: "Describe tu sitio actual, qué tipo de soporte necesitas y con qué frecuencia...",
-  orientacion: "Cuéntame en qué etapa estás y qué dudas tienes. te ayudo a definir los pasos...",
+  crear: "Cuéntame qué vendes, a quién atiendes y qué quieres que vean tus clientes...",
+  remodelar: "Cuéntame qué no te gusta de tu página actual y qué te gustaría cambiar...",
+  mantenimiento: "Cuéntame qué necesitas cambiar: textos, fotos, horarios, precios u otra cosa...",
+  orientacion: "Cuéntame tu idea con tus palabras. Yo te ayudo a ordenarla...",
 };
 
 export const Contact = () => {
@@ -36,11 +36,11 @@ export const Contact = () => {
   useEffect(() => {
     const handler = (e: CustomEvent) => {
       const detail = e.detail as string;
-      if (detail.toLowerCase().includes("landing") || detail.toLowerCase().includes("página")) {
+      if (detail.toLowerCase().includes("simple") || detail.toLowerCase().includes("completa") || detail.toLowerCase().includes("página")) {
         setChoice("crear");
-      } else if (detail.toLowerCase().includes("rediseño") || detail.toLowerCase().includes("remodel")) {
+      } else if (detail.toLowerCase().includes("mejorar") || detail.toLowerCase().includes("rediseño") || detail.toLowerCase().includes("remodel")) {
         setChoice("remodelar");
-      } else if (detail.toLowerCase().includes("mantenimiento") || detail.toLowerCase().includes("soporte")) {
+      } else if (detail.toLowerCase().includes("ayuda") || detail.toLowerCase().includes("mantenimiento") || detail.toLowerCase().includes("soporte")) {
         setChoice("mantenimiento");
       }
     };
@@ -112,10 +112,10 @@ export const Contact = () => {
         <FadeIn>
           <div className="mb-10">
             <h2 className="text-[clamp(26px,3.5vw,40px)] font-semibold tracking-tight leading-[1.12] text-zinc-50 mb-3">
-              Cuéntame qué necesitas
+              Hablemos de tu página
             </h2>
             <p className="text-sm text-zinc-400 leading-relaxed">
-              Sin compromisos. Te respondo con una propuesta clara y sin vueltas.
+              Escríbeme con tus palabras. No necesitas saber nada técnico para pedir una cotización.
             </p>
           </div>
         </FadeIn>
@@ -126,11 +126,10 @@ export const Contact = () => {
               Cotización rápida
             </p>
             <h3 className="text-base font-semibold text-zinc-50 mb-1.5">
-              ¿Quieres cotizar otra idea o proyecto?
+              ¿Quieres cotizar otra idea?
             </h3>
             <p className="text-sm text-zinc-400 leading-relaxed mb-4">
-              Si ya tienes algo en mente y prefieres avanzar directo por chat,
-              envíame el contexto inicial por WhatsApp.
+              Si prefieres hablar directo por chat, envíame tu idea por WhatsApp.
             </p>
             <a
               href={site.whatsappLinks.quote}
@@ -140,7 +139,7 @@ export const Contact = () => {
               aria-label="Cotizar otra idea o proyecto por WhatsApp"
             >
               <MessageCircle className="h-4 w-4" />
-              Cotizar por WhatsApp
+              Escribir por WhatsApp
             </a>
           </div>
         </FadeIn>
@@ -156,7 +155,7 @@ export const Contact = () => {
                   htmlFor="tipo"
                   className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase"
                 >
-                  ¿Qué estás buscando?
+                  ¿Qué necesitas?
                 </label>
                 <select
                   required
@@ -203,7 +202,7 @@ export const Contact = () => {
                         htmlFor="email"
                         className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase"
                       >
-                        Email
+                        Correo
                       </label>
                       <input
                         required
@@ -242,7 +241,7 @@ export const Contact = () => {
                       htmlFor="message"
                       className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase"
                     >
-                      Cuéntame más
+                      Escribe tu idea o duda
                     </label>
                     <textarea
                       required

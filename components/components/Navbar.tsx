@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Servicios", href: "#servicios" },
-  { label: "Portafolio", href: "#portafolio" },
   { label: "Precios", href: "#precios" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Ejemplos", href: "#portafolio" },
+  { label: "Dudas", href: "#faq" },
 ];
 
 export const Navbar = () => {
@@ -33,9 +34,11 @@ export const Navbar = () => {
           }`}
         >
           <Link href="/" className="flex items-center gap-2.5 group">
-            <img
+            <Image
               src="/logo.png"
               alt="Adan Labs"
+              width={28}
+              height={28}
               className="h-7 w-auto shrink-0 transition-all duration-300 group-hover:scale-110"
             />
             <span className="text-base font-bold tracking-tight text-zinc-100">
@@ -60,7 +63,7 @@ export const Navbar = () => {
               href="#contacto"
               className="hidden md:inline-flex items-center rounded-full text-xs px-4 py-1.5 bg-zinc-50 text-zinc-950 font-medium hover:bg-zinc-200 transition-all"
             >
-              Solicitar Propuesta
+              Pedir cotización
             </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -104,7 +107,7 @@ export const Navbar = () => {
             onClick={() => setMobileOpen(false)}
             className="block text-sm font-medium bg-zinc-50 text-zinc-950 rounded-full px-4 py-2 text-center hover:bg-zinc-200 transition-all"
           >
-            Solicitar Propuesta
+            Pedir cotización
           </a>
         </div>
       )}

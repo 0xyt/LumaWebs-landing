@@ -5,44 +5,41 @@ import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    type: "Landing Page",
+    type: "Página simple",
     title: "Lumina Studio",
     subtitle: "Estudio de fotografía",
     objective:
-      "Crear una presencia web profesional que refleje la calidad de su trabajo fotográfico.",
+      "Mostrar su trabajo de forma clara y bonita para que más personas puedan contactarla.",
     problem:
-      "Sin sitio web ni portafolio digital. Dependían únicamente de redes sociales para captar clientes.",
+      "Solo usaba redes sociales y no tenía un lugar propio para mostrar sus fotos.",
     result:
-      "Sitio web completo con galería de trabajos, formulario de contacto y diseño que transmite la identidad de la marca.",
-    tags: ["Next.js", "TailwindCSS", "Vercel"],
+      "Una página con fotos, información clara y un formulario para recibir consultas.",
     url: "https://lumina-studio-amber-eta.vercel.app/",
     gradient: "from-blue-500/10 to-indigo-500/5",
   },
   {
-    type: "Concepto — Landing Page",
+    type: "Ejemplo de página simple",
     title: "Bloom",
     subtitle: "Marca de cuidado personal",
     objective:
-      "Diseñar una landing page conceptual para una marca de skincare con enfoque en producto premium.",
+      "Mostrar cómo se puede presentar un producto de forma simple, limpia y elegante.",
     problem:
-      "Demostrar cómo una marca pequeña puede competir visualmente con grandes competidores.",
+      "La marca necesitaba verse confiable aunque todavía estuviera empezando.",
     result:
-      "Página conceptual con diseño minimalista, animaciones sutiles y narrativa visual centrada en el producto.",
-    tags: ["Next.js", "Framer Motion", "Concepto"],
+      "Una página de ejemplo donde el producto se entiende rápido y se ve atractivo.",
     url: null,
     gradient: "from-emerald-500/10 to-teal-500/5",
   },
   {
-    type: "Concepto — Rediseño",
+    type: "Ejemplo de mejora",
     title: "Terra",
     subtitle: "Restaurante local",
     objective:
-      "Modernizar la presencia digital de un restaurante local con un rediseño completo.",
+      "Hacer que un restaurante muestre su comida, horarios y reservas de forma más clara.",
     problem:
-      "Sitio web desactualizado, lento y con mala experiencia en dispositivos móviles.",
+      "La página anterior era difícil de usar desde el celular.",
     result:
-      "Rediseño conceptual con menú interactivo, galería de platos y sistema de reservas optimizado para móvil.",
-    tags: ["Next.js", "TailwindCSS", "Concepto"],
+      "Un ejemplo con menú, fotos y una forma más fácil de reservar.",
     url: null,
     gradient: "from-amber-500/10 to-orange-500/5",
   },
@@ -55,10 +52,10 @@ export const Portfolio = () => {
         <FadeIn>
           <div className="max-w-2xl mb-14">
             <h2 className="text-[clamp(26px,3.5vw,40px)] font-semibold tracking-tight leading-[1.12] text-zinc-50 mb-4">
-              Proyectos destacados
+              Ejemplos de trabajo
             </h2>
             <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[480px]">
-              Cada proyecto tiene un objetivo claro y una solución pensada a medida.
+              Así puede verse una página cuando la información está bien ordenada.
             </p>
           </div>
         </FadeIn>
@@ -104,7 +101,7 @@ export const Portfolio = () => {
                   <div className="grid md:grid-cols-3 gap-4 md:gap-6">
                     <div>
                       <p className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase mb-1">
-                        Objetivo
+                        Para qué era
                       </p>
                       <p className="text-sm text-zinc-300 leading-relaxed">
                         {project.objective}
@@ -112,7 +109,7 @@ export const Portfolio = () => {
                     </div>
                     <div>
                       <p className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase mb-1">
-                        Problema
+                        Qué faltaba
                       </p>
                       <p className="text-sm text-zinc-300 leading-relaxed">
                         {project.problem}
@@ -120,7 +117,7 @@ export const Portfolio = () => {
                     </div>
                     <div>
                       <p className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase mb-1">
-                        Resultado
+                        Qué se logró
                       </p>
                       <p className="text-sm text-zinc-300 leading-relaxed">
                         {project.result}
@@ -128,18 +125,7 @@ export const Portfolio = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap items-center justify-between gap-3 mt-5 pt-4 border-t border-zinc-800/40">
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-[10px] font-mono text-zinc-500 bg-zinc-900 border border-zinc-800 px-2 py-0.5 rounded"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
+                  <div className="flex flex-wrap items-center justify-end gap-3 mt-5 pt-4 border-t border-zinc-800/40">
                     {project.url ? (
                       <a
                         href={project.url}
@@ -152,7 +138,7 @@ export const Portfolio = () => {
                       </a>
                     ) : (
                       <span className="text-[10px] font-mono text-zinc-600 italic">
-                        Proyecto conceptual
+                        Ejemplo de diseño
                       </span>
                     )}
                   </div>

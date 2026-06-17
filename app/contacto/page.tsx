@@ -8,11 +8,11 @@ import Link from "next/link";
 const FORMSPREE_URL = "https://formspree.io/xjgzlapk";
 
 const SERVICE_OPTIONS = [
-  "Seleccioná un servicio",
-  "Paquete Inicial",
-  "Paquete Premium",
-  "Rediseño Web",
-  "Soporte Técnico y Mantenimiento",
+  "Elige una opción",
+  "Quiero una página simple",
+  "Quiero una página completa",
+  "Quiero mejorar mi página actual",
+  "Necesito ayuda con mi página",
 ];
 
 export default function BriefingForm() {
@@ -57,7 +57,7 @@ export default function BriefingForm() {
             Solicitud recibida
           </h2>
           <p className="text-sm text-zinc-400 leading-relaxed">
-            Te contactaremos en menos de 24 horas para coordinar los próximos pasos.
+            Te responderé en menos de 24 horas para coordinar los próximos pasos.
           </p>
           <Link
             href="/"
@@ -86,10 +86,10 @@ export default function BriefingForm() {
             <ArrowLeft className="w-3 h-3" /> Volver
           </Link>
           <h1 className="text-xl md:text-2xl font-semibold text-zinc-50 tracking-tight">
-            Contanos tu proyecto
+            Cuéntame qué necesitas
           </h1>
           <p className="text-sm text-zinc-400 leading-relaxed">
-            Completá este formulario y te contactamos en menos de 24 horas.
+            Llena este formulario con tus palabras. No necesitas saber nada técnico.
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export default function BriefingForm() {
                 <input required type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Tu nombre" className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-zinc-600 transition-colors" />
               </div>
               <div className="space-y-1.5">
-                <label htmlFor="email" className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">Email</label>
+                <label htmlFor="email" className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">Correo</label>
                 <input required type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="tu@correo.com" className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-zinc-600 transition-colors" />
               </div>
             </div>
@@ -115,7 +115,7 @@ export default function BriefingForm() {
             </div>
 
             <div className="space-y-1.5">
-              <label htmlFor="service" className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">Tipo de Servicio</label>
+              <label htmlFor="service" className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">¿Qué necesitas?</label>
               <select required name="service" id="service" value={formData.service} onChange={handleChange} className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-50 focus:outline-none focus:border-zinc-600 transition-colors appearance-none">
                 {SERVICE_OPTIONS.map((opt) => (
                   <option key={opt} value={opt === SERVICE_OPTIONS[0] ? "" : opt} className="bg-zinc-900 text-zinc-50">
@@ -126,8 +126,8 @@ export default function BriefingForm() {
             </div>
 
             <div className="space-y-1.5">
-              <label htmlFor="project" className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">Descripción del proyecto</label>
-              <textarea required name="project" id="project" rows={4} value={formData.project} onChange={handleChange} placeholder="Contanos brevemente qué necesitas..." className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-zinc-600 transition-colors resize-none" />
+              <label htmlFor="project" className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">Tu idea o duda</label>
+              <textarea required name="project" id="project" rows={4} value={formData.project} onChange={handleChange} placeholder="Cuéntame qué vendes, qué necesitas o qué te gustaría mejorar..." className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-zinc-600 transition-colors resize-none" />
             </div>
 
             <div className="flex items-start gap-3 mt-4 mb-6">
@@ -145,7 +145,7 @@ export default function BriefingForm() {
             </div>
 
             <button type="submit" disabled={state === "loading" || !accepted} className="w-full rounded-lg text-sm px-5 py-3 bg-zinc-50 text-zinc-950 font-medium hover:bg-zinc-200 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 group">
-              {state === "loading" ? "Procesando solicitud..." : "Enviar Solicitud de Proyecto"}
+              {state === "loading" ? "Enviando..." : "Enviar mensaje"}
               <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </button>
 
