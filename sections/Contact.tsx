@@ -112,7 +112,7 @@ export const Contact = () => {
         <FadeIn>
           <div className="mb-10">
             <h2 className="text-[clamp(26px,3.5vw,40px)] font-semibold tracking-tight leading-[1.12] text-zinc-50 mb-3">
-              Hablemos de tu página
+              Hablemos de tu Idea
             </h2>
             <p className="text-sm text-zinc-400 leading-relaxed">
               Escríbeme con tus palabras. No necesitas saber nada técnico para pedir una cotización.

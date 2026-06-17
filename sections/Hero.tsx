@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 
 const trustIndicators = [
-  "Te explico todo con palabras simples",
+  "Respuestas directas y fáciles de entender",
   "Hablas directo conmigo",
-  "La página queda lista para recibir mensajes",
+  "Tu página queda lista para recibir mensajes",
 ];
 
 export const Hero = () => {

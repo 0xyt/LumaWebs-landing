@@ -76,7 +76,7 @@ export const Pricing = () => {
         <FadeIn>
           <div className="max-w-2xl mb-14">
             <h2 className="text-[clamp(26px,3.5vw,40px)] font-semibold tracking-tight leading-[1.12] text-zinc-50 mb-4">
-              Precios desde
+              Precios
             </h2>
             <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[480px]">
               Estos son precios base para que tengas una idea. Si tu caso es distinto, lo cotizamos aparte.
