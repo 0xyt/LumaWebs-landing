@@ -48,10 +48,16 @@ export const Navbar = () => {
               />
             </span>
             <span className="flex flex-col leading-none">
-              <span className="text-sm font-semibold tracking-tight text-forge-text sm:text-base">
+              <span
+                className="text-sm font-bold tracking-tight sm:text-base"
+                style={{ color: "#111111" }}
+              >
                 {site.name}
               </span>
-              <span className="hidden text-[10px] font-medium text-forge-muted sm:block">
+              <span
+                className="hidden text-[10px] font-medium sm:block"
+                style={{ color: "rgba(17, 17, 17, 0.72)" }}
+              >
                 Webs freelance por Adán
               </span>
             </span>

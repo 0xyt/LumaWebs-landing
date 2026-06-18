@@ -18,8 +18,8 @@ export function FadeIn({
   return (
     <motion.div
       initial={{
-        opacity: 0,
-        y: direction === "up" ? 20 : direction === "down" ? -20 : 0,
+        opacity: 0.86,
+        y: direction === "up" ? 14 : direction === "down" ? -14 : 0,
       }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}

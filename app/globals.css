@@ -14,6 +14,16 @@
   --color-forge-border: #e4ddd2;
   --color-forge-error: #ef4444;
   --color-forge-success: #208a4f;
+  --color-copper: #b95f32;
+  --color-copper-light: #dc8a4f;
+  --color-base: #fbfaf7;
+  --color-surface: #ffffff;
+  --color-graphite: #f1ece4;
+  --color-ink: #111111;
+  --color-muted: #675f56;
+  --color-line: #e4ddd2;
+  --color-success: #208a4f;
+  --color-error: #ef4444;
 }
 
 :root {
