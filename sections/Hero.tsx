@@ -152,7 +152,7 @@ export const Hero = () => {
                   <span className="h-2.5 w-2.5 rounded-full bg-forge-border" />
                 </div>
                 <span className="max-w-[160px] truncate font-mono text-[10px] text-forge-muted">
-                  adanlabs.vercel.app
+                  forgewebs.vercel.app
                 </span>
               </div>
 

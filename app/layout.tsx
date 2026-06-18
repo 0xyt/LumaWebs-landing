@@ -15,7 +15,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://adanlabs.vercel.app"),
+  metadataBase: new URL("https://forgewebs.vercel.app"),
   title: "Forge Webs | Diseño Web Freelance para Negocios",
   description:
     "Diseño y desarrollo de páginas web modernas, rápidas y estratégicas para negocios que quieren verse profesionales, generar confianza y atraer más clientes.",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "Forge Webs | Diseño Web Freelance para Negocios",
     description:
       "Diseño y desarrollo de páginas web modernas, rápidas y estratégicas para negocios que quieren verse profesionales, generar confianza y atraer más clientes.",
-    url: "https://adanlabs.vercel.app",
+    url: "https://forgewebs.vercel.app",
     siteName: "Forge Webs",
     locale: "es_BO",
     type: "website",

@@ -2,7 +2,7 @@ export const site = {
   name: "Forge Webs",
   tagline:
     "Diseño web freelance para negocios que quieren verse profesionales y convertir más visitas en mensajes.",
-  url: "https://adanlabs.vercel.app",
+  url: "https://forgewebs.vercel.app",
   email: "hola@forgewebs.dev",
   whatsapp: '59165947291',
   whatsappLink: 'https://wa.me/59165947291',
@@ -14,5 +14,5 @@ export const site = {
   },
   instagram: "@adanrios.dev",
   instagramLink: "https://www.instagram.com/adanrios.dev",
-  domain: "adanlabs.vercel.app",
+  domain: "forgewebs.vercel.app",
 };

@@ -41,12 +41,12 @@ export const Footer = () => {
               profesionales y recibir mejores consultas.
             </p>
             <a
-              href="https://adanlabs.vercel.app"
+              href="https://forgewebs.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-3 inline-block text-xs text-copper transition-colors hover:text-forge-text"
             >
-              adanlabs.vercel.app
+              forgewebs.vercel.app
             </a>
           </div>
 
