@@ -124,7 +124,7 @@ export const Hero = () => {
               <div className="mb-3 flex items-center gap-3">
                 <span className="grid h-11 w-11 place-items-center overflow-hidden rounded-full border border-black/10 bg-forge-bg">
                   <Image
-                    src="/logo.png"
+                    src="/forge-symbol.png"
                     alt="Logo Forge Webs"
                     width={44}
                     height={44}

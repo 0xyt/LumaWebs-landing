@@ -39,7 +39,7 @@ export const Navbar = () => {
           <Link href="/" className="flex items-center gap-2.5 group">
             <span className="relative grid h-9 w-9 shrink-0 place-items-center overflow-hidden rounded-full border border-black/10 bg-white shadow-sm">
               <Image
-                src="/logo.png"
+                src="/forge-symbol.png"
                 alt="Logo Forge Webs"
                 width={36}
                 height={36}

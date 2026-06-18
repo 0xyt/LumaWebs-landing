@@ -42,7 +42,13 @@ export const metadata: Metadata = {
     description:
       "Páginas web modernas, rápidas y estratégicas para negocios que quieren atraer más clientes.",
   },
-  icons: { icon: "/favicon.ico" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/forge-icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/forge-icon.png",
+  },
   robots: { index: true, follow: true },
 };
 
