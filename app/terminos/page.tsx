@@ -8,7 +8,7 @@ export default function TerminosPage() {
       <div className="mx-auto max-w-[640px]">
         <Link
           href="/"
-          className="mb-8 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-forge-muted transition-colors hover:text-cyan"
+          className="mb-8 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-forge-muted transition-colors hover:text-copper"
         >
           <ArrowLeft className="w-3 h-3" /> Volver
         </Link>

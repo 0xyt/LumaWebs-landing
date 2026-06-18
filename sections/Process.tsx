@@ -43,12 +43,12 @@ export const Process = () => {
             <div>
               <p className="forge-kicker mb-3">Proceso</p>
               <h2 className="text-[clamp(26px,3.5vw,42px)] font-semibold leading-[1.12] tracking-tight text-forge-text">
-                De una idea suelta a una web publicada con dirección comercial.
+                Un proceso corto, claro y sin reuniones eternas.
               </h2>
             </div>
             <p className="max-w-xl text-sm leading-relaxed text-forge-muted md:text-base">
-              Trabajamos con etapas simples para evitar confusión: primero estrategia,
-              luego diseño, después desarrollo y finalmente lanzamiento.
+              Como trabajo solo, mantengo el proceso simple: escucho, ordeno, diseño,
+              desarrollo y publicamos sin convertirlo en una novela.
             </p>
           </div>
         </FadeIn>
@@ -64,7 +64,7 @@ export const Process = () => {
                       {step.number}
                     </span>
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-forge-border bg-forge-bg/60">
-                      <Icon className="h-4 w-4 text-cyan" />
+                      <Icon className="h-4 w-4 text-copper" />
                     </div>
                   </div>
                   <h3 className="mb-2 text-base font-semibold text-forge-text">

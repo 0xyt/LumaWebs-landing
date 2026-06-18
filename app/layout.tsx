@@ -16,9 +16,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://adanlabs.vercel.app"),
-  title: "Forge Webs | Diseño y Desarrollo Web para Negocios",
+  title: "Forge Webs | Diseño Web Freelance para Negocios",
   description:
-    "Creamos páginas web modernas, rápidas y estratégicas para negocios que quieren verse profesionales, generar confianza y atraer más clientes.",
+    "Diseño y desarrollo de páginas web modernas, rápidas y estratégicas para negocios que quieren verse profesionales, generar confianza y atraer más clientes.",
   keywords: [
     "diseño web",
     "desarrollo web",
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     "rediseño web",
   ],
   openGraph: {
-    title: "Forge Webs | Diseño y Desarrollo Web para Negocios",
+    title: "Forge Webs | Diseño Web Freelance para Negocios",
     description:
-      "Creamos páginas web modernas, rápidas y estratégicas para negocios que quieren verse profesionales, generar confianza y atraer más clientes.",
+      "Diseño y desarrollo de páginas web modernas, rápidas y estratégicas para negocios que quieren verse profesionales, generar confianza y atraer más clientes.",
     url: "https://adanlabs.vercel.app",
     siteName: "Forge Webs",
     locale: "es_BO",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Forge Webs | Diseño y Desarrollo Web para Negocios",
+    title: "Forge Webs | Diseño Web Freelance para Negocios",
     description:
       "Páginas web modernas, rápidas y estratégicas para negocios que quieren atraer más clientes.",
   },

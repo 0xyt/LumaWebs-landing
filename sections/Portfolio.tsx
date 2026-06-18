@@ -51,12 +51,12 @@ export const Portfolio = () => {
             <div>
               <p className="forge-kicker mb-3">Portafolio</p>
               <h2 className="text-[clamp(26px,3.5vw,42px)] font-semibold leading-[1.12] tracking-tight text-forge-text">
-                Proyectos y estructuras listas para negocios reales.
+                Lo que voy construyendo, sin inventar una agencia enorme.
               </h2>
             </div>
             <p className="max-w-xl text-sm leading-relaxed text-forge-muted md:text-base">
-              El portafolio seguirá creciendo con casos reales. Mientras tanto,
-              estas estructuras muestran cómo resolvemos claridad, confianza y conversión.
+              Estoy empezando, así que prefiero ser transparente: muestro proyectos
+              publicados y conceptos que reflejan el tipo de experiencia que puedo crear.
             </p>
           </div>
         </FadeIn>
@@ -86,7 +86,7 @@ export const Portfolio = () => {
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm font-medium text-forge-muted transition-colors hover:text-cyan md:shrink-0"
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-forge-muted transition-colors hover:text-copper md:shrink-0"
                     >
                       Ver proyecto
                       <ArrowUpRight className="h-3.5 w-3.5" />
@@ -122,8 +122,8 @@ export const Portfolio = () => {
         <FadeIn delay={0.2}>
           <div className="mt-8 rounded-xl border border-copper/25 bg-copper/[0.06] p-5 text-center">
             <p className="text-sm leading-relaxed text-forge-muted">
-              La prueba social real se añadirá con nuevos clientes publicados. La
-              estructura ya está preparada para casos, resultados y testimonios verificables.
+              La prueba social real se añadirá con nuevos clientes publicados.
+              Prefiero mostrar crecimiento real antes que llenar la página con frases falsas.
             </p>
           </div>
         </FadeIn>

@@ -62,7 +62,7 @@ export default function BriefingForm() {
           </p>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 pt-2 font-mono text-[11px] text-forge-muted transition-colors hover:text-cyan"
+            className="inline-flex items-center gap-2 pt-2 font-mono text-[11px] text-forge-muted transition-colors hover:text-copper"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Volver al inicio
           </Link>
@@ -82,12 +82,12 @@ export default function BriefingForm() {
         <div className="space-y-2 mb-8 text-center">
           <Link
             href="/"
-            className="mb-2 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-forge-muted transition-colors hover:text-cyan"
+            className="mb-2 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-forge-muted transition-colors hover:text-copper"
           >
             <ArrowLeft className="w-3 h-3" /> Volver
           </Link>
           <h1 className="text-xl font-semibold tracking-tight text-forge-text md:text-2xl">
-            Cuéntanos qué necesita tu web
+            Cuéntame qué necesita tu web
           </h1>
           <p className="text-sm leading-relaxed text-forge-muted">
             Llena este formulario con tus palabras. No necesitas saber nada técnico.
@@ -139,11 +139,11 @@ export default function BriefingForm() {
                 className="mt-0.5 h-4 w-4 shrink-0 rounded border-forge-border bg-forge-bg accent-copper focus:ring-cyan focus:ring-offset-0"
               />
               <label htmlFor="terms" className="text-xs text-zinc-400 leading-normal select-none">
-                Acepto los <Link href="/terminos" className="text-forge-text underline transition-colors hover:text-cyan">Términos y Condiciones</Link> y la <Link href="/privacidad" className="text-forge-text underline transition-colors hover:text-cyan">Política de Privacidad</Link> de {site.name}.
+                Acepto los <Link href="/terminos" className="text-forge-text underline transition-colors hover:text-copper">Términos y Condiciones</Link> y la <Link href="/privacidad" className="text-forge-text underline transition-colors hover:text-copper">Política de Privacidad</Link> de {site.name}.
               </label>
             </div>
 
-            <button type="submit" disabled={state === "loading" || !accepted} className="group flex w-full items-center justify-center gap-2 rounded-lg bg-copper px-5 py-3 text-sm font-semibold text-forge-text transition-all duration-200 hover:bg-copper-light hover:text-forge-bg disabled:cursor-not-allowed disabled:opacity-50">
+            <button type="submit" disabled={state === "loading" || !accepted} className="group flex w-full items-center justify-center gap-2 rounded-full bg-copper px-5 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-forge-text disabled:cursor-not-allowed disabled:opacity-50">
               {state === "loading" ? "Enviando..." : "Enviar mensaje"}
               <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </button>

@@ -8,28 +8,28 @@ const steps = [
   {
     icon: FileText,
     title: "Llenás el formulario",
-    description: "Contanos tu idea en el formulario y decinos qué necesitas.",
+    description: "Me cuentas tu idea en el formulario y qué necesitas lograr.",
   },
   {
     icon: MessageCircle,
-    title: "Te contactamos",
-    description: "Te escribimos por WhatsApp para entender tu proyecto.",
+    title: "Te contacto",
+    description: "Te escribo por WhatsApp para entender tu negocio y alcance.",
   },
   {
     icon: PenTool,
-    title: "Diseñamos tu web",
-    description: "Creamos una página web moderna y optimizada para tu negocio.",
+    title: "Diseño tu web",
+    description: "Creo una experiencia moderna, clara y optimizada para celular.",
   },
   {
     icon: Rocket,
-    title: "La entregamos lista",
-    description: "Recibís tu sitio publicado y listo para atraer clientes.",
+    title: "La entrego lista",
+    description: "Recibes tu sitio publicado y listo para compartir con clientes.",
   },
 ];
 
 export const HowItWorks = () => {
   return (
-    <Section id="como-funciona" className="py-24 md:py-32 border-t border-white/[0.02]">
+    <Section id="como-funciona" className="border-t border-forge-border/55 py-24 md:py-32">
       <div className="mb-20 space-y-4 text-center">
         <h2 className="text-[clamp(26px,3.5vw,42px)] font-semibold leading-[1.12] tracking-tight text-forge-text">
           ¿Cómo funciona?
@@ -51,7 +51,7 @@ export const HowItWorks = () => {
               viewport={{ once: true, amount: 0.2 }}
               className="forge-card group relative flex flex-col items-center rounded-xl p-8 text-center transition-all duration-300 hover:border-copper/40"
             >
-              <div className="mb-6 rounded-lg border border-copper/25 bg-copper/10 p-4 transition-colors group-hover:border-cyan/40">
+              <div className="mb-6 rounded-lg border border-copper/25 bg-copper/10 p-4 transition-colors group-hover:border-copper/50">
                 <Icon className="h-7 w-7 text-copper-light" />
               </div>
               <span className="mb-3 font-mono text-[10px] uppercase tracking-widest text-forge-muted">

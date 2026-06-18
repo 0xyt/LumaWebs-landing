@@ -53,15 +53,14 @@ export const Services = () => {
         <FadeIn>
           <div className="mb-14 grid gap-5 md:grid-cols-[0.85fr_1.15fr] md:items-end">
             <div>
-              <p className="forge-kicker mb-3">Servicios</p>
+              <p className="forge-kicker mb-3">Lo que puedo construir</p>
               <h2 className="text-[clamp(26px,3.5vw,42px)] font-semibold leading-[1.12] tracking-tight text-forge-text">
-                Diseño y desarrollo web para negocios que necesitan convertir.
+                Páginas con estética premium y un camino claro hacia el contacto.
               </h2>
             </div>
             <p className="max-w-xl text-sm leading-relaxed text-forge-muted md:text-base">
-              Creamos páginas web para negocios con estrategia, estética premium y
-              una experiencia clara desde celular. Cada servicio está pensado para
-              ayudarte a generar confianza y recibir más consultas.
+              Trabajo proyectos pequeños y concretos: una landing, una web profesional
+              o un rediseño que se sienta más serio. Todo pensado primero para celular.
             </p>
           </div>
         </FadeIn>
@@ -71,12 +70,20 @@ export const Services = () => {
             const Icon = service.icon;
             return (
               <FadeIn key={service.title} delay={index * 0.06}>
-                <div className="forge-card group h-full rounded-xl p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-copper/45 md:p-8">
+                <div
+                  className={`forge-card group h-full p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-copper/45 md:p-8 ${
+                    index === 0
+                      ? "rounded-[30px_18px_18px_18px]"
+                      : index === 3
+                        ? "rounded-[18px_18px_30px_18px]"
+                        : "rounded-[22px]"
+                  }`}
+                >
                   <div className="mb-5 flex items-start justify-between gap-4">
                     <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-copper/25 bg-copper/10">
                       <Icon className="h-5 w-5 text-copper-light" />
                     </div>
-                    <ArrowRight className="h-4 w-4 text-forge-muted transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-cyan" />
+                    <ArrowRight className="h-4 w-4 text-forge-muted transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-copper" />
                   </div>
 
                   <h3 className="mb-2 text-lg font-semibold text-forge-text">
@@ -87,7 +94,7 @@ export const Services = () => {
                     {service.description}
                   </p>
 
-                  <div className="rounded-lg border border-forge-border bg-forge-bg/55 p-4">
+                  <div className="rounded-2xl border border-forge-border bg-forge-bg/55 p-4">
                     <p className="text-xs leading-relaxed text-forge-muted">
                       {service.includes}
                     </p>
@@ -99,15 +106,15 @@ export const Services = () => {
         </div>
 
         <FadeIn delay={0.18}>
-          <div className="mt-5 rounded-xl border border-cyan/20 bg-cyan/[0.035] p-5 md:p-6">
+          <div className="mt-5 rounded-3xl border border-copper/25 bg-white p-5 shadow-[0_18px_55px_rgba(17,17,17,0.07)] md:p-6">
             <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
               <div className="max-w-xl">
-                <p className="forge-kicker mb-2 text-cyan">Diagnóstico rápido</p>
+                <p className="forge-kicker mb-2">Diagnóstico rápido</p>
                 <h3 className="mb-1.5 text-base font-semibold text-forge-text md:text-lg">
                   ¿No sabes qué tipo de web necesitas?
                 </h3>
                 <p className="text-sm leading-relaxed text-forge-muted">
-                  Escríbenos por WhatsApp, cuéntanos tu negocio y te recomendamos
+                  Escríbeme por WhatsApp, cuéntame tu negocio y te recomiendo
                   la opción más conveniente antes de cotizar.
                 </p>
               </div>
@@ -116,7 +123,7 @@ export const Services = () => {
                 href={site.whatsappLinks.serviceQuestion}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-copper px-5 py-3 text-sm font-semibold text-forge-text transition-all duration-200 hover:bg-copper-light hover:text-forge-bg md:shrink-0"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-copper px-5 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-forge-text md:shrink-0"
                 aria-label="Consultar dudas sobre servicios por WhatsApp"
               >
                 <MessageCircle className="h-4 w-4" />

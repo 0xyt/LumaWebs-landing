@@ -63,12 +63,12 @@ export const Pricing = () => {
             <div>
               <p className="forge-kicker mb-3">Precios desde</p>
               <h2 className="text-[clamp(26px,3.5vw,42px)] font-semibold leading-[1.12] tracking-tight text-forge-text">
-                Paquetes claros para empezar con una inversión controlada.
+                Precios simples para empezar sin sentir que estás apostando a ciegas.
               </h2>
             </div>
             <p className="max-w-xl text-sm leading-relaxed text-forge-muted md:text-base">
-              Los precios base dependen del alcance, contenido disponible y nivel
-              de personalización. La cotización final se confirma antes de iniciar.
+              Mantengo precios de entrada porque recién estoy haciendo crecer Forge Webs.
+              Si tu proyecto requiere más alcance, lo hablamos claro antes de iniciar.
             </p>
           </div>
         </FadeIn>
@@ -77,9 +77,9 @@ export const Pricing = () => {
           {plans.map((plan, index) => (
             <FadeIn key={plan.title} delay={index * 0.06}>
               <div
-                className={`forge-card relative flex h-full flex-col rounded-xl p-6 transition-all duration-300 hover:-translate-y-0.5 ${
+                className={`forge-card relative flex h-full flex-col rounded-[26px] p-6 transition-all duration-300 hover:-translate-y-0.5 ${
                   plan.popular
-                    ? "border-copper/55 shadow-[0_20px_70px_rgba(197,106,45,0.08)]"
+                    ? "border-copper/55 bg-white shadow-[0_24px_80px_rgba(185,95,50,0.12)] md:-translate-y-3"
                     : "hover:border-copper/35"
                 }`}
               >
@@ -90,7 +90,7 @@ export const Pricing = () => {
                 )}
 
                 <div className="flex h-full flex-col">
-                  <h3 className="mb-2 pr-28 text-lg font-semibold text-forge-text">
+                  <h3 className={`mb-2 text-lg font-semibold text-forge-text ${plan.popular ? "pr-28" : ""}`}>
                     {plan.title}
                   </h3>
                   <p className="mb-5 text-sm leading-relaxed text-forge-muted">
@@ -121,10 +121,10 @@ export const Pricing = () => {
                   <button
                     type="button"
                     onClick={() => handleSelectPlan(plan.title)}
-                    className={`flex w-full items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-semibold transition-all duration-200 ${
+                    className={`flex w-full items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold transition-all duration-200 ${
                       plan.popular
-                        ? "bg-copper text-forge-text hover:bg-copper-light hover:text-forge-bg"
-                        : "border border-forge-border text-forge-muted hover:border-cyan/55 hover:text-cyan"
+                        ? "bg-copper text-white hover:bg-forge-text"
+                        : "border border-forge-border text-forge-muted hover:border-copper/55 hover:text-forge-text"
                     }`}
                   >
                     Cotizar este plan

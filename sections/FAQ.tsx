@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: "¿Necesito tener dominio propio?",
-    a: "No es obligatorio para empezar. Podemos publicar una primera versión y luego conectar un dominio profesional cuando lo tengas listo.",
+    a: "No es obligatorio para empezar. Puedo publicar una primera versión y luego conectar un dominio profesional cuando lo tengas listo.",
   },
   {
     q: "¿El precio incluye diseño y desarrollo?",
@@ -27,8 +27,8 @@ const faqs = [
     a: "Incluimos SEO base: títulos, descripción, estructura de headings, rendimiento y textos con keywords relevantes como diseño web, desarrollo web y landing pages.",
   },
   {
-    q: "¿Trabajan con negocios pequeños?",
-    a: "Sí. Forge Webs está pensado para emprendedores, negocios locales y profesionales independientes que necesitan una presencia digital más confiable.",
+    q: "¿Trabajas con negocios pequeños?",
+    a: "Sí. Forge Webs está pensado para emprendedores, negocios locales y profesionales independientes que necesitan una presencia digital más confiable sin pagar una agencia grande.",
   },
 ];
 
@@ -48,7 +48,7 @@ export const FAQ = () => {
             </div>
             <p className="max-w-xl text-sm leading-relaxed text-forge-muted md:text-base">
               Respuestas claras para tomar una decisión sin vueltas. Si tu caso es
-              distinto, lo vemos por WhatsApp.
+              distinto, lo vemos directo por WhatsApp.
             </p>
           </div>
         </FadeIn>

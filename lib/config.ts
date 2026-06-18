@@ -1,7 +1,7 @@
 export const site = {
   name: "Forge Webs",
   tagline:
-    "Diseño y desarrollo web estratégico para negocios que quieren verse profesionales y atraer más clientes.",
+    "Diseño web freelance para negocios que quieren verse profesionales y convertir más visitas en mensajes.",
   url: "https://adanlabs.vercel.app",
   email: "hola@forgewebs.dev",
   whatsapp: '59165947291',

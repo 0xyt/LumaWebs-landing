@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { site } from "@/lib/config";
 
@@ -26,21 +27,33 @@ export const Navbar = () => {
   return (
     <>
       <header
-        className="fixed top-4 left-1/2 z-50 w-full max-w-5xl -translate-x-1/2 px-4 transition-all duration-500"
+        className="fixed left-1/2 top-4 z-50 w-full max-w-5xl -translate-x-1/2 px-4 transition-all duration-500"
       >
         <div
           className={`flex items-center justify-between rounded-full border px-4 py-2 backdrop-blur-xl transition-all duration-300 md:px-5 ${
             scrolled
-              ? "border-forge-border bg-forge-bg/[0.82] shadow-[0_18px_60px_rgba(0,0,0,0.32)]"
-              : "border-forge-border/70 bg-forge-bg/[0.62]"
+              ? "border-forge-border bg-white/88 shadow-[0_18px_60px_rgba(17,17,17,0.10)]"
+              : "border-black/10 bg-white/68"
           }`}
         >
           <Link href="/" className="flex items-center gap-2.5 group">
-            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md border border-copper/55 bg-copper/10 text-[13px] font-semibold text-forge-text transition-all duration-300 group-hover:border-cyan/60 group-hover:text-cyan">
-              FW
+            <span className="relative grid h-9 w-9 shrink-0 place-items-center overflow-hidden rounded-full border border-black/10 bg-white shadow-sm">
+              <Image
+                src="/logo.png"
+                alt="Logo Forge Webs"
+                width={36}
+                height={36}
+                className="h-8 w-8 object-cover"
+                priority
+              />
             </span>
-            <span className="text-sm font-semibold tracking-tight text-forge-text sm:text-base">
-              {site.name}
+            <span className="flex flex-col leading-none">
+              <span className="text-sm font-semibold tracking-tight text-forge-text sm:text-base">
+                {site.name}
+              </span>
+              <span className="hidden text-[10px] font-medium text-forge-muted sm:block">
+                Webs freelance por Adán
+              </span>
             </span>
           </Link>
 
@@ -49,7 +62,7 @@ export const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-xs text-forge-muted transition-colors duration-200 hover:text-cyan"
+                className="text-xs font-medium text-forge-muted transition-colors duration-200 hover:text-forge-text"
               >
                 {link.label}
               </a>
@@ -61,7 +74,7 @@ export const Navbar = () => {
               href={site.whatsappLinks.quote}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden items-center gap-1.5 rounded-full bg-copper px-4 py-1.5 text-xs font-semibold text-forge-text transition-all duration-200 hover:bg-copper-light hover:text-forge-bg md:inline-flex"
+              className="hidden items-center gap-1.5 rounded-full bg-copper px-4 py-1.5 text-xs font-semibold text-white shadow-[0_10px_24px_rgba(185,95,50,0.28)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-forge-text md:inline-flex"
             >
               Cotizar
               <ArrowUpRight className="h-3 w-3" />
@@ -72,17 +85,17 @@ export const Navbar = () => {
               aria-label="Abrir menú"
             >
               <span
-                className={`block h-[1px] w-4 bg-forge-muted transition-all ${
+                className={`block h-[1px] w-4 bg-forge-text transition-all ${
                   mobileOpen ? "rotate-45 translate-y-[2.5px]" : ""
                 }`}
               />
               <span
-                className={`block h-[1px] w-4 bg-forge-muted transition-all ${
+                className={`block h-[1px] w-4 bg-forge-text transition-all ${
                   mobileOpen ? "opacity-0" : ""
                 }`}
               />
               <span
-                className={`block h-[1px] w-4 bg-forge-muted transition-all ${
+                className={`block h-[1px] w-4 bg-forge-text transition-all ${
                   mobileOpen ? "-rotate-45 -translate-y-[2.5px]" : ""
                 }`}
               />
@@ -92,13 +105,13 @@ export const Navbar = () => {
       </header>
 
       {mobileOpen && (
-        <div className="fixed left-4 right-4 top-20 z-50 space-y-4 rounded-xl border border-forge-border bg-forge-bg/[0.92] px-6 py-6 backdrop-blur-xl">
+        <div className="fixed left-4 right-4 top-20 z-50 space-y-4 rounded-2xl border border-black/10 bg-white/94 px-6 py-6 shadow-[0_24px_60px_rgba(17,17,17,0.12)] backdrop-blur-xl">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block text-sm text-forge-muted transition-colors hover:text-cyan"
+              className="block text-sm font-medium text-forge-muted transition-colors hover:text-forge-text"
             >
               {link.label}
             </a>
@@ -108,7 +121,7 @@ export const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
-            className="block rounded-full bg-copper px-4 py-2 text-center text-sm font-semibold text-forge-text transition-all hover:bg-copper-light hover:text-forge-bg"
+            className="block rounded-full bg-copper px-4 py-2 text-center text-sm font-semibold text-white transition-all hover:bg-forge-text"
           >
             Cotizar mi web
           </a>

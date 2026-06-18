@@ -10,8 +10,8 @@ export const Contact = () => {
             </h2>
           </div>
           <p className="max-w-xl text-sm leading-relaxed text-forge-muted md:text-base">
-            Cuéntanos qué necesitas y te ayudamos a convertirlo en una página
-            moderna, rápida y orientada a conseguir más clientes.
+              Cuéntame qué necesitas y te ayudo a convertirlo en una página
+              moderna, rápida y orientada a conseguir más clientes.
           </p>
         </div>
 
@@ -26,7 +26,7 @@ export const Contact = () => {
               Cotizar por WhatsApp
             </span>
             <span className="mt-1 block text-sm leading-relaxed text-forge-muted">
-              Respuesta directa para definir alcance, tiempos y precio.
+              Me escribes directo a mí para definir alcance, tiempos y precio.
             </span>
           </a>
 
@@ -34,19 +34,19 @@ export const Contact = () => {
             href="https://www.instagram.com/adanrios.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl border border-forge-border bg-forge-surface p-5 transition-all duration-200 hover:border-cyan/50"
+            className="rounded-xl border border-forge-border bg-forge-surface p-5 transition-all duration-200 hover:border-copper/50"
           >
             <span className="block text-base font-semibold text-forge-text">
               Instagram @adanrios.dev
             </span>
             <span className="mt-1 block text-sm leading-relaxed text-forge-muted">
-              Actualizaciones, trabajos y contacto rápido.
+              Actualizaciones, trabajos y contacto rápido conmigo.
             </span>
           </a>
 
           <a
             href="/contacto"
-            className="rounded-xl border border-forge-border bg-forge-surface p-5 transition-all duration-200 hover:border-cyan/50"
+            className="rounded-xl border border-forge-border bg-forge-surface p-5 transition-all duration-200 hover:border-copper/50"
           >
             <span className="block text-base font-semibold text-forge-text">
               Formulario completo
@@ -60,7 +60,7 @@ export const Contact = () => {
             href="https://adanlabs.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl border border-forge-border bg-forge-surface p-5 transition-all duration-200 hover:border-cyan/50"
+            className="rounded-xl border border-forge-border bg-forge-surface p-5 transition-all duration-200 hover:border-copper/50"
           >
             <span className="block text-base font-semibold text-forge-text">
               adanlabs.vercel.app

@@ -37,14 +37,14 @@ export const Footer = () => {
               Forge Webs
             </span>
             <p className="mt-2 max-w-[240px] text-xs leading-relaxed text-forge-muted">
-              Diseño y desarrollo web estratégico para negocios que quieren
-              verse profesionales y atraer más clientes.
+              Diseño web freelance para negocios que quieren verse más
+              profesionales y recibir mejores consultas.
             </p>
             <a
               href="https://adanlabs.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-block text-xs text-copper-light transition-colors hover:text-cyan"
+              className="mt-3 inline-block text-xs text-copper transition-colors hover:text-forge-text"
             >
               adanlabs.vercel.app
             </a>
@@ -60,7 +60,7 @@ export const Footer = () => {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-xs text-forge-muted transition-colors duration-200 hover:text-cyan"
+                      className="text-xs text-forge-muted transition-colors duration-200 hover:text-copper"
                     >
                       {link.label}
                     </a>
@@ -80,7 +80,7 @@ export const Footer = () => {
               href="https://wa.me/59165947291"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[11px] text-forge-muted transition-colors hover:text-cyan"
+              className="text-[11px] text-forge-muted transition-colors hover:text-copper"
             >
               WhatsApp
             </a>
@@ -88,7 +88,7 @@ export const Footer = () => {
               href="https://www.instagram.com/adanrios.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[11px] text-forge-muted transition-colors hover:text-cyan"
+              className="text-[11px] text-forge-muted transition-colors hover:text-copper"
             >
               @adanrios.dev
             </a>

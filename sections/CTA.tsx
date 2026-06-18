@@ -25,7 +25,7 @@ export const CTA = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/contacto"
-              className="inline-flex items-center justify-center rounded-lg bg-copper px-5 py-3 text-sm font-semibold text-forge-text transition-all hover:bg-copper-light hover:text-forge-bg"
+              className="inline-flex items-center justify-center rounded-full bg-copper px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-forge-text"
             >
               Iniciar proyecto
             </a>
@@ -33,7 +33,7 @@ export const CTA = () => {
               href={site.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-forge-border px-5 py-3 text-sm font-medium text-forge-muted transition-all hover:border-cyan/55 hover:text-cyan"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-forge-border px-5 py-3 text-sm font-medium text-forge-muted transition-all hover:border-copper/55 hover:text-forge-text"
             >
               <ArrowUpRight className="w-4 h-4" />
               Escribir a WhatsApp
