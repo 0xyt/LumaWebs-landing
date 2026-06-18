@@ -155,9 +155,16 @@ body {
 
 .forge-marquee {
   display: flex;
-  gap: 1rem;
-  min-width: max-content;
-  animation: forge-marquee 26s linear infinite;
+  width: max-content;
+  animation: forge-marquee 34s linear infinite;
+  will-change: transform;
+}
+
+.forge-marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1.35rem;
+  padding-right: 1.35rem;
 }
 
 .signature-note {

@@ -8,11 +8,8 @@ import { site } from "@/lib/config";
 const heroWords = [
   "Tu",
   "web",
-  "debe",
-  "sentirse",
-  "hecha",
-  "a",
-  "mano.",
+  "con",
+  "resultados.",
 ];
 
 const proofNotes = [
@@ -66,8 +63,8 @@ export const Hero = () => {
             </h1>
 
             <p className="mb-8 max-w-[620px] text-base leading-relaxed text-forge-muted md:text-lg">
-              Soy Adán, trabajo solo y construyo páginas web para negocios que
-              quieren verse profesionales sin sonar a plantilla. Ordeno tu mensaje,
+              Soy Adán, construyo páginas web para negocios que quieren verse
+              profesionales sin sonar a plantilla. Ordeno tu negocio,
               diseño una fachada premium y dejo el camino claro para que te escriban.
             </p>
 

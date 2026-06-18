@@ -8,9 +8,21 @@ const loopItems = [
 ];
 
 const stats = [
-  { value: "1", label: "freelancer, trato directo" },
-  { value: "3", label: "paquetes simples para empezar" },
-  { value: "0", label: "capas raras entre tú y quien diseña" },
+  {
+    eyebrow: "Trato directo",
+    title: "Hablas conmigo",
+    label: "Sin intermediarios ni cadenas largas de aprobación.",
+  },
+  {
+    eyebrow: "Oferta ordenada",
+    title: "Tu negocio claro",
+    label: "Organizo servicios, mensajes y CTA antes de diseñar.",
+  },
+  {
+    eyebrow: "Inicio simple",
+    title: "Paquetes claros",
+    label: "Landing, web profesional o rediseño con alcance entendible.",
+  },
 ];
 
 export const StudioStrip = () => {
@@ -18,14 +30,18 @@ export const StudioStrip = () => {
     <section className="relative border-y border-black/10 bg-white py-5">
       <div className="overflow-hidden border-y border-black/10 bg-forge-text py-3 text-white">
         <div className="forge-marquee">
-          {[...loopItems, ...loopItems].map((item, index) => (
-            <span
-              key={`${item}-${index}`}
-              className="inline-flex items-center gap-3 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.18em] text-white/80"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-copper-light" />
-              {item}
-            </span>
+          {[0, 1, 2, 3].map((group) => (
+            <div key={group} className="forge-marquee-group">
+              {loopItems.map((item) => (
+                <span
+                  key={`${group}-${item}`}
+                  className="inline-flex items-center gap-3 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.18em] text-white/80"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-copper-light" />
+                  {item}
+                </span>
+              ))}
+            </div>
           ))}
         </div>
       </div>
@@ -46,15 +62,18 @@ export const StudioStrip = () => {
         <div className="grid gap-3 sm:grid-cols-3 md:grid-cols-1">
           {stats.map((stat) => (
             <div
-              key={stat.label}
-              className="flex items-center justify-between rounded-2xl border border-black/10 bg-white p-4 shadow-sm"
+              key={stat.title}
+              className="rounded-[22px_14px_22px_14px] border border-black/10 bg-white p-4 shadow-sm transition-colors hover:border-copper/35"
             >
-              <span className="text-3xl font-semibold tracking-tight text-copper">
-                {stat.value}
+              <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-copper">
+                {stat.eyebrow}
               </span>
-              <span className="max-w-[150px] text-right text-xs leading-relaxed text-forge-muted">
+              <h3 className="mt-2 text-base font-semibold leading-tight text-forge-text">
+                {stat.title}
+              </h3>
+              <p className="mt-1.5 text-xs leading-relaxed text-forge-muted">
                 {stat.label}
-              </span>
+              </p>
             </div>
           ))}
         </div>

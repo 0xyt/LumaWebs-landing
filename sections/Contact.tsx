@@ -56,19 +56,14 @@ export const Contact = () => {
             </span>
           </a>
 
-          <a
-            href="https://adanlabs.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-xl border border-forge-border bg-forge-surface p-5 transition-all duration-200 hover:border-copper/50"
-          >
+          <div className="rounded-xl border border-forge-border bg-forge-surface p-5 transition-all duration-200 hover:border-copper/50">
             <span className="block text-base font-semibold text-forge-text">
-              adanlabs.vercel.app
+              forgewebs.vercel.app
             </span>
             <span className="mt-1 block text-sm leading-relaxed text-forge-muted">
-              Dominio temporal visible hasta conectar el nuevo dominio.
+              Dominio temporal de marca mientras conectamos el dominio definitivo.
             </span>
-          </a>
+          </div>
         </div>
       </div>
     </section>

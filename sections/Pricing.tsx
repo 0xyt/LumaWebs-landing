@@ -1,7 +1,7 @@
 "use client";
 
 import { FadeIn } from "../components/components/FadeIn";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, MessageCircle, QrCode, WalletCards } from "lucide-react";
 
 const plans = [
   {
@@ -135,6 +135,65 @@ export const Pricing = () => {
             </FadeIn>
           ))}
         </div>
+
+        <FadeIn delay={0.18}>
+          <div className="mt-8 grid gap-4 md:grid-cols-[1.05fr_0.95fr]">
+            <div className="rounded-[28px_16px_28px_16px] border border-copper/25 bg-white p-5 shadow-[0_18px_55px_rgba(17,17,17,0.07)] md:p-6">
+              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-copper/25 bg-copper/10">
+                <WalletCards className="h-5 w-5 text-copper" />
+              </div>
+              <p className="forge-kicker mb-2">El proceso de pago</p>
+              <h3 className="text-xl font-semibold leading-tight text-forge-text">
+                60% al iniciar el proyecto y 40% al finalizar.
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-forge-muted">
+                Así reservo tiempo para diseñar y desarrollar tu web, y tú pagas el
+                restante cuando el proyecto queda terminado y listo para publicar.
+              </p>
+            </div>
+
+            <div className="rounded-[16px_28px_16px_28px] border border-forge-border bg-forge-bg p-5 md:p-6">
+              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-copper/25 bg-white">
+                <QrCode className="h-5 w-5 text-copper" />
+              </div>
+              <p className="forge-kicker mb-2">Métodos de pago</p>
+              <h3 className="text-xl font-semibold leading-tight text-forge-text">
+                QR a toda Bolivia.
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-forge-muted">
+                Te envío el QR correspondiente al anticipo y luego el QR del pago final
+                cuando la web esté lista.
+              </p>
+            </div>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.24}>
+          <div className="mt-4 rounded-3xl border border-black/10 bg-forge-text p-5 text-white shadow-[0_22px_70px_rgba(17,17,17,0.12)] md:p-6">
+            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+              <div className="max-w-2xl">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-white/55">
+                  Cotización a medida
+                </p>
+                <h3 className="mt-2 text-xl font-semibold leading-tight md:text-2xl">
+                  ¿Tu proyecto necesita algo distinto?
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/68">
+                  Cuéntame qué necesitas y preparo una cotización personalizada sin
+                  obligarte a elegir un paquete que no encaja.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => handleSelectPlan("Cotización personalizada")}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-forge-text transition-all duration-200 hover:bg-copper hover:text-white md:shrink-0"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Pedir cotización
+              </button>
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
