@@ -1,22 +1,21 @@
-import { site } from "@/lib/config";
-
 const footerLinks = [
   {
     title: "Navegación",
     links: [
       { label: "Inicio", href: "/" },
       { label: "Servicios", href: "#servicios" },
-      { label: "Ejemplos", href: "#portafolio" },
+      { label: "Precios", href: "#precios" },
+      { label: "Portafolio", href: "#portafolio" },
       { label: "Contacto", href: "#contacto" },
     ],
   },
   {
     title: "Servicios",
     links: [
-      { label: "Página simple", href: "#servicios" },
-      { label: "Página completa", href: "#servicios" },
-      { label: "Mejorar una página", href: "#servicios" },
-      { label: "Ayuda mensual", href: "#servicios" },
+      { label: "Landing pages", href: "#servicios" },
+      { label: "Sitios web profesionales", href: "#servicios" },
+      { label: "Rediseño web", href: "#servicios" },
+      { label: "Presencia digital", href: "#servicios" },
     ],
   },
   {
@@ -30,21 +29,30 @@ const footerLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-zinc-800/20 py-14">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+    <footer className="border-t border-forge-border/55 py-14">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="mb-10 grid grid-cols-2 gap-8 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
-            <span className="text-sm font-semibold text-zinc-50 tracking-tight">
-              {site.name}
+            <span className="text-base font-semibold tracking-tight text-forge-text">
+              Forge Webs
             </span>
-            <p className="text-xs text-zinc-500 mt-2 leading-relaxed max-w-[200px]">
-              Páginas web claras para emprendedores y negocios locales.
+            <p className="mt-2 max-w-[240px] text-xs leading-relaxed text-forge-muted">
+              Diseño y desarrollo web estratégico para negocios que quieren
+              verse profesionales y atraer más clientes.
             </p>
+            <a
+              href="https://adanlabs.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-block text-xs text-copper-light transition-colors hover:text-cyan"
+            >
+              adanlabs.vercel.app
+            </a>
           </div>
 
           {footerLinks.map((group) => (
             <div key={group.title}>
-              <h4 className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase mb-3">
+              <h4 className="mb-3 font-mono text-[10px] uppercase tracking-widest text-forge-muted">
                 {group.title}
               </h4>
               <ul className="space-y-2">
@@ -52,7 +60,7 @@ export const Footer = () => {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-xs text-zinc-400 hover:text-zinc-50 transition-colors duration-200"
+                      className="text-xs text-forge-muted transition-colors duration-200 hover:text-cyan"
                     >
                       {link.label}
                     </a>
@@ -63,18 +71,28 @@ export const Footer = () => {
           ))}
         </div>
 
-        <div className="pt-6 border-t border-zinc-800/20 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-[11px] text-zinc-500">
-            &copy; {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
+        <div className="flex flex-col gap-3 border-t border-forge-border/65 pt-6 md:flex-row md:items-center md:justify-between">
+          <p className="text-[11px] text-forge-muted">
+            &copy; 2026 Forge Webs. Todos los derechos reservados.
           </p>
-          <a
-            href={site.whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[11px] text-zinc-500 hover:text-zinc-300 transition-colors"
-          >
-            WhatsApp
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://wa.me/59165947291"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] text-forge-muted transition-colors hover:text-cyan"
+            >
+              WhatsApp
+            </a>
+            <a
+              href="https://www.instagram.com/adanrios.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] text-forge-muted transition-colors hover:text-cyan"
+            >
+              @adanrios.dev
+            </a>
+          </div>
         </div>
       </div>
     </footer>

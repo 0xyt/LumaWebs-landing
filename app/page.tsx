@@ -1,17 +1,18 @@
 import { Navbar } from "../components/components/Navbar";
 import { Hero } from "../sections/Hero";
+import { About } from "../sections/About";
 import { Services } from "../sections/Services";
+import { Pricing } from "../sections/Pricing";
 import { Process } from "../sections/Process";
 import { Portfolio } from "../sections/Portfolio";
-import { About } from "../sections/About";
-import { Pricing } from "../sections/Pricing";
 import { FAQ } from "../sections/FAQ";
 import { Contact } from "../sections/Contact";
 import { Footer } from "../sections/Footer";
+import WhatsAppCTA from "../components/components/WhatsAppCTA";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen w-full bg-[#050505] antialiased">
+    <main className="relative min-h-screen w-full bg-forge-bg antialiased">
       <Navbar />
       <Hero />
       <About />
@@ -22,6 +23,7 @@ export default function Home() {
       <FAQ />
       <Contact />
       <Footer />
+      <WhatsAppCTA />
     </main>
   );
 }

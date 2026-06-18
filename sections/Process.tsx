@@ -1,96 +1,82 @@
 "use client";
 
 import { FadeIn } from "../components/components/FadeIn";
-import { MessageSquare, PenTool, Eye, Rocket } from "lucide-react";
+import { ClipboardCheck, PenTool, Code2, Rocket } from "lucide-react";
 
 const steps = [
   {
     number: "01",
-    icon: MessageSquare,
-    title: "Conocemos tu proyecto",
+    icon: ClipboardCheck,
+    title: "Diagnóstico",
     description:
-      "Me cuentas qué vendes, a quién atiendes y qué quieres lograr con tu página.",
+      "Entendemos tu negocio, tus clientes, tus servicios y el objetivo comercial de la web.",
   },
   {
     number: "02",
     icon: PenTool,
-    title: "Diseñamos la solución",
+    title: "Diseño",
     description:
-      "Ordeno la información para que tus clientes entiendan rápido lo que ofreces.",
+      "Ordenamos el contenido y definimos una interfaz clara, moderna y alineada a tu marca.",
   },
   {
     number: "03",
-    icon: Eye,
-    title: "Armamos y revisamos la página",
+    icon: Code2,
+    title: "Desarrollo",
     description:
-      "Te muestro cómo va quedando, revisamos detalles y hacemos ajustes antes de publicarla.",
+      "Construimos una página rápida, responsive y preparada para contacto, SEO base y medición futura.",
   },
   {
     number: "04",
     icon: Rocket,
-    title: "Publicamos y te acompaño",
+    title: "Lanzamiento",
     description:
-      "Publicamos la página y te acompaño si luego necesitas cambiar textos, fotos o datos.",
+      "Publicamos, revisamos detalles finales y dejamos tu web lista para compartir con clientes.",
   },
 ];
 
 export const Process = () => {
   return (
-    <section id="proceso" className="py-28 md:py-36 border-t border-zinc-800/20">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="proceso" className="border-t border-forge-border/55 py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-6">
         <FadeIn>
-          <div className="max-w-2xl mb-14">
-            <h2 className="text-[clamp(26px,3.5vw,40px)] font-semibold tracking-tight leading-[1.12] text-zinc-50 mb-4">
-              Así trabajamos
-            </h2>
-            <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[480px]">
-              Todo se hace paso a paso, con explicaciones simples y sin vueltas.
+          <div className="mb-14 grid gap-5 md:grid-cols-[0.85fr_1.15fr] md:items-end">
+            <div>
+              <p className="forge-kicker mb-3">Proceso</p>
+              <h2 className="text-[clamp(26px,3.5vw,42px)] font-semibold leading-[1.12] tracking-tight text-forge-text">
+                De una idea suelta a una web publicada con dirección comercial.
+              </h2>
+            </div>
+            <p className="max-w-xl text-sm leading-relaxed text-forge-muted md:text-base">
+              Trabajamos con etapas simples para evitar confusión: primero estrategia,
+              luego diseño, después desarrollo y finalmente lanzamiento.
             </p>
           </div>
         </FadeIn>
 
-        <div className="relative max-w-4xl mx-auto">
-          <div className="hidden md:block absolute left-[19px] top-0 bottom-0 w-px bg-gradient-to-b from-zinc-800 via-zinc-700/50 to-transparent" />
-
-          <div className="space-y-8 md:space-y-0">
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <FadeIn key={step.number} delay={index * 0.1}>
-                  <div className="md:grid md:grid-cols-[48px_1fr] gap-6 items-start md:pb-12 relative">
-                    <div className="hidden md:flex relative z-10">
-                      <div className="w-10 h-10 rounded-full bg-[#0c0c0e] border border-zinc-700 flex items-center justify-center">
-                        <Icon className="w-4 h-4 text-blue-400" />
-                      </div>
-                    </div>
-
-                    <div className="md:hidden flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 rounded-full bg-[#0c0c0e] border border-zinc-700 flex items-center justify-center">
-                        <Icon className="w-3.5 h-3.5 text-blue-400" />
-                      </div>
-                      <span className="text-[10px] font-mono text-zinc-500 tracking-widest">
-                        {step.number}
-                      </span>
-                    </div>
-
-                    <div className="bg-[#0c0c0e] border border-zinc-800/80 rounded-xl p-5 md:p-6">
-                      <div className="hidden md:flex items-center gap-3 mb-2">
-                        <span className="text-[10px] font-mono text-zinc-500 tracking-widest">
-                          {step.number}
-                        </span>
-                      </div>
-                      <h3 className="text-sm font-semibold text-zinc-50 mb-1.5">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm text-zinc-400 leading-relaxed">
-                        {step.description}
-                      </p>
+        <div className="grid gap-4 md:grid-cols-4">
+          {steps.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <FadeIn key={step.number} delay={index * 0.08}>
+                <div className="forge-card h-full rounded-xl p-6 transition-all duration-300 hover:border-copper/40">
+                  <div className="mb-8 flex items-center justify-between">
+                    <span className="font-mono text-[11px] tracking-widest text-copper-light">
+                      {step.number}
+                    </span>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-forge-border bg-forge-bg/60">
+                      <Icon className="h-4 w-4 text-cyan" />
                     </div>
                   </div>
-                </FadeIn>
-              );
-            })}
-          </div>
+                  <h3 className="mb-2 text-base font-semibold text-forge-text">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-forge-muted">
+                    {step.description}
+                  </p>
+                </div>
+              </FadeIn>
+            );
+          })}
         </div>
       </div>
     </section>

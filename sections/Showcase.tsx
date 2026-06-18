@@ -3,7 +3,7 @@
 import { FadeIn } from "../components/components/FadeIn";
 import { ArrowUpRight } from "lucide-react";
 
-function MacWindow({ children }: { children: React.ReactNode }) {
+function MacWindow() {
   return (
     <div className="rounded-lg border border-zinc-800/50 bg-gradient-to-br from-zinc-900 to-black shadow-2xl">
       <div className="flex items-center gap-1.5 px-4 pt-3 pb-2.5 border-b border-zinc-800/50 bg-zinc-900/50 rounded-t-lg">
@@ -17,7 +17,7 @@ function MacWindow({ children }: { children: React.ReactNode }) {
         </div>
       </div>
       <div className="relative min-h-[180px] md:min-h-[240px]">
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-950 to-black rounded-b-lg" />
+        <div className="absolute inset-0 rounded-b-lg bg-gradient-to-b from-forge-graphite via-forge-surface to-forge-bg" />
         <div className="relative p-5 md:p-7 space-y-5">
           <div className="space-y-1.5">
             <div className="h-4 w-24 bg-zinc-800/40 rounded" />
@@ -73,25 +73,22 @@ function PhoneFrame({ children }: { children: React.ReactNode }) {
 
 export const Showcase = () => {
   return (
-    <section id="portfolio" className="py-28 md:py-36 border-t border-zinc-800/20 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_40%_at_50%_50%,rgba(59,130,246,0.04)_0%,transparent_70%)]" />
-
-        <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6">
+    <section id="portfolio" className="relative overflow-hidden border-t border-forge-border/55 py-24 md:py-32">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-6">
         <FadeIn>
           <div className="max-w-2xl mb-10 md:mb-14">
             <div className="relative inline-block">
-              <div className="absolute -inset-20 blur-[120px] bg-indigo-500/10 pointer-events-none" />
               <div className="relative flex items-center gap-2 mb-1">
-                <h2 className="text-[clamp(26px,3.5vw,40px)] font-semibold tracking-tight leading-[1.12] text-zinc-50">
+                <h2 className="text-[clamp(26px,3.5vw,42px)] font-semibold tracking-tight leading-[1.12] text-forge-text">
                   Proyecto Estrella
                 </h2>
-                <span className="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(59,130,246,0.6)] animate-pulse shrink-0" />
+                <span className="h-2 w-2 shrink-0 rounded-full bg-copper shadow-[0_0_8px_rgba(197,106,45,0.55)]" />
               </div>
-              <span className="text-sm font-mono text-zinc-400 tracking-wider">
+              <span className="font-mono text-sm tracking-wider text-forge-muted">
                 Lumina Studio
               </span>
             </div>
-            <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[480px]">
+            <p className="max-w-[480px] text-sm leading-relaxed text-forge-muted md:text-base">
               Nuestro proyecto estrella. Una experiencia web inmersiva con diseño de alto impacto, velocidad extrema y calidad de producción lista para cualquier negocio.
             </p>
           </div>
@@ -103,9 +100,9 @@ export const Showcase = () => {
               href="https://lumina-studio-amber-eta.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative md:col-span-2 rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] hover:border-zinc-700 transition-all duration-500 min-h-[300px] md:min-h-[420px] flex flex-col overflow-hidden"
+              className="forge-card group relative flex min-h-[300px] flex-col overflow-hidden rounded-xl transition-all duration-500 hover:border-copper/40 md:col-span-2 md:min-h-[420px]"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-indigo-500/5 to-transparent pointer-events-none rounded-xl" />
+              <div className="pointer-events-none absolute inset-0 rounded-xl bg-copper/[0.035]" />
 
               <div className="relative p-4 md:p-8 flex flex-col h-full min-w-0">
                 <div className="flex items-start justify-between mb-4 md:mb-5">
@@ -153,7 +150,7 @@ export const Showcase = () => {
           </FadeIn>
 
           <FadeIn delay={0.08}>
-            <div className="rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/80 to-[#0c0c0e] hover:border-zinc-700 transition-all duration-500 min-h-[300px] md:min-h-[420px] flex flex-col overflow-hidden">
+            <div className="forge-card flex min-h-[300px] flex-col overflow-hidden rounded-xl transition-all duration-500 hover:border-copper/40 md:min-h-[420px]">
               <div className="p-4 md:p-8 flex flex-col h-full min-w-0">
                 <span className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase block mb-6">
                   Métricas de Rendimiento
@@ -175,7 +172,7 @@ export const Showcase = () => {
                       </div>
                       <div className="h-2 bg-zinc-800/40 rounded-full overflow-hidden">
                         <div
-                          className="h-full rounded-full bg-emerald-500 transition-all duration-1000"
+                          className="h-full rounded-full bg-success transition-all duration-1000"
                           style={{
                             width: `${metric.pct}%`,
                             boxShadow: "0 0 10px rgba(16,185,129,0.5)",

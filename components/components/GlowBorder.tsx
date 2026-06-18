@@ -7,8 +7,8 @@ interface GlowBorderProps {
 
 export const GlowBorder = ({ children, className = '' }: GlowBorderProps) => {
   return (
-    <div className={`relative p-8 rounded-2xl border border-neutral-800 bg-[#0F0F15] ${className}`}>
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#2D6AEF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+    <div className={`forge-card relative rounded-xl p-8 ${className}`}>
+      <div className="absolute inset-0 rounded-xl bg-cyan/[0.035] opacity-0 transition-opacity group-hover:opacity-100" />
       <div className="relative z-10">
         {children}
       </div>

@@ -3,6 +3,31 @@
 @theme {
   --font-sans: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+  --color-forge-bg: #0d0d0d;
+  --color-forge-surface: #151515;
+  --color-forge-graphite: #1f1f1f;
+  --color-forge-copper: #c56a2d;
+  --color-forge-copper-light: #e6a15c;
+  --color-forge-cyan: #22d3ee;
+  --color-forge-text: #f5f5f5;
+  --color-forge-muted: #a3a3a3;
+  --color-forge-border: #2a2a2a;
+  --color-forge-error: #ef4444;
+  --color-forge-success: #22c55e;
+}
+
+:root {
+  --bg: #0d0d0d;
+  --surface: #151515;
+  --graphite: #1f1f1f;
+  --copper: #c56a2d;
+  --copper-light: #e6a15c;
+  --cyan: #22d3ee;
+  --text: #f5f5f5;
+  --muted: #a3a3a3;
+  --border: #2a2a2a;
+  --error: #ef4444;
+  --success: #22c55e;
 }
 
 html {
@@ -11,30 +36,52 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
-  background: #050505;
-  color: #f5f5f5;
+  background: var(--bg);
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(197, 106, 45, 0.28);
 }
 
 ::-webkit-scrollbar {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: var(--border);
   border-radius: 2px;
 }
 
 .bg-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(245, 245, 245, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 245, 245, 0.025) 1px, transparent 1px);
   background-size: 48px 48px;
+}
+
+.forge-card {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(31, 31, 31, 0.78), rgba(21, 21, 21, 0.94));
+}
+
+.forge-kicker {
+  color: var(--copper-light);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.forge-focus {
+  outline: none;
+}
+
+.forge-focus:focus-visible {
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.18);
+  border-color: var(--cyan);
 }

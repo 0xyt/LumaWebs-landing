@@ -6,26 +6,18 @@ import { site } from "@/lib/config";
 
 export const CTA = () => {
   return (
-    <section className="relative py-24 md:py-32 border-t border-[rgba(255,255,255,0.02)] overflow-hidden">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(124,111,255,0.08) 0%, transparent 70%)",
-        }}
-      />
-
-      <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
+    <section className="relative overflow-hidden border-t border-forge-border/55 py-24 md:py-32">
+      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
         <FadeIn>
-          <h2 className="font-syne text-4xl md:text-5xl font-extrabold tracking-tighter text-[var(--text-primary)] mb-6">
-            ¿Listo para construir algo real?
+          <h2 className="mb-6 text-[clamp(28px,4vw,48px)] font-semibold leading-[1.1] tracking-tight text-forge-text">
+            Tu web puede trabajar por ti todos los días.
           </h2>
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <p className="text-lg text-[var(--text-secondary)] leading-relaxed max-w-xl mx-auto mb-10">
-            Contanos tu proyecto y te respondemos en menos de 24 horas. Sin
-            compromisos. Sin reuniones innecesarias.
+          <p className="mx-auto mb-10 max-w-xl text-base leading-relaxed text-forge-muted">
+            Cuéntanos tu proyecto y te respondemos con una ruta clara para diseñar,
+            desarrollar y lanzar una página profesional.
           </p>
         </FadeIn>
 
@@ -33,15 +25,15 @@ export const CTA = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/contacto"
-              className="cta-primary text-center justify-center"
+              className="inline-flex items-center justify-center rounded-lg bg-copper px-5 py-3 text-sm font-semibold text-forge-text transition-all hover:bg-copper-light hover:text-forge-bg"
             >
-              Iniciar proyecto →
+              Iniciar proyecto
             </a>
             <a
               href={site.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="cta-secondary text-center justify-center"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-forge-border px-5 py-3 text-sm font-medium text-forge-muted transition-all hover:border-cyan/55 hover:text-cyan"
             >
               <ArrowUpRight className="w-4 h-4" />
               Escribir a WhatsApp

@@ -5,142 +5,113 @@ import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    type: "Página simple",
+    type: "Proyecto publicado",
     title: "Lumina Studio",
     subtitle: "Estudio de fotografía",
     objective:
-      "Mostrar su trabajo de forma clara y bonita para que más personas puedan contactarla.",
+      "Crear una presencia visual profesional para mostrar servicios, estilo y contacto.",
     problem:
-      "Solo usaba redes sociales y no tenía un lugar propio para mostrar sus fotos.",
+      "El negocio dependía de redes sociales y no tenía un espacio propio para presentar su trabajo.",
     result:
-      "Una página con fotos, información clara y un formulario para recibir consultas.",
+      "Una web clara, responsive y lista para recibir consultas desde cualquier dispositivo.",
     url: "https://lumina-studio-amber-eta.vercel.app/",
-    gradient: "from-blue-500/10 to-indigo-500/5",
   },
   {
-    type: "Ejemplo de página simple",
+    type: "Concepto de landing page",
     title: "Bloom",
     subtitle: "Marca de cuidado personal",
     objective:
-      "Mostrar cómo se puede presentar un producto de forma simple, limpia y elegante.",
+      "Mostrar cómo una oferta puede explicarse con una narrativa limpia y enfocada.",
     problem:
-      "La marca necesitaba verse confiable aunque todavía estuviera empezando.",
+      "La marca necesitaba verse confiable antes de invertir en una web más grande.",
     result:
-      "Una página de ejemplo donde el producto se entiende rápido y se ve atractivo.",
+      "Una estructura preparada para producto, beneficios, prueba social y compra/contacto.",
     url: null,
-    gradient: "from-emerald-500/10 to-teal-500/5",
   },
   {
-    type: "Ejemplo de mejora",
+    type: "Concepto de rediseño",
     title: "Terra",
     subtitle: "Restaurante local",
     objective:
-      "Hacer que un restaurante muestre su comida, horarios y reservas de forma más clara.",
+      "Ordenar menú, horarios, reservas y ubicación para mejorar la experiencia mobile.",
     problem:
-      "La página anterior era difícil de usar desde el celular.",
+      "La información clave era difícil de encontrar y la página no guiaba a reservar.",
     result:
-      "Un ejemplo con menú, fotos y una forma más fácil de reservar.",
+      "Una propuesta más rápida de entender, con CTA visible y secciones escaneables.",
     url: null,
-    gradient: "from-amber-500/10 to-orange-500/5",
   },
 ];
 
 export const Portfolio = () => {
   return (
-    <section id="portafolio" className="py-28 md:py-36 border-t border-zinc-800/20">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="portafolio" className="border-t border-forge-border/55 py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-6">
         <FadeIn>
-          <div className="max-w-2xl mb-14">
-            <h2 className="text-[clamp(26px,3.5vw,40px)] font-semibold tracking-tight leading-[1.12] text-zinc-50 mb-4">
-              Ejemplos de trabajo
-            </h2>
-            <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[480px]">
-              Así puede verse una página cuando la información está bien ordenada.
+          <div className="mb-14 grid gap-5 md:grid-cols-[0.85fr_1.15fr] md:items-end">
+            <div>
+              <p className="forge-kicker mb-3">Portafolio</p>
+              <h2 className="text-[clamp(26px,3.5vw,42px)] font-semibold leading-[1.12] tracking-tight text-forge-text">
+                Proyectos y estructuras listas para negocios reales.
+              </h2>
+            </div>
+            <p className="max-w-xl text-sm leading-relaxed text-forge-muted md:text-base">
+              El portafolio seguirá creciendo con casos reales. Mientras tanto,
+              estas estructuras muestran cómo resolvemos claridad, confianza y conversión.
             </p>
           </div>
         </FadeIn>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           {projects.map((project, index) => (
             <FadeIn key={project.title} delay={index * 0.08}>
-              <div className={`group relative rounded-xl border border-zinc-800/80 bg-[#0c0c0e] p-6 md:p-8 transition-all duration-300 hover:scale-[1.005]`}>
-                <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${project.gradient} to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-
-                <div className="relative z-10">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-[10px] font-mono text-blue-400 tracking-widest uppercase">
-                          {project.type}
-                        </span>
-                        {project.url && (
-                          <span className="w-1.5 h-1.5 rounded-full bg-green-500/60" />
-                        )}
-                      </div>
-                      <h3 className="text-lg font-semibold text-zinc-50">
-                        {project.title}
-                      </h3>
-                      {project.subtitle && (
-                        <p className="text-sm text-zinc-500">{project.subtitle}</p>
+              <div className="forge-card group rounded-xl p-6 transition-all duration-300 hover:border-copper/40 md:p-8">
+                <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                  <div className="min-w-0 flex-1">
+                    <div className="mb-2 flex items-center gap-2">
+                      <span className="forge-kicker text-copper-light">
+                        {project.type}
+                      </span>
+                      {project.url && (
+                        <span className="h-1.5 w-1.5 rounded-full bg-success shadow-[0_0_10px_rgba(34,197,94,0.45)]" />
                       )}
                     </div>
-
-                    {project.url && (
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hidden md:inline-flex items-center gap-1.5 text-xs text-zinc-400 hover:text-zinc-50 transition-colors shrink-0"
-                      >
-                        Ver proyecto
-                        <ArrowUpRight className="w-3 h-3" />
-                      </a>
-                    )}
+                    <h3 className="text-xl font-semibold text-forge-text">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-forge-muted">{project.subtitle}</p>
                   </div>
 
-                  <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-                    <div>
-                      <p className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase mb-1">
-                        Para qué era
-                      </p>
-                      <p className="text-sm text-zinc-300 leading-relaxed">
-                        {project.objective}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase mb-1">
-                        Qué faltaba
-                      </p>
-                      <p className="text-sm text-zinc-300 leading-relaxed">
-                        {project.problem}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase mb-1">
-                        Qué se logró
-                      </p>
-                      <p className="text-sm text-zinc-300 leading-relaxed">
-                        {project.result}
-                      </p>
-                    </div>
-                  </div>
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-forge-muted transition-colors hover:text-cyan md:shrink-0"
+                    >
+                      Ver proyecto
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </a>
+                  )}
+                </div>
 
-                  <div className="flex flex-wrap items-center justify-end gap-3 mt-5 pt-4 border-t border-zinc-800/40">
-                    {project.url ? (
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="md:hidden inline-flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-50 transition-colors"
-                      >
-                        Ver proyecto
-                        <ArrowUpRight className="w-3 h-3" />
-                      </a>
-                    ) : (
-                      <span className="text-[10px] font-mono text-zinc-600 italic">
-                        Ejemplo de diseño
-                      </span>
-                    )}
+                <div className="grid gap-4 md:grid-cols-3">
+                  <div className="rounded-lg border border-forge-border bg-forge-bg/45 p-4">
+                    <p className="forge-kicker mb-2 text-forge-muted">Objetivo</p>
+                    <p className="text-sm leading-relaxed text-forge-text/85">
+                      {project.objective}
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-forge-border bg-forge-bg/45 p-4">
+                    <p className="forge-kicker mb-2 text-forge-muted">Problema</p>
+                    <p className="text-sm leading-relaxed text-forge-text/85">
+                      {project.problem}
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-forge-border bg-forge-bg/45 p-4">
+                    <p className="forge-kicker mb-2 text-forge-muted">Resultado</p>
+                    <p className="text-sm leading-relaxed text-forge-text/85">
+                      {project.result}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -149,16 +120,12 @@ export const Portfolio = () => {
         </div>
 
         <FadeIn delay={0.2}>
-          <p className="text-center text-xs text-zinc-500 mt-8">
-            ¿Quieres ver más trabajo o hablar sobre tu proyecto?{" "}
-            <a
-              href="#contacto"
-              className="text-zinc-300 hover:text-zinc-50 underline transition-colors"
-            >
-              Contáctame directamente
-            </a>
-            .
-          </p>
+          <div className="mt-8 rounded-xl border border-copper/25 bg-copper/[0.06] p-5 text-center">
+            <p className="text-sm leading-relaxed text-forge-muted">
+              La prueba social real se añadirá con nuevos clientes publicados. La
+              estructura ya está preparada para casos, resultados y testimonios verificables.
+            </p>
+          </div>
         </FadeIn>
       </div>
     </section>

@@ -30,16 +30,16 @@ const steps = [
 export const HowItWorks = () => {
   return (
     <Section id="como-funciona" className="py-24 md:py-32 border-t border-white/[0.02]">
-      <div className="text-center space-y-4 mb-20">
-        <h2 className="font-lexend text-4xl md:text-5xl font-extrabold tracking-tighter text-white">
+      <div className="mb-20 space-y-4 text-center">
+        <h2 className="text-[clamp(26px,3.5vw,42px)] font-semibold leading-[1.12] tracking-tight text-forge-text">
           ¿Cómo funciona?
         </h2>
-        <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto px-4">
+        <p className="mx-auto max-w-2xl px-4 text-base leading-relaxed text-forge-muted md:text-lg">
           Cuatro pasos simples para tener tu página web lista.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto px-4 sm:px-0">
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 px-4 sm:grid-cols-2 sm:px-0 lg:grid-cols-4">
         {steps.map((step, index) => {
           const Icon = step.icon;
           return (
@@ -49,18 +49,18 @@ export const HowItWorks = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
               viewport={{ once: true, amount: 0.2 }}
-              className="relative flex flex-col items-center text-center p-8 rounded-3xl border border-white/[0.04] bg-white/[0.01] backdrop-blur-sm hover:border-white/10 transition-all duration-300 group"
+              className="forge-card group relative flex flex-col items-center rounded-xl p-8 text-center transition-all duration-300 hover:border-copper/40"
             >
-              <div className="p-4 bg-white/[0.02] border border-white/5 rounded-2xl mb-6 group-hover:border-blue-500/30 transition-colors">
-                <Icon className="w-7 h-7 text-blue-400" />
+              <div className="mb-6 rounded-lg border border-copper/25 bg-copper/10 p-4 transition-colors group-hover:border-cyan/40">
+                <Icon className="h-7 w-7 text-copper-light" />
               </div>
-              <span className="text-[10px] font-bold tracking-[0.25em] text-zinc-600 uppercase mb-3">
+              <span className="mb-3 font-mono text-[10px] uppercase tracking-widest text-forge-muted">
                 Paso {index + 1}
               </span>
-              <h3 className="font-lexend text-lg font-bold text-white mb-2">
+              <h3 className="mb-2 text-lg font-semibold text-forge-text">
                 {step.title}
               </h3>
-              <p className="text-sm text-zinc-400 leading-relaxed">
+              <p className="text-sm leading-relaxed text-forge-muted">
                 {step.description}
               </p>
             </motion.div>

@@ -15,21 +15,32 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Adan Labs | Páginas web claras para negocios locales",
+  metadataBase: new URL("https://adanlabs.vercel.app"),
+  title: "Forge Webs | Diseño y Desarrollo Web para Negocios",
   description:
-    "Creamos y mejoramos páginas web fáciles de entender para emprendedores, negocios locales y profesionales independientes.",
+    "Creamos páginas web modernas, rápidas y estratégicas para negocios que quieren verse profesionales, generar confianza y atraer más clientes.",
+  keywords: [
+    "diseño web",
+    "desarrollo web",
+    "páginas web para negocios",
+    "diseño web Bolivia",
+    "landing pages",
+    "rediseño web",
+  ],
   openGraph: {
-    title: "Adan Labs | Páginas web claras para negocios locales",
+    title: "Forge Webs | Diseño y Desarrollo Web para Negocios",
     description:
-      "Creamos páginas web simples, bonitas y fáciles de usar para que tus clientes puedan encontrarte y contactarte.",
-    siteName: "Adan Labs",
+      "Creamos páginas web modernas, rápidas y estratégicas para negocios que quieren verse profesionales, generar confianza y atraer más clientes.",
+    url: "https://adanlabs.vercel.app",
+    siteName: "Forge Webs",
+    locale: "es_BO",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Adan Labs | Páginas web claras",
+    title: "Forge Webs | Diseño y Desarrollo Web para Negocios",
     description:
-      "Páginas web simples, bonitas y fáciles de usar para negocios locales.",
+      "Páginas web modernas, rápidas y estratégicas para negocios que quieren atraer más clientes.",
   },
   icons: { icon: "/favicon.ico" },
   robots: { index: true, follow: true },

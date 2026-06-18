@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://adanlabs.com/sitemap.xml
+Sitemap: https://adanlabs.vercel.app/sitemap.xml

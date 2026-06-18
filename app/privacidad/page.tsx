@@ -1,38 +1,39 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { site } from "@/lib/config";
 
 export default function PrivacidadPage() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] py-24 px-6">
-      <div className="max-w-[640px] mx-auto">
+    <main className="min-h-screen bg-forge-bg px-6 py-24">
+      <div className="mx-auto max-w-[640px]">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-[10px] font-mono text-zinc-500 hover:text-zinc-400 transition-colors uppercase tracking-widest mb-8"
+          className="mb-8 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-forge-muted transition-colors hover:text-cyan"
         >
           <ArrowLeft className="w-3 h-3" /> Volver
         </Link>
 
-        <h1 className="text-xl md:text-2xl font-semibold text-zinc-50 tracking-tight mb-3">
+        <h1 className="mb-3 text-xl font-semibold tracking-tight text-forge-text md:text-2xl">
           Política de Privacidad
         </h1>
-        <p className="text-xs text-zinc-500 mb-8">Última actualización: Mayo 2026</p>
+        <p className="mb-8 text-xs text-forge-muted">Última actualización: Mayo 2026</p>
 
-        <div className="space-y-8 text-sm text-zinc-400 leading-relaxed">
+        <div className="space-y-8 text-sm leading-relaxed text-forge-muted">
           <section>
-            <h2 className="text-sm font-semibold text-zinc-50 mb-2">1. Información que recopilamos</h2>
-            <p>Al completar nuestros formularios, recopilamos: nombre, número de WhatsApp, nombre del negocio y detalles del proyecto. Esta información es utilizada únicamente para responder a tu consulta.</p>
+            <h2 className="mb-2 text-sm font-semibold text-forge-text">1. Información que recopilamos</h2>
+            <p>Al completar formularios de {site.name}, recopilamos: nombre, correo, número de WhatsApp y detalles del proyecto. Esta información es utilizada únicamente para responder a tu consulta.</p>
           </section>
           <section>
-            <h2 className="text-sm font-semibold text-zinc-50 mb-2">2. Uso de la información</h2>
+            <h2 className="mb-2 text-sm font-semibold text-forge-text">2. Uso de la información</h2>
             <p>Los datos recopilados se usan exclusivamente para contactar al solicitante en relación a su proyecto. No vendemos, alquilamos ni compartimos información personal con terceros.</p>
           </section>
           <section>
-            <h2 className="text-sm font-semibold text-zinc-50 mb-2">3. Almacenamiento</h2>
+            <h2 className="mb-2 text-sm font-semibold text-forge-text">3. Almacenamiento</h2>
             <p>Los datos del formulario son procesados a través de servicios seguros. No almacenamos información de pago.</p>
           </section>
           <section>
-            <h2 className="text-sm font-semibold text-zinc-50 mb-2">4. Contacto</h2>
-            <p>Para consultas sobre privacidad, escribinos a través de WhatsApp o al correo de contacto disponible en el sitio.</p>
+            <h2 className="mb-2 text-sm font-semibold text-forge-text">4. Contacto</h2>
+            <p>Para consultas sobre privacidad, escríbenos a través de WhatsApp, Instagram o al correo de contacto disponible en el sitio.</p>
           </section>
         </div>
       </div>

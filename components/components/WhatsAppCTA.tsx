@@ -4,13 +4,13 @@ import { site } from "@/lib/config";
 const WhatsAppCTA = () => {
   return (
     <a
-      href={site.whatsappLink}
+      href={site.whatsappLinks.quote}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform hover:bg-[#1fa854]"
+      className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-copper/45 bg-copper text-forge-text shadow-[0_18px_50px_rgba(0,0,0,0.45)] transition-all duration-200 hover:scale-105 hover:border-cyan/55 hover:bg-copper-light hover:text-forge-bg md:bottom-8 md:right-8"
       aria-label="Chatear por WhatsApp"
     >
-      <MessageCircle className="w-7 h-7" />
+      <MessageCircle className="h-6 w-6" />
     </a>
   );
 };

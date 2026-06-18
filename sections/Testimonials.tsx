@@ -1,61 +1,55 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Section } from "../components/components/Section";
-import { Star } from "lucide-react";
+import { FadeIn } from "../components/components/FadeIn";
+import { Quote } from "lucide-react";
 
-const testimonials = [
-  { quote: "Adan Labs superó mis expectativas. Mi página premium es rápida, elegante y he triplicado mis consultas en un mes.", name: "Lucia Ch.", role: "Clínica Vital", stars: 5 },
-  { quote: "Necesitaba algo rápido para mi emprendimiento. La página básica fue la solución perfecta: limpia, funcional y se ve bien en celulares.", name: "Carlos Ruiz", role: "Barbería Estilo Urbano", stars: 4 },
-  { quote: "Un trato profesional y un resultado increíble. Las animaciones en mi página son impresionantes.", name: "Sofía Martínez", role: "Nails Studio", stars: 5 },
+const proofSlots = [
+  {
+    title: "Caso publicado",
+    description:
+      "Espacio preparado para mostrar resultados reales, enlace del proyecto y contexto del negocio.",
+  },
+  {
+    title: "Testimonio verificable",
+    description:
+      "Cuando existan testimonios, se añadirán con nombre, negocio y resultado concreto.",
+  },
+  {
+    title: "Métrica de proyecto",
+    description:
+      "Estructura lista para documentar mejoras de claridad, velocidad, consultas o conversión.",
+  },
 ];
 
 export const Testimonials = () => {
   return (
-    <Section id="testimonios" className="relative overflow-hidden py-24 md:py-32 border-t border-white/[0.02]">
-      <div className="text-center space-y-4 mb-24 relative z-10">
-        <h2 className="font-lexend text-4xl md:text-5xl font-extrabold tracking-tighter text-white">
-          Lo que dicen nuestros clientes
-        </h2>
-        <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto px-4">
-          Testimonios reales de clientes que han elevado su presencia online con nosotros.
-        </p>
-      </div>
+    <section id="testimonios" className="border-t border-forge-border/55 py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-6">
+        <FadeIn>
+          <div className="mb-14 max-w-2xl">
+            <p className="forge-kicker mb-3">Prueba social</p>
+            <h2 className="text-[clamp(26px,3.5vw,42px)] font-semibold leading-[1.12] tracking-tight text-forge-text">
+              Casos y testimonios listos para crecer con clientes reales.
+            </h2>
+          </div>
+        </FadeIn>
 
-      <div className="grid md:grid-cols-3 gap-6 relative z-10 max-w-6xl mx-auto px-4 sm:px-0">
-        {testimonials.map((t, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ y: -4, borderColor: "rgba(59,130,246,0.2)" }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: true, amount: 0.1 }}
-            className="bg-zinc-900/[0.1] backdrop-blur-xl p-8 rounded-3xl border border-white/5 space-y-8 h-full flex flex-col justify-between transition-all duration-300 hover:bg-zinc-900/[0.2]"
-          >
-            <div className="space-y-4">
-              <div className="flex gap-1">
-                {[...Array(t.stars)].map((_, i) => (
-                  <Star 
-                    key={i} 
-                    className="w-3.5 h-3.5 text-blue-400 fill-blue-400/80 filter drop-shadow-[0_0_4px_rgba(59,130,246,0.4)]" 
-                  />
-                ))}
+        <div className="grid gap-4 md:grid-cols-3">
+          {proofSlots.map((slot, index) => (
+            <FadeIn key={slot.title} delay={index * 0.06}>
+              <div className="forge-card h-full rounded-xl p-6">
+                <Quote className="mb-5 h-5 w-5 text-copper-light" />
+                <h3 className="mb-2 text-base font-semibold text-forge-text">
+                  {slot.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-forge-muted">
+                  {slot.description}
+                </p>
               </div>
-              <p className="text-[16px] text-zinc-300 font-normal leading-relaxed tracking-tight font-sans">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-            </div>
-            
-            <div className="pt-4 border-t border-white/[0.05] flex items-center justify-between">
-              <div>
-                <p className="font-semibold text-white text-base tracking-tight">{t.name}</p>
-                <p className="text-xs text-zinc-500 font-medium uppercase tracking-wider mt-0.5">{t.role}</p>
-              </div>
-            </div>
-          </motion.div>
-        ))}
+            </FadeIn>
+          ))}
+        </div>
       </div>
-    </Section>
+    </section>
   );
 };
